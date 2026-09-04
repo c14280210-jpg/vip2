@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>VIP.ua — Валізи та шкіргалантерея</title>
+    <title>VIP.ua — Валізи, рюкзаки, сумки</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet" />
     <style>
         /* ===== СКИДАННЯ ===== */
         *,
@@ -41,15 +41,13 @@
             position: sticky;
             top: 0;
             z-index: 1000;
-            background: rgba(255, 255, 255, 0.94);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border-bottom: 1px solid rgba(0, 0, 0, 0.04);
-            transition: box-shadow 0.3s;
-            height: 72px;
+            background: #fff;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.04);
+            height: 80px;
             display: flex;
             align-items: center;
             padding: 0 24px;
+            border-bottom: 1px solid #eaeaea;
         }
         .header-inner {
             max-width: 1280px;
@@ -60,9 +58,10 @@
             justify-content: space-between;
         }
         .header-logo {
-            font-size: 1.6rem;
-            font-weight: 600;
+            font-size: 1.8rem;
+            font-weight: 700;
             letter-spacing: 2px;
+            color: #003057;
             margin-right: 40px;
             flex-shrink: 0;
         }
@@ -72,32 +71,46 @@
 
         .header-nav {
             display: flex;
-            gap: 28px;
-            font-size: 0.9rem;
-            font-weight: 500;
+            gap: 0;
+            align-items: center;
+            height: 100%;
         }
         .header-nav>li {
             list-style: none;
             position: relative;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            padding: 0 18px;
         }
         .header-nav>li>a {
-            display: block;
-            padding: 10px 0;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: #1a1a1a;
+            letter-spacing: 0.3px;
+            text-transform: uppercase;
             transition: color 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 4px;
         }
         .header-nav>li>a:hover {
-            color: #b89b7b;
+            color: #003057;
+        }
+        .header-nav>li>a .arrow {
+            font-size: 0.6rem;
+            margin-left: 4px;
         }
 
-        /* Mega-menu */
+        /* Dropdown mega-menu */
         .mega-menu {
             position: absolute;
             top: 100%;
             left: 50%;
-            transform: translateX(-50%);
+            transform: translateX(-50%) translateY(8px);
             background: #fff;
             padding: 30px 40px;
-            min-width: 600px;
+            min-width: 700px;
             box-shadow: 0 20px 50px rgba(0, 0, 0, 0.08);
             border-radius: 0 0 8px 8px;
             opacity: 0;
@@ -105,8 +118,9 @@
             transition: opacity 0.25s, visibility 0.25s, transform 0.25s;
             display: flex;
             gap: 40px;
-            border-top: 1px solid #eee;
+            border-top: 2px solid #003057;
             pointer-events: none;
+            z-index: 100;
         }
         .header-nav>li:hover .mega-menu {
             opacity: 1;
@@ -116,6 +130,7 @@
         }
         .mega-menu ul {
             list-style: none;
+            min-width: 140px;
         }
         .mega-menu ul li {
             margin-bottom: 8px;
@@ -126,29 +141,32 @@
             transition: color 0.2s;
         }
         .mega-menu ul li a:hover {
-            color: #b89b7b;
+            color: #003057;
         }
         .mega-menu h4 {
-            font-weight: 600;
-            margin-bottom: 12px;
+            font-weight: 700;
             font-size: 0.85rem;
-            letter-spacing: 1px;
-            color: #1a1a1a;
+            letter-spacing: 0.5px;
+            color: #003057;
+            margin-bottom: 12px;
+            text-transform: uppercase;
         }
 
         .header-actions {
             display: flex;
             gap: 20px;
-            font-size: 1.15rem;
+            font-size: 1.2rem;
             align-items: center;
             margin-left: auto;
         }
         .header-actions a {
             opacity: 0.7;
             transition: opacity 0.2s;
+            color: #1a1a1a;
         }
         .header-actions a:hover {
             opacity: 1;
+            color: #003057;
         }
         .menu-toggle {
             display: none;
@@ -159,25 +177,32 @@
             margin-right: 15px;
         }
 
-        /* ===== HERO ===== */
-        .hero-section {
-            height: 90vh;
-            min-height: 600px;
+        /* ===== HERO SLIDER ===== */
+        .hero-slider {
+            position: relative;
+            overflow: hidden;
+            height: 85vh;
+            min-height: 500px;
+            background: #f4f1ed;
+        }
+        .hero-slides {
+            display: flex;
+            width: 300%;
+            height: 100%;
+            transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        .hero-slide {
+            width: 100%;
+            height: 100%;
             display: flex;
             align-items: center;
             position: relative;
-            overflow: hidden;
-            background: #f0ede8;
-        }
-        .hero-bg {
-            position: absolute;
-            inset: 0;
+            flex-shrink: 0;
             background-size: cover;
             background-position: center;
-            transform: scale(1.1);
-            transition: transform 0.8s ease;
         }
-        .hero-overlay {
+        .hero-slide::after {
+            content: '';
             position: absolute;
             inset: 0;
             background: linear-gradient(90deg, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.1) 70%, transparent 100%);
@@ -185,73 +210,85 @@
         .hero-content {
             position: relative;
             z-index: 2;
-            max-width: 700px;
+            max-width: 600px;
             color: #fff;
             padding: 0 24px;
         }
-        .hero-title {
-            font-size: clamp(2.6rem, 8vw, 4.8rem);
+        .hero-content h1 {
+            font-size: clamp(2.4rem, 6vw, 4.2rem);
             font-weight: 300;
             line-height: 1.1;
-            margin-bottom: 20px;
-            opacity: 0;
-            transform: translateY(40px);
-            animation: fadeUp 1s forwards;
+            margin-bottom: 16px;
         }
-        .hero-title strong {
-            font-weight: 500;
+        .hero-content h1 strong {
+            font-weight: 600;
         }
-        .hero-subtitle {
-            font-size: 1.2rem;
+        .hero-content p {
+            font-size: 1.1rem;
             font-weight: 300;
             opacity: 0.9;
-            margin-bottom: 40px;
-            opacity: 0;
-            transform: translateY(30px);
-            animation: fadeUp 1s 0.3s forwards;
+            margin-bottom: 30px;
+            max-width: 450px;
         }
-        .hero-buttons {
+        .hero-content .btn-group {
             display: flex;
             gap: 16px;
             flex-wrap: wrap;
-            opacity: 0;
-            transform: translateY(30px);
-            animation: fadeUp 1s 0.6s forwards;
         }
         .btn-primary {
-            background: #fff;
-            color: #1a1a1a;
-            padding: 16px 44px;
-            font-weight: 500;
+            background: #003057;
+            color: #fff;
+            padding: 14px 40px;
+            font-weight: 600;
+            border: none;
             transition: all 0.3s;
             display: inline-block;
             font-size: 0.95rem;
+            border-radius: 4px;
         }
         .btn-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 16px 30px rgba(0, 0, 0, 0.15);
-            background: #f0f0f0;
+            background: #002244;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(0, 48, 87, 0.3);
         }
         .btn-secondary {
             background: transparent;
             color: #fff;
-            padding: 16px 44px;
+            padding: 14px 40px;
             border: 1px solid rgba(255, 255, 255, 0.6);
-            font-weight: 500;
+            font-weight: 600;
             transition: all 0.3s;
             display: inline-block;
             font-size: 0.95rem;
+            border-radius: 4px;
         }
         .btn-secondary:hover {
             background: #fff;
-            color: #1a1a1a;
+            color: #003057;
             border-color: #fff;
         }
-        @keyframes fadeUp {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+
+        /* Слайдер навігація */
+        .slider-nav {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 12px;
+            z-index: 5;
+        }
+        .slider-nav span {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.4);
+            cursor: pointer;
+            transition: background 0.3s, transform 0.3s;
+        }
+        .slider-nav span.active {
+            background: #fff;
+            transform: scale(1.2);
         }
 
         /* ===== ЗАГАЛЬНІ БЛОКИ ===== */
@@ -263,9 +300,10 @@
             font-weight: 300;
             letter-spacing: -0.5px;
             margin-bottom: 8px;
+            color: #003057;
         }
         .section-sub {
-            color: #777;
+            color: #666;
             font-weight: 300;
             margin-bottom: 40px;
         }
@@ -278,103 +316,43 @@
             margin-bottom: 40px;
         }
         .view-all {
-            font-weight: 500;
-            border-bottom: 1px solid #ccc;
+            font-weight: 600;
+            color: #003057;
+            border-bottom: 2px solid #003057;
             padding-bottom: 4px;
-            transition: border-color 0.3s;
+            transition: opacity 0.2s;
         }
         .view-all:hover {
-            border-color: #1a1a1a;
+            opacity: 0.7;
         }
 
-        /* ===== ШВИДКІ КАТЕГОРІЇ (4) ===== */
-        .quick-categories {
-            background: #f8f6f4;
-        }
-        .quick-grid {
+        /* ===== КАТЕГОРІЇ (іконки) ===== */
+        .categories-grid {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 30px;
-        }
-        .quick-card {
-            position: relative;
-            overflow: hidden;
-            aspect-ratio: 4/3;
-            display: flex;
-            align-items: flex-end;
-            border-radius: 4px;
-            background: #e8e4de;
-            cursor: pointer;
-        }
-        .quick-card .bg {
-            position: absolute;
-            inset: 0;
-            background-size: cover;
-            background-position: center;
-            transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-        }
-        .quick-card:hover .bg {
-            transform: scale(1.08);
-        }
-        .quick-card .info {
-            position: relative;
-            z-index: 2;
-            padding: 28px;
-            width: 100%;
-            background: linear-gradient(to top, rgba(0, 0, 0, 0.6), transparent);
-            color: #fff;
-        }
-        .quick-card .info h3 {
-            font-weight: 400;
-            letter-spacing: 2px;
-            font-size: 1.4rem;
-        }
-        .quick-card .info span {
-            font-size: 0.85rem;
-            opacity: 0.8;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.3);
-            padding-bottom: 2px;
-            transition: opacity 0.3s;
-        }
-        .quick-card:hover .info span {
-            opacity: 1;
-        }
-
-        /* ===== КАТЕГОРІЇ ВАЛІЗ (розміри) ===== */
-        .suitcase-cats {
-            background: #fff;
-        }
-        .size-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 30px;
-        }
-        .size-card {
+            grid-template-columns: repeat(6, 1fr);
+            gap: 20px;
             text-align: center;
-            padding: 20px;
-            background: #fafaf8;
-            border-radius: 4px;
-            transition: background 0.3s, transform 0.3s;
+        }
+        .category-item {
+            padding: 20px 10px;
+            background: #f8f6f4;
+            border-radius: 8px;
+            transition: transform 0.3s, box-shadow 0.3s;
             cursor: pointer;
         }
-        .size-card:hover {
-            background: #f0eeeb;
+        .category-item:hover {
             transform: translateY(-6px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06);
         }
-        .size-card img {
-            width: 100%;
-            max-height: 200px;
-            object-fit: contain;
-            margin-bottom: 12px;
+        .category-item .icon {
+            font-size: 2.8rem;
+            margin-bottom: 8px;
+            display: block;
         }
-        .size-card h4 {
+        .category-item h4 {
             font-weight: 500;
-            font-size: 1.1rem;
-        }
-        .size-card p {
-            color: #777;
-            font-weight: 300;
-            font-size: 0.9rem;
+            font-size: 0.95rem;
+            color: #1a1a1a;
         }
 
         /* ===== ТОВАРИ (сітка) ===== */
@@ -386,16 +364,20 @@
         .product-card {
             position: relative;
             transition: transform 0.3s;
+            background: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.02);
         }
         .product-card:hover {
             transform: translateY(-6px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
         }
         .product-image {
             position: relative;
             overflow: hidden;
             aspect-ratio: 3/4;
             background: #f0eeeb;
-            border-radius: 4px;
         }
         .product-image img {
             width: 100%;
@@ -418,175 +400,94 @@
             position: absolute;
             top: 16px;
             left: 16px;
-            background: #1a1a1a;
+            background: #003057;
             color: #fff;
             padding: 4px 14px;
-            font-size: 0.6rem;
-            letter-spacing: 2px;
-            font-weight: 600;
-            border-radius: 2px;
+            font-size: 0.65rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            border-radius: 3px;
+            text-transform: uppercase;
+        }
+        .badge.sale {
+            background: #c0392b;
         }
         .product-meta {
-            padding: 16px 4px 0;
-            position: relative;
+            padding: 16px 16px 20px;
         }
         .product-meta .brand {
             font-size: 0.75rem;
             color: #999;
             text-transform: uppercase;
-            letter-spacing: 1.5px;
-            font-weight: 500;
+            font-weight: 600;
+            letter-spacing: 1px;
         }
         .product-meta h4 {
-            font-weight: 400;
+            font-weight: 500;
             margin: 4px 0 6px;
             font-size: 1rem;
         }
         .product-meta .price {
-            font-weight: 600;
+            font-weight: 700;
             font-size: 1.1rem;
+            color: #003057;
         }
         .product-meta .price del {
             color: #b0b0b0;
-            font-weight: 300;
-            margin-right: 10px;
+            font-weight: 400;
+            margin-right: 8px;
             font-size: 0.9rem;
+        }
+        .product-meta .weight {
+            font-size: 0.8rem;
+            color: #888;
+            margin-top: 4px;
         }
         .btn-wishlist {
             position: absolute;
-            right: 0;
-            top: 16px;
-            background: none;
+            right: 12px;
+            top: 12px;
+            background: rgba(255, 255, 255, 0.9);
             border: none;
             font-size: 1.2rem;
-            opacity: 0.4;
+            padding: 6px 10px;
+            border-radius: 50%;
             cursor: pointer;
+            opacity: 0;
             transition: opacity 0.3s;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
         }
         .product-card:hover .btn-wishlist {
             opacity: 1;
         }
 
-        /* ===== TRAVEL БЛОК 50/50 ===== */
-        .travel-block {
-            display: flex;
-            min-height: 500px;
-            background: #f4f1ed;
-        }
-        .travel-image {
-            flex: 1;
-            background-size: cover;
-            background-position: center;
-            min-height: 300px;
-        }
-        .travel-text {
-            flex: 1;
-            padding: 60px 48px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-        .travel-text h2 {
-            font-size: clamp(2.2rem, 4vw, 3.4rem);
-            font-weight: 300;
-            margin-bottom: 16px;
-        }
-        .travel-text p {
-            font-weight: 300;
-            font-size: 1.1rem;
-            color: #555;
-            margin-bottom: 32px;
-            max-width: 400px;
-        }
-        .btn-outline-dark {
-            border: 1px solid #1a1a1a;
-            color: #1a1a1a;
-            padding: 14px 40px;
-            display: inline-block;
-            font-weight: 500;
-            transition: all 0.3s;
-            align-self: flex-start;
-        }
-        .btn-outline-dark:hover {
-            background: #1a1a1a;
-            color: #fff;
-        }
-
-        /* ===== ПІДБІР ВАЛІЗИ (ІНТЕРАКТИВ) ===== */
-        .luggage-picker {
-            background: #f8f6f4;
-            text-align: center;
-        }
-        .picker-questions {
-            display: flex;
-            flex-direction: column;
-            gap: 24px;
-            align-items: center;
-            margin: 30px 0;
-        }
-        .picker-questions .q {
-            font-weight: 500;
-            font-size: 1.1rem;
-        }
-        .picker-questions .options {
-            display: flex;
-            gap: 16px;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-        .picker-questions .options button {
-            background: #fff;
-            border: 1px solid #ddd;
-            padding: 10px 28px;
-            border-radius: 30px;
-            cursor: pointer;
-            font-weight: 500;
-            transition: all 0.25s;
-            font-size: 0.95rem;
-        }
-        .picker-questions .options button:hover,
-        .picker-questions .options button.active {
-            background: #1a1a1a;
-            color: #fff;
-            border-color: #1a1a1a;
-        }
-        .picker-result {
-            margin-top: 20px;
-            font-size: 1.2rem;
-            font-weight: 300;
-        }
-        .picker-result a {
-            font-weight: 500;
-            border-bottom: 1px solid #1a1a1a;
-            padding-bottom: 2px;
-        }
-
-        /* ===== ТАБИ ДЛЯ ПОПУЛЯРНИХ ===== */
+        /* ===== ТАБИ ===== */
         .tab-bar {
             display: flex;
-            gap: 20px;
+            gap: 8px;
             margin-bottom: 30px;
             flex-wrap: wrap;
-            border-bottom: 1px solid #eee;
-            padding-bottom: 10px;
+            border-bottom: 2px solid #eaeaea;
+            padding-bottom: 2px;
         }
         .tab-bar button {
             background: none;
             border: none;
-            font-size: 1rem;
-            font-weight: 500;
-            padding: 6px 0;
+            padding: 10px 24px;
+            font-size: 0.95rem;
+            font-weight: 600;
             cursor: pointer;
-            color: #999;
+            color: #777;
             transition: color 0.2s, border-color 0.2s;
-            border-bottom: 2px solid transparent;
+            border-bottom: 3px solid transparent;
+            margin-bottom: -2px;
         }
         .tab-bar button.active {
-            color: #1a1a1a;
-            border-color: #1a1a1a;
+            color: #003057;
+            border-color: #003057;
         }
         .tab-bar button:hover {
-            color: #1a1a1a;
+            color: #003057;
         }
         .tab-content {
             display: none;
@@ -595,92 +496,50 @@
             display: block;
         }
 
-        /* ===== БРЕНДОВА ІСТОРІЯ ===== */
-        .brand-story {
-            background: #fff;
-        }
-        .story-inner {
-            display: flex;
-            align-items: center;
-            gap: 60px;
-        }
-        .story-inner .text {
-            flex: 1;
-        }
-        .story-inner .text h2 {
-            font-size: 2.8rem;
-            font-weight: 300;
-            line-height: 1.2;
-            margin-bottom: 16px;
-        }
-        .story-inner .text p {
-            color: #555;
-            font-weight: 300;
-            margin-bottom: 24px;
-            max-width: 450px;
-        }
-        .story-inner .image {
-            flex: 1;
-            min-height: 350px;
-            background-size: cover;
-            background-position: center;
-            border-radius: 4px;
-        }
-
-        /* ===== ШКІРЯНА КОЛЕКЦІЯ (темний) ===== */
-        .leather-collection {
-            background: #1a1a1a;
+        /* ===== БЛОК РОЗПРОДАЖУ (повноширинний) ===== */
+        .sale-banner {
+            background: #003057;
             color: #fff;
+            padding: 60px 24px;
             text-align: center;
-            padding: 100px 24px;
+            border-radius: 12px;
+            margin: 0 24px;
         }
-        .leather-collection h2 {
-            font-size: clamp(2.6rem, 5vw, 4rem);
-            font-weight: 300;
-            margin-bottom: 16px;
+        .sale-banner h2 {
+            font-size: 3rem;
+            font-weight: 700;
+            letter-spacing: 2px;
         }
-        .leather-collection p {
-            font-weight: 300;
+        .sale-banner p {
+            font-size: 1.2rem;
             opacity: 0.8;
-            margin-bottom: 32px;
+            margin: 12px 0 24px;
         }
-        .leather-cats {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            flex-wrap: wrap;
+        .sale-banner .btn-primary {
+            background: #fff;
+            color: #003057;
         }
-        .leather-cats a {
-            background: rgba(255, 255, 255, 0.08);
-            padding: 12px 32px;
-            border-radius: 30px;
-            font-weight: 400;
-            transition: background 0.3s;
-        }
-        .leather-cats a:hover {
-            background: rgba(255, 255, 255, 0.2);
-        }
-
-        /* ===== РОЗПРОДАЖ ===== */
-        .sale-section {
-            background: #f0ede8;
+        .sale-banner .btn-primary:hover {
+            background: #f0f0f0;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
         }
 
         /* ===== ПЕРЕВАГИ ===== */
-        .advantages {
-            background: #fff;
-        }
-        .adv-grid {
+        .advantages-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
             gap: 30px;
             text-align: center;
         }
+        .adv-item .icon {
+            font-size: 2.2rem;
+            margin-bottom: 8px;
+            display: block;
+        }
         .adv-item strong {
             font-weight: 600;
             font-size: 1.05rem;
             display: block;
-            margin-bottom: 4px;
         }
         .adv-item span {
             color: #777;
@@ -688,9 +547,6 @@
         }
 
         /* ===== БРЕНДИ ===== */
-        .brands {
-            background: #fafaf8;
-        }
         .brand-logos {
             display: flex;
             flex-wrap: wrap;
@@ -699,65 +555,27 @@
             align-items: center;
         }
         .brand-logos span {
-            font-size: 1.8rem;
+            font-size: 1.6rem;
             font-weight: 300;
             letter-spacing: 2px;
             color: #999;
-            opacity: 0.7;
+            opacity: 0.6;
             transition: opacity 0.2s;
         }
         .brand-logos span:hover {
             opacity: 1;
         }
 
-        /* ===== ВІДГУКИ ===== */
-        .reviews {
-            background: #fff;
-        }
-        .review-slider {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 30px;
-        }
-        .review-card {
-            background: #f8f6f4;
-            padding: 30px;
-            border-radius: 4px;
-        }
-        .review-card .stars {
-            color: #f5b342;
-            font-size: 1.2rem;
-            letter-spacing: 2px;
-            margin-bottom: 12px;
-        }
-        .review-card p {
-            font-weight: 300;
-            line-height: 1.6;
-            color: #333;
-        }
-        .review-card .author {
-            margin-top: 16px;
-            font-weight: 500;
-            font-size: 0.95rem;
-        }
-        .review-card .author span {
-            font-weight: 300;
-            color: #999;
-        }
-
         /* ===== БЛОГ ===== */
-        .blog {
-            background: #fafaf8;
-        }
         .blog-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 30px;
         }
         .blog-item {
-            background: #fff;
-            border-radius: 4px;
+            border-radius: 8px;
             overflow: hidden;
+            background: #fafaf8;
             transition: transform 0.3s;
         }
         .blog-item:hover {
@@ -772,8 +590,9 @@
             padding: 20px;
         }
         .blog-item .content h4 {
-            font-weight: 500;
-            margin-bottom: 8px;
+            font-weight: 600;
+            margin-bottom: 6px;
+            color: #003057;
         }
         .blog-item .content p {
             font-weight: 300;
@@ -781,40 +600,59 @@
             font-size: 0.95rem;
         }
 
-        /* ===== INSTAGRAM ===== */
-        .instagram-grid {
-            display: grid;
-            grid-template-columns: repeat(6, 1fr);
-            gap: 8px;
+        /* ===== ВІДГУКИ СЛАЙДЕР ===== */
+        .review-slider {
+            display: flex;
+            overflow: hidden;
+            gap: 30px;
+            transition: transform 0.5s;
         }
-        .instagram-grid img {
-            width: 100%;
-            aspect-ratio: 1/1;
-            object-fit: cover;
-            border-radius: 4px;
-            transition: transform 0.3s;
+        .review-card {
+            flex: 0 0 33.333%;
+            background: #f8f6f4;
+            padding: 30px;
+            border-radius: 8px;
         }
-        .instagram-grid img:hover {
-            transform: scale(1.03);
+        .review-card .stars {
+            color: #f5b342;
+            font-size: 1.2rem;
+            letter-spacing: 2px;
+            margin-bottom: 12px;
+        }
+        .review-card p {
+            font-weight: 300;
+            line-height: 1.6;
+            color: #333;
+        }
+        .review-card .author {
+            margin-top: 16px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            color: #003057;
+        }
+        .review-card .author span {
+            font-weight: 300;
+            color: #999;
         }
 
-        /* ===== NEWSLETTER ===== */
-        .newsletter {
+        /* ===== ПІДПИСКА ===== */
+        .newsletter-section {
             background: #f0ede8;
             text-align: center;
             padding: 70px 24px;
         }
-        .newsletter h2 {
+        .newsletter-section h2 {
             font-weight: 300;
             font-size: 2.4rem;
+            color: #003057;
             margin-bottom: 8px;
         }
-        .newsletter p {
+        .newsletter-section p {
             color: #555;
             font-weight: 300;
             margin-bottom: 24px;
         }
-        .newsletter form {
+        .newsletter-section form {
             display: flex;
             justify-content: center;
             gap: 12px;
@@ -822,7 +660,7 @@
             max-width: 500px;
             margin: 0 auto;
         }
-        .newsletter input {
+        .newsletter-section input {
             flex: 1;
             min-width: 200px;
             padding: 14px 20px;
@@ -830,17 +668,18 @@
             border-radius: 4px;
             font-size: 1rem;
         }
-        .newsletter button {
-            background: #1a1a1a;
+        .newsletter-section button {
+            background: #003057;
             color: #fff;
             border: none;
             padding: 14px 36px;
-            font-weight: 500;
+            font-weight: 600;
             cursor: pointer;
+            border-radius: 4px;
             transition: background 0.3s;
         }
-        .newsletter button:hover {
-            background: #333;
+        .newsletter-section button:hover {
+            background: #002244;
         }
 
         /* ===== FOOTER ===== */
@@ -859,9 +698,10 @@
         }
         .footer-grid h4 {
             color: #fff;
-            font-weight: 500;
+            font-weight: 600;
             margin-bottom: 16px;
             font-size: 0.95rem;
+            letter-spacing: 0.5px;
         }
         .footer-grid ul {
             list-style: none;
@@ -907,42 +747,26 @@
             opacity: 1;
             transform: translateY(0);
         }
-        .reveal-delay-1 {
-            transition-delay: 0.05s;
-        }
-        .reveal-delay-2 {
-            transition-delay: 0.1s;
-        }
-        .reveal-delay-3 {
-            transition-delay: 0.15s;
-        }
-        .reveal-delay-4 {
-            transition-delay: 0.2s;
-        }
 
         /* ===== АДАПТИВ ===== */
         @media (max-width: 1024px) {
-            .quick-grid,
-            .size-grid,
-            .product-grid,
-            .review-slider,
+            .categories-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            .product-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
             .blog-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
             .footer-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
-            .travel-block {
-                flex-direction: column;
+            .review-card {
+                flex: 0 0 50%;
             }
-            .travel-text {
-                padding: 40px 24px;
-            }
-            .story-inner {
-                flex-direction: column;
-            }
-            .instagram-grid {
-                grid-template-columns: repeat(3, 1fr);
+            .advantages-grid {
+                grid-template-columns: repeat(2, 1fr);
             }
         }
 
@@ -956,52 +780,62 @@
             .header-actions .hide-mobile {
                 display: none;
             }
-            .hero-section {
-                height: 80vh;
-                min-height: 500px;
+            .hero-slider {
+                height: 70vh;
+                min-height: 400px;
+            }
+            .hero-content h1 {
+                font-size: 2.2rem;
             }
             .btn-primary,
             .btn-secondary {
-                padding: 14px 30px;
-                font-size: 0.9rem;
+                padding: 12px 28px;
+                font-size: 0.85rem;
+            }
+            .categories-grid {
+                grid-template-columns: repeat(3, 1fr);
             }
         }
 
         @media (max-width: 600px) {
-            .quick-grid,
-            .size-grid,
-            .product-grid,
-            .review-slider,
+            .categories-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .product-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 16px;
+            }
             .blog-grid {
                 grid-template-columns: 1fr;
             }
             .footer-grid {
                 grid-template-columns: 1fr;
             }
-            .instagram-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            .adv-grid {
-                grid-template-columns: 1fr 1fr;
+            .review-card {
+                flex: 0 0 100%;
             }
             .section-title {
                 font-size: 2rem;
             }
-            .hero-title {
+            .hero-slider {
+                height: 60vh;
+            }
+            .hero-content h1 {
+                font-size: 1.8rem;
+            }
+            .sale-banner h2 {
                 font-size: 2.2rem;
             }
-            .travel-text h2 {
-                font-size: 2rem;
+            .advantages-grid {
+                grid-template-columns: 1fr 1fr;
             }
-            .story-inner .text h2 {
-                font-size: 2rem;
+            .site-header {
+                height: 64px;
+                padding: 0 16px;
             }
-            .leather-collection h2 {
-                font-size: 2rem;
-            }
-            .picker-questions .options button {
-                padding: 8px 20px;
-                font-size: 0.85rem;
+            .header-logo {
+                font-size: 1.4rem;
+                margin-right: 20px;
             }
         }
     </style>
@@ -1013,24 +847,25 @@
         <div class="header-inner">
             <button class="menu-toggle" aria-label="Меню">☰</button>
             <a href="#" class="header-logo">VIP<span>.ua</span></a>
+
             <ul class="header-nav" id="headerNav">
                 <li>
-                    <a href="#">Валізи</a>
+                    <a href="#">Валізи <span class="arrow">▼</span></a>
                     <div class="mega-menu">
                         <div>
                             <h4>За розміром</h4>
                             <ul>
-                                <li><a href="#">S (ручна поклажа)</a></li>
-                                <li><a href="#">M</a></li>
-                                <li><a href="#">L</a></li>
-                                <li><a href="#">XL</a></li>
+                                <li><a href="#">Ручна поклажа (S)</a></li>
+                                <li><a href="#">Середні (M)</a></li>
+                                <li><a href="#">Великі (L)</a></li>
+                                <li><a href="#">XL (75+)</a></li>
                             </ul>
                         </div>
                         <div>
                             <h4>За матеріалом</h4>
                             <ul>
                                 <li><a href="#">Полікарбонат</a></li>
-                                <li><a href="#">ABS</a></li>
+                                <li><a href="#">ABS-пластик</a></li>
                                 <li><a href="#">Текстиль</a></li>
                                 <li><a href="#">Алюміній</a></li>
                             </ul>
@@ -1038,123 +873,193 @@
                         <div>
                             <h4>За призначенням</h4>
                             <ul>
-                                <li><a href="#">Ручна поклажа</a></li>
                                 <li><a href="#">Для подорожей</a></li>
+                                <li><a href="#">Бізнес-кейси</a></li>
                                 <li><a href="#">Сімейні</a></li>
-                                <li><a href="#">Бізнес</a></li>
+                                <li><a href="#">Дитячі</a></li>
                             </ul>
                         </div>
                     </div>
                 </li>
-                <li><a href="#">Сумки та рюкзаки</a></li>
-                <li><a href="#">Галантерея</a></li>
+                <li>
+                    <a href="#">Рюкзаки <span class="arrow">▼</span></a>
+                    <div class="mega-menu">
+                        <div>
+                            <h4>Тип</h4>
+                            <ul>
+                                <li><a href="#">Міські</a></li>
+                                <li><a href="#">Для ноутбука</a></li>
+                                <li><a href="#">Трекінгові</a></li>
+                                <li><a href="#">Дитячі</a></li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4>Матеріал</h4>
+                            <ul>
+                                <li><a href="#">Нейлон</a></li>
+                                <li><a href="#">Поліестер</a></li>
+                                <li><a href="#">Шкіра</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <a href="#">Сумки <span class="arrow">▼</span></a>
+                    <div class="mega-menu">
+                        <div>
+                            <h4>Для жінок</h4>
+                            <ul>
+                                <li><a href="#">Крос-боді</a></li>
+                                <li><a href="#">Тоте</a></li>
+                                <li><a href="#">Клатчі</a></li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4>Для чоловіків</h4>
+                            <ul>
+                                <li><a href="#">Портфелі</a></li>
+                                <li><a href="#">Дипломати</a></li>
+                                <li><a href="#">Сумки через плече</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <a href="#">Аксесуари <span class="arrow">▼</span></a>
+                    <div class="mega-menu">
+                        <div>
+                            <h4>Дрібні аксесуари</h4>
+                            <ul>
+                                <li><a href="#">Косметички</a></li>
+                                <li><a href="#">Гаманці</a></li>
+                                <li><a href="#">Чохли для документів</a></li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4>Дорожні аксесуари</h4>
+                            <ul>
+                                <li><a href="#">Бірки для валіз</a></li>
+                                <li><a href="#">Набори для подорожей</a></li>
+                                <li><a href="#">Подушки в дорогу</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </li>
                 <li><a href="#">Новинки</a></li>
                 <li><a href="#">Розпродаж</a></li>
             </ul>
+
             <div class="header-actions">
                 <a href="#" class="hide-mobile" title="Пошук">⌕</a>
                 <a href="#" class="hide-mobile" title="Обране">♡</a>
-                <a href="#" class="hide-mobile" title="Кабінет">♙</a>
+                <a href="#" class="hide-mobile" title="Кабінет">👤</a>
                 <a href="#" class="cart-icon" title="Кошик">🛒</a>
             </div>
         </div>
     </header>
 
-    <!-- ===== HERO ===== -->
-    <section class="hero-section" id="hero">
-        <div class="hero-bg" id="heroBg" style="background-image: url('https://images.unsplash.com/photo-1544441893-675973e31985?w=1600&q=80');"></div>
-        <div class="hero-overlay"></div>
-        <div class="hero-content">
-            <h1 class="hero-title">Подорожуйте <br><strong>з комфортом.</strong></h1>
-            <p class="hero-subtitle">Валізи, сумки та аксесуари, створені для ваших подорожей.</p>
-            <div class="hero-buttons">
-                <a href="#" class="btn-primary">Валізи</a>
-                <a href="#" class="btn-secondary">Дорожні сумки</a>
+    <!-- ===== HERO SLIDER ===== -->
+    <div class="hero-slider" id="heroSlider">
+        <div class="hero-slides" id="heroSlides">
+            <!-- Слайд 1 -->
+            <div class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1544441893-675973e31985?w=1600&q=80');">
+                <div class="hero-content">
+                    <h1><strong>Подорожуйте</strong> з комфортом</h1>
+                    <p>Валізи Samsonite та VIP — надійні супутники для будь-якої подорожі.</p>
+                    <div class="btn-group">
+                        <a href="#" class="btn-primary">Переглянути валізи</a>
+                        <a href="#" class="btn-secondary">Аксесуари</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Слайд 2 -->
+            <div class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?w=1600&q=80');">
+                <div class="hero-content">
+                    <h1><strong>Нова колекція</strong> весна 2026</h1>
+                    <p>Легкі, міцні та стильні моделі для активного життя.</p>
+                    <div class="btn-group">
+                        <a href="#" class="btn-primary">Детальніше</a>
+                        <a href="#" class="btn-secondary">Новинки</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Слайд 3 -->
+            <div class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1534430480872-ef16b6eb4321?w=1600&q=80');">
+                <div class="hero-content">
+                    <h1><strong>Розпродаж</strong> до -50%</h1>
+                    <p>Встигніть придбати улюблені моделі за вигідними цінами.</p>
+                    <div class="btn-group">
+                        <a href="#" class="btn-primary">Перейти до розпродажу</a>
+                    </div>
+                </div>
             </div>
         </div>
-    </section>
-
-    <!-- ===== ШВИДКІ КАТЕГОРІЇ ===== -->
-    <section class="quick-categories">
-        <div class="container">
-            <h2 class="section-title reveal">Знайдіть те, що вам потрібно</h2>
-            <div class="quick-grid">
-                <a href="#" class="quick-card reveal reveal-delay-1">
-                    <div class="bg" style="background-image: url('https://images.unsplash.com/photo-1607552384479-9f2f21dd4d78?w=600&q=80');"></div>
-                    <div class="info"><h3>Валізи</h3><span>Переглянути →</span></div>
-                </a>
-                <a href="#" class="quick-card reveal reveal-delay-2">
-                    <div class="bg" style="background-image: url('https://images.unsplash.com/photo-1566150905458-1bf1fc113f0d?w=600&q=80');"></div>
-                    <div class="info"><h3>Сумки</h3><span>Переглянути →</span></div>
-                </a>
-                <a href="#" class="quick-card reveal reveal-delay-3">
-                    <div class="bg" style="background-image: url('https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=600&q=80');"></div>
-                    <div class="info"><h3>Рюкзаки</h3><span>Переглянути →</span></div>
-                </a>
-                <a href="#" class="quick-card reveal reveal-delay-4">
-                    <div class="bg" style="background-image: url('https://images.unsplash.com/photo-1601758063897-1d9b4e4f13c0?w=600&q=80');"></div>
-                    <div class="info"><h3>Галантерея</h3><span>Переглянути →</span></div>
-                </a>
-            </div>
+        <div class="slider-nav" id="sliderNav">
+            <span class="active" data-slide="0"></span>
+            <span data-slide="1"></span>
+            <span data-slide="2"></span>
         </div>
-    </section>
+    </div>
 
-    <!-- ===== КАТЕГОРІЇ ВАЛІЗ (розміри) ===== -->
-    <section class="suitcase-cats">
+    <!-- ===== КАТЕГОРІЇ ===== -->
+    <section>
         <div class="container">
-            <h2 class="section-title reveal">Оберіть свою валізу</h2>
-            <div class="size-grid">
-                <div class="size-card reveal reveal-delay-1">
-                    <img src="https://images.unsplash.com/photo-1607552384479-9f2f21dd4d78?w=400&h=300&fit=crop&q=80" alt="Ручна поклажа">
-                    <h4>Ручна поклажа</h4>
-                    <p>до 55 см</p>
+            <h2 class="section-title reveal">Популярні категорії</h2>
+            <div class="categories-grid">
+                <div class="category-item reveal">
+                    <span class="icon">🧳</span>
+                    <h4>Валізи</h4>
                 </div>
-                <div class="size-card reveal reveal-delay-2">
-                    <img src="https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=400&h=300&fit=crop&q=80" alt="Середні">
-                    <h4>Середні</h4>
-                    <p>55–70 см</p>
+                <div class="category-item reveal reveal-delay-1">
+                    <span class="icon">🎒</span>
+                    <h4>Рюкзаки</h4>
                 </div>
-                <div class="size-card reveal reveal-delay-3">
-                    <img src="https://images.unsplash.com/photo-1559588358-2f9bd1d49c22?w=400&h=300&fit=crop&q=80" alt="Великі">
-                    <h4>Великі</h4>
-                    <p>70–85 см</p>
+                <div class="category-item reveal reveal-delay-2">
+                    <span class="icon">👜</span>
+                    <h4>Сумки</h4>
                 </div>
-                <div class="size-card reveal reveal-delay-4">
-                    <img src="https://images.unsplash.com/photo-1544441893-675973e31985?w=400&h=300&fit=crop&q=80" alt="Для тривалих подорожей">
-                    <h4>Для тривалих</h4>
-                    <p>85+ см</p>
+                <div class="category-item reveal reveal-delay-3">
+                    <span class="icon">🧴</span>
+                    <h4>Дорожні набори</h4>
+                </div>
+                <div class="category-item reveal reveal-delay-4">
+                    <span class="icon">👛</span>
+                    <h4>Гаманці</h4>
+                </div>
+                <div class="category-item reveal reveal-delay-5">
+                    <span class="icon">🧣</span>
+                    <h4>Аксесуари</h4>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- ===== НОВИНКИ ===== -->
-    <section class="products-section">
+    <section style="background:#f8f6f4;">
         <div class="container">
             <div class="section-header reveal">
                 <div>
-                    <h2 class="section-title" style="font-size:2.6rem; margin-bottom:0;">Новинки</h2>
-                    <p class="section-sub" style="margin-bottom:0;">Познайомтеся з новими моделями у колекції VIP.</p>
+                    <h2 class="section-title">Новинки</h2>
+                    <p class="section-sub">Свіжі моделі, які вже у нас</p>
                 </div>
-                <a href="#" class="view-all">Переглянути всі →</a>
+                <a href="#" class="view-all">Всі новинки →</a>
             </div>
             <div class="product-grid">
-                <!-- 1 -->
-                <div class="product-card reveal reveal-delay-1">
+                <div class="product-card reveal">
                     <a href="#" class="product-image">
                         <img src="https://images.unsplash.com/photo-1559588358-2f9bd1d49c22?w=400&h=500&fit=crop&q=80" alt="Валіза">
                         <img class="hover-img" src="https://images.unsplash.com/photo-1607552384479-9f2f21dd4d78?w=400&h=500&fit=crop&q=80" alt="Валіза інший ракурс">
                         <span class="badge">NEW</span>
                     </a>
                     <div class="product-meta">
-                        <span class="brand">VIP Travel</span>
-                        <h4>Валіза 55 см</h4>
+                        <span class="brand">VIP</span>
+                        <h4>Валіза 55 см, полікарбонат</h4>
                         <div class="price">4 299 ₴</div>
+                        <div class="weight">2.8 кг</div>
                         <button class="btn-wishlist">♡</button>
                     </div>
                 </div>
-                <!-- 2 -->
-                <div class="product-card reveal reveal-delay-2">
+                <div class="product-card reveal reveal-delay-1">
                     <a href="#" class="product-image">
                         <img src="https://images.unsplash.com/photo-1566150905458-1bf1fc113f0d?w=400&h=500&fit=crop&q=80" alt="Сумка">
                         <img class="hover-img" src="https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=400&h=500&fit=crop&q=80" alt="Сумка інший">
@@ -1162,13 +1067,12 @@
                     </a>
                     <div class="product-meta">
                         <span class="brand">VIP Leather</span>
-                        <h4>Шкіряна сумка Crossbody</h4>
+                        <h4>Сумка Crossbody, натуральна шкіра</h4>
                         <div class="price">5 890 ₴ <del>7 200 ₴</del></div>
                         <button class="btn-wishlist">♡</button>
                     </div>
                 </div>
-                <!-- 3 -->
-                <div class="product-card reveal reveal-delay-3">
+                <div class="product-card reveal reveal-delay-2">
                     <a href="#" class="product-image">
                         <img src="https://images.unsplash.com/photo-1601758063897-1d9b4e4f13c0?w=400&h=500&fit=crop&q=80" alt="Гаманець">
                         <img class="hover-img" src="https://images.unsplash.com/photo-1601924971179-d6f38f24ce3d?w=400&h=500&fit=crop&q=80" alt="Гаманець інший">
@@ -1176,13 +1080,12 @@
                     </a>
                     <div class="product-meta">
                         <span class="brand">VIP Accessories</span>
-                        <h4>Шкіряний гаманець</h4>
+                        <h4>Шкіряний гаманець з відділенням</h4>
                         <div class="price">1 290 ₴</div>
                         <button class="btn-wishlist">♡</button>
                     </div>
                 </div>
-                <!-- 4 -->
-                <div class="product-card reveal reveal-delay-4">
+                <div class="product-card reveal reveal-delay-3">
                     <a href="#" class="product-image">
                         <img src="https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=400&h=500&fit=crop&q=80" alt="Рюкзак">
                         <img class="hover-img" src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=400&h=500&fit=crop&q=80" alt="Рюкзак інший">
@@ -1190,7 +1093,7 @@
                     </a>
                     <div class="product-meta">
                         <span class="brand">VIP Urban</span>
-                        <h4>Шкіряний рюкзак City</h4>
+                        <h4>Рюкзак City для ноутбука 15"</h4>
                         <div class="price">6 450 ₴ <del>8 200 ₴</del></div>
                         <button class="btn-wishlist">♡</button>
                     </div>
@@ -1199,53 +1102,22 @@
         </div>
     </section>
 
-    <!-- ===== TRAVEL БЛОК 50/50 ===== -->
-    <div class="travel-block reveal">
-        <div class="travel-image" style="background-image: url('https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?w=800&q=80');"></div>
-        <div class="travel-text">
-            <h2>Все для наступної подорожі</h2>
-            <p>Валізи, дорожні сумки та аксесуари, які допоможуть подорожувати комфортніше.</p>
-            <a href="#" class="btn-outline-dark">Перейти до Travel →</a>
-        </div>
+    <!-- ===== БАНЕР РОЗПРОДАЖУ ===== -->
+    <div class="sale-banner reveal" style="max-width:1280px; margin:0 auto;">
+        <h2>🔥 РОЗПРОДАЖ ДО -50%</h2>
+        <p>Тільки до кінця місяця! Встигніть придбати вибрані моделі з великою знижкою.</p>
+        <a href="#" class="btn-primary">Переглянути всі пропозиції</a>
     </div>
 
-    <!-- ===== ПІДБІР ВАЛІЗИ (інтерактив) ===== -->
-    <section class="luggage-picker">
-        <div class="container">
-            <h2 class="section-title reveal">Яка валіза вам потрібна?</h2>
-            <div class="picker-questions">
-                <div class="q">На скільки днів подорож?</div>
-                <div class="options" id="daysOptions">
-                    <button data-days="1-3">1–3</button>
-                    <button data-days="4-7">4–7</button>
-                    <button data-days="7+">7+</button>
-                </div>
-                <div class="q">Як подорожуєте?</div>
-                <div class="options" id="transportOptions">
-                    <button data-transport="plane">Літак</button>
-                    <button data-transport="car">Авто</button>
-                    <button data-transport="train">Потяг</button>
-                </div>
-            </div>
-            <div class="picker-result" id="pickerResult">
-                <p>Оберіть варіанти вище, щоб отримати підбірку.</p>
-            </div>
-        </div>
-    </section>
-
     <!-- ===== ПОПУЛЯРНІ ТОВАРИ (з табами) ===== -->
-    <section class="products-section" style="background:#f8f6f4;">
+    <section>
         <div class="container">
-            <div class="section-header reveal">
-                <div>
-                    <h2 class="section-title" style="font-size:2.6rem; margin-bottom:0;">Вибір наших клієнтів</h2>
-                </div>
-            </div>
+            <h2 class="section-title reveal">Популярні товари</h2>
             <div class="tab-bar reveal">
                 <button class="active" data-tab="tab1">Валізи</button>
-                <button data-tab="tab2">Сумки</button>
-                <button data-tab="tab3">Рюкзаки</button>
-                <button data-tab="tab4">Галантерея</button>
+                <button data-tab="tab2">Рюкзаки</button>
+                <button data-tab="tab3">Сумки</button>
+                <button data-tab="tab4">Аксесуари</button>
             </div>
             <!-- Таб 1 -->
             <div class="tab-content active" id="tab1">
@@ -1259,19 +1131,19 @@
             <!-- Таб 2 -->
             <div class="tab-content" id="tab2">
                 <div class="product-grid">
-                    <div class="product-card"><a href="#" class="product-image"><img src="https://images.unsplash.com/photo-1566150905458-1bf1fc113f0d?w=400&h=500&fit=crop&q=80" alt=""><img class="hover-img" src="https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=400&h=500&fit=crop&q=80" alt=""></a><div class="product-meta"><span class="brand">VIP Leather</span><h4>Сумка Tote</h4><div class="price">7 890 ₴</div><button class="btn-wishlist">♡</button></div></div>
-                    <div class="product-card"><a href="#" class="product-image"><img src="https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=400&h=500&fit=crop&q=80" alt=""><img class="hover-img" src="https://images.unsplash.com/photo-1566150905458-1bf1fc113f0d?w=400&h=500&fit=crop&q=80" alt=""></a><div class="product-meta"><span class="brand">VIP Leather</span><h4>Сумка Crossbody</h4><div class="price">5 890 ₴</div><button class="btn-wishlist">♡</button></div></div>
-                    <div class="product-card"><a href="#" class="product-image"><img src="https://images.unsplash.com/photo-1601924971179-d6f38f24ce3d?w=400&h=500&fit=crop&q=80" alt=""><img class="hover-img" src="https://images.unsplash.com/photo-1601758063897-1d9b4e4f13c0?w=400&h=500&fit=crop&q=80" alt=""></a><div class="product-meta"><span class="brand">VIP Leather</span><h4>Клатч</h4><div class="price">3 290 ₴</div><button class="btn-wishlist">♡</button></div></div>
-                    <div class="product-card"><a href="#" class="product-image"><img src="https://images.unsplash.com/photo-1601758063897-1d9b4e4f13c0?w=400&h=500&fit=crop&q=80" alt=""><img class="hover-img" src="https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=400&h=500&fit=crop&q=80" alt=""></a><div class="product-meta"><span class="brand">VIP Leather</span><h4>Сумка на пояс</h4><div class="price">2 490 ₴</div><button class="btn-wishlist">♡</button></div></div>
+                    <div class="product-card"><a href="#" class="product-image"><img src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=400&h=500&fit=crop&q=80" alt=""><img class="hover-img" src="https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=400&h=500&fit=crop&q=80" alt=""></a><div class="product-meta"><span class="brand">VIP Urban</span><h4>Рюкзак City</h4><div class="price">6 450 ₴</div><button class="btn-wishlist">♡</button></div></div>
+                    <div class="product-card"><a href="#" class="product-image"><img src="https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=400&h=500&fit=crop&q=80" alt=""><img class="hover-img" src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=400&h=500&fit=crop&q=80" alt=""></a><div class="product-meta"><span class="brand">VIP Urban</span><h4>Рюкзак Travel</h4><div class="price">4 990 ₴</div><button class="btn-wishlist">♡</button></div></div>
+                    <div class="product-card"><a href="#" class="product-image"><img src="https://images.unsplash.com/photo-1607552384479-9f2f21dd4d78?w=400&h=500&fit=crop&q=80" alt=""><img class="hover-img" src="https://images.unsplash.com/photo-1566150905458-1bf1fc113f0d?w=400&h=500&fit=crop&q=80" alt=""></a><div class="product-meta"><span class="brand">VIP Urban</span><h4>Рюкзак Business</h4><div class="price">7 200 ₴</div><button class="btn-wishlist">♡</button></div></div>
+                    <div class="product-card"><a href="#" class="product-image"><img src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=400&h=500&fit=crop&q=80" alt=""><img class="hover-img" src="https://images.unsplash.com/photo-1601758063897-1d9b4e4f13c0?w=400&h=500&fit=crop&q=80" alt=""></a><div class="product-meta"><span class="brand">VIP Urban</span><h4>Рюкзак Mini</h4><div class="price">3 990 ₴</div><button class="btn-wishlist">♡</button></div></div>
                 </div>
             </div>
             <!-- Таб 3 -->
             <div class="tab-content" id="tab3">
                 <div class="product-grid">
-                    <div class="product-card"><a href="#" class="product-image"><img src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=400&h=500&fit=crop&q=80" alt=""><img class="hover-img" src="https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=400&h=500&fit=crop&q=80" alt=""></a><div class="product-meta"><span class="brand">VIP Urban</span><h4>Рюкзак City</h4><div class="price">6 450 ₴</div><button class="btn-wishlist">♡</button></div></div>
-                    <div class="product-card"><a href="#" class="product-image"><img src="https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=400&h=500&fit=crop&q=80" alt=""><img class="hover-img" src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=400&h=500&fit=crop&q=80" alt=""></a><div class="product-meta"><span class="brand">VIP Urban</span><h4>Рюкзак Travel</h4><div class="price">4 990 ₴</div><button class="btn-wishlist">♡</button></div></div>
-                    <div class="product-card"><a href="#" class="product-image"><img src="https://images.unsplash.com/photo-1607552384479-9f2f21dd4d78?w=400&h=500&fit=crop&q=80" alt=""><img class="hover-img" src="https://images.unsplash.com/photo-1566150905458-1bf1fc113f0d?w=400&h=500&fit=crop&q=80" alt=""></a><div class="product-meta"><span class="brand">VIP Urban</span><h4>Рюкзак Business</h4><div class="price">7 200 ₴</div><button class="btn-wishlist">♡</button></div></div>
-                    <div class="product-card"><a href="#" class="product-image"><img src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=400&h=500&fit=crop&q=80" alt=""><img class="hover-img" src="https://images.unsplash.com/photo-1601758063897-1d9b4e4f13c0?w=400&h=500&fit=crop&q=80" alt=""></a><div class="product-meta"><span class="brand">VIP Urban</span><h4>Рюкзак Mini</h4><div class="price">3 990 ₴</div><button class="btn-wishlist">♡</button></div></div>
+                    <div class="product-card"><a href="#" class="product-image"><img src="https://images.unsplash.com/photo-1566150905458-1bf1fc113f0d?w=400&h=500&fit=crop&q=80" alt=""><img class="hover-img" src="https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=400&h=500&fit=crop&q=80" alt=""></a><div class="product-meta"><span class="brand">VIP Leather</span><h4>Сумка Tote</h4><div class="price">7 890 ₴</div><button class="btn-wishlist">♡</button></div></div>
+                    <div class="product-card"><a href="#" class="product-image"><img src="https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=400&h=500&fit=crop&q=80" alt=""><img class="hover-img" src="https://images.unsplash.com/photo-1566150905458-1bf1fc113f0d?w=400&h=500&fit=crop&q=80" alt=""></a><div class="product-meta"><span class="brand">VIP Leather</span><h4>Сумка Crossbody</h4><div class="price">5 890 ₴</div><button class="btn-wishlist">♡</button></div></div>
+                    <div class="product-card"><a href="#" class="product-image"><img src="https://images.unsplash.com/photo-1601924971179-d6f38f24ce3d?w=400&h=500&fit=crop&q=80" alt=""><img class="hover-img" src="https://images.unsplash.com/photo-1601758063897-1d9b4e4f13c0?w=400&h=500&fit=crop&q=80" alt=""></a><div class="product-meta"><span class="brand">VIP Leather</span><h4>Клатч</h4><div class="price">3 290 ₴</div><button class="btn-wishlist">♡</button></div></div>
+                    <div class="product-card"><a href="#" class="product-image"><img src="https://images.unsplash.com/photo-1601758063897-1d9b4e4f13c0?w=400&h=500&fit=crop&q=80" alt=""><img class="hover-img" src="https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=400&h=500&fit=crop&q=80" alt=""></a><div class="product-meta"><span class="brand">VIP Leather</span><h4>Сумка на пояс</h4><div class="price">2 490 ₴</div><button class="btn-wishlist">♡</button></div></div>
                 </div>
             </div>
             <!-- Таб 4 -->
@@ -1287,174 +1159,110 @@
     </section>
 
     <!-- ===== БРЕНДОВА ІСТОРІЯ ===== -->
-    <section class="brand-story">
+    <section style="background:#f8f6f4;">
         <div class="container">
-            <div class="story-inner reveal">
-                <div class="text">
-                    <h2>Речі, які створені <br>бути поруч</h2>
-                    <p>VIP — це не просто аксесуари. Це супутники у щоденних маршрутах та далеких подорожах. Створені з любов'ю до деталей.</p>
-                    <a href="#" class="btn-outline-dark">Дізнатися більше →</a>
+            <div class="story-inner" style="display:flex; align-items:center; gap:60px; flex-wrap:wrap;">
+                <div class="text" style="flex:1;">
+                    <h2 class="section-title" style="font-size:2.8rem;">Речі, які створені бути поруч</h2>
+                    <p style="font-weight:300; color:#555; max-width:450px; margin-bottom:24px;">VIP — це не просто аксесуари. Це супутники у щоденних маршрутах та далеких подорожах. Створені з любов'ю до деталей.</p>
+                    <a href="#" class="view-all">Дізнатися більше →</a>
                 </div>
-                <div class="image" style="background-image: url('https://images.unsplash.com/photo-1534430480872-ef16b6eb4321?w=800&q=80');"></div>
+                <div class="image" style="flex:1; min-height:300px; background:url('https://images.unsplash.com/photo-1534430480872-ef16b6eb4321?w=800&q=80') center/cover no-repeat; border-radius:8px;"></div>
             </div>
         </div>
     </section>
 
-    <!-- ===== ШКІРЯНА КОЛЕКЦІЯ ===== -->
-    <section class="leather-collection">
-        <div class="container">
-            <h2 class="reveal">Натуральна шкіра</h2>
-            <p class="reveal" style="max-width:500px; margin:0 auto 32px;">Класика, яка залишається актуальною роками.</p>
-            <div class="leather-cats reveal">
-                <a href="#">Сумки</a>
-                <a href="#">Гаманці</a>
-                <a href="#">Аксесуари</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- ===== РОЗПРОДАЖ ===== -->
-    <section class="sale-section">
-        <div class="container">
-            <div class="section-header reveal">
-                <div>
-                    <h2 class="section-title" style="font-size:2.6rem;">Розпродаж</h2>
-                    <p class="section-sub">Встигніть придбати вибрані моделі за спеціальною ціною.</p>
-                </div>
-                <a href="#" class="view-all">Переглянути всі →</a>
-            </div>
-            <div class="product-grid">
-                <div class="product-card reveal reveal-delay-1">
-                    <a href="#" class="product-image">
-                        <img src="https://images.unsplash.com/photo-1559588358-2f9bd1d49c22?w=400&h=500&fit=crop&q=80" alt="">
-                        <img class="hover-img" src="https://images.unsplash.com/photo-1607552384479-9f2f21dd4d78?w=400&h=500&fit=crop&q=80" alt="">
-                        <span class="badge" style="background:#c0392b;">-20%</span>
-                    </a>
-                    <div class="product-meta">
-                        <span class="brand">VIP Travel</span>
-                        <h4>Валіза 55 см</h4>
-                        <div class="price">3 439 ₴ <del>4 299 ₴</del></div>
-                        <button class="btn-wishlist">♡</button>
-                    </div>
-                </div>
-                <div class="product-card reveal reveal-delay-2">
-                    <a href="#" class="product-image">
-                        <img src="https://images.unsplash.com/photo-1566150905458-1bf1fc113f0d?w=400&h=500&fit=crop&q=80" alt="">
-                        <img class="hover-img" src="https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=400&h=500&fit=crop&q=80" alt="">
-                        <span class="badge" style="background:#c0392b;">-30%</span>
-                    </a>
-                    <div class="product-meta">
-                        <span class="brand">VIP Leather</span>
-                        <h4>Сумка Crossbody</h4>
-                        <div class="price">4 123 ₴ <del>5 890 ₴</del></div>
-                        <button class="btn-wishlist">♡</button>
-                    </div>
-                </div>
-                <div class="product-card reveal reveal-delay-3">
-                    <a href="#" class="product-image">
-                        <img src="https://images.unsplash.com/photo-1601758063897-1d9b4e4f13c0?w=400&h=500&fit=crop&q=80" alt="">
-                        <img class="hover-img" src="https://images.unsplash.com/photo-1601924971179-d6f38f24ce3d?w=400&h=500&fit=crop&q=80" alt="">
-                        <span class="badge" style="background:#c0392b;">-25%</span>
-                    </a>
-                    <div class="product-meta">
-                        <span class="brand">VIP Accessories</span>
-                        <h4>Шкіряний гаманець</h4>
-                        <div class="price">967 ₴ <del>1 290 ₴</del></div>
-                        <button class="btn-wishlist">♡</button>
-                    </div>
-                </div>
-                <div class="product-card reveal reveal-delay-4">
-                    <a href="#" class="product-image">
-                        <img src="https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=400&h=500&fit=crop&q=80" alt="">
-                        <img class="hover-img" src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=400&h=500&fit=crop&q=80" alt="">
-                        <span class="badge" style="background:#c0392b;">-40%</span>
-                    </a>
-                    <div class="product-meta">
-                        <span class="brand">VIP Urban</span>
-                        <h4>Шкіряний рюкзак City</h4>
-                        <div class="price">3 870 ₴ <del>6 450 ₴</del></div>
-                        <button class="btn-wishlist">♡</button>
-                    </div>
-                </div>
-            </div>
+    <!-- ===== ШКІРЯНА КОЛЕКЦІЯ (темний блок) ===== -->
+    <section style="background:#003057; color:#fff; text-align:center; padding:80px 24px;">
+        <h2 class="section-title" style="color:#fff;">Натуральна шкіра</h2>
+        <p style="font-weight:300; opacity:0.8; max-width:500px; margin:0 auto 32px;">Класика, яка залишається актуальною роками.</p>
+        <div style="display:flex; justify-content:center; gap:20px; flex-wrap:wrap;">
+            <a href="#" style="background:rgba(255,255,255,0.1); padding:12px 32px; border-radius:30px; transition:0.3s;">Сумки</a>
+            <a href="#" style="background:rgba(255,255,255,0.1); padding:12px 32px; border-radius:30px; transition:0.3s;">Гаманці</a>
+            <a href="#" style="background:rgba(255,255,255,0.1); padding:12px 32px; border-radius:30px; transition:0.3s;">Аксесуари</a>
         </div>
     </section>
 
     <!-- ===== ПЕРЕВАГИ ===== -->
-    <section class="advantages">
+    <section>
         <div class="container">
-            <div class="adv-grid">
-                <div class="adv-item reveal reveal-delay-1"><strong>Оригінальні товари</strong><span>Гарантія якості</span></div>
-                <div class="adv-item reveal reveal-delay-2"><strong>Швидка доставка</strong><span>По всій Україні</span></div>
-                <div class="adv-item reveal reveal-delay-3"><strong>Зручне повернення</strong><span>Прості умови</span></div>
-                <div class="adv-item reveal reveal-delay-4"><strong>Безпечна оплата</strong><span>Онлайн або при отриманні</span></div>
+            <div class="advantages-grid">
+                <div class="adv-item reveal"><span class="icon">🚚</span><strong>Швидка доставка</strong><span>По всій Україні</span></div>
+                <div class="adv-item reveal reveal-delay-1"><span class="icon">↩️</span><strong>Зручне повернення</strong><span>14 днів</span></div>
+                <div class="adv-item reveal reveal-delay-2"><span class="icon">✓</span><strong>Оригінальні товари</strong><span>100% гарантія</span></div>
+                <div class="adv-item reveal reveal-delay-3"><span class="icon">💳</span><strong>Безпечна оплата</strong><span>Онлайн або при отриманні</span></div>
             </div>
         </div>
     </section>
 
     <!-- ===== БРЕНДИ ===== -->
-    <section class="brands">
+    <section style="background:#fafaf8;">
         <div class="container">
             <h2 class="section-title reveal" style="text-align:center;">Бренди</h2>
             <div class="brand-logos reveal">
-                <span>WITTCHEN</span>
                 <span>Samsonite</span>
                 <span>VIP</span>
+                <span>WITTCHEN</span>
                 <span>Travelite</span>
                 <span>Hedgren</span>
             </div>
         </div>
     </section>
 
-    <!-- ===== ВІДГУКИ ===== -->
-    <section class="reviews">
+    <!-- ===== ВІДГУКИ (слайдер) ===== -->
+    <section>
         <div class="container">
-            <h2 class="section-title reveal">Що кажуть наші клієнти</h2>
-            <div class="review-slider">
-                <div class="review-card reveal reveal-delay-1">
+            <h2 class="section-title reveal">Відгуки клієнтів</h2>
+            <div class="review-slider" id="reviewSlider">
+                <div class="review-card">
                     <div class="stars">★★★★★</div>
                     <p>"Чудова валіза, дуже міцна. Літала з нею вже 5 разів — жодної подряпини."</p>
                     <div class="author">Олена <span>— Валіза 55 см</span></div>
                 </div>
-                <div class="review-card reveal reveal-delay-2">
+                <div class="review-card">
                     <div class="stars">★★★★★</div>
                     <p>"Сумка перевершила очікування! Натуральна шкіра, якісна фурнітура. Рекомендую."</p>
                     <div class="author">Андрій <span>— Сумка Tote</span></div>
                 </div>
-                <div class="review-card reveal reveal-delay-3">
+                <div class="review-card">
                     <div class="stars">★★★★☆</div>
                     <p>"Швидка доставка, гарна упаковка. Рюкзак дуже зручний, ношу щодня."</p>
                     <div class="author">Марія <span>— Рюкзак City</span></div>
+                </div>
+                <div class="review-card">
+                    <div class="stars">★★★★★</div>
+                    <p>"Відмінний гаманець, м'яка шкіра, все акуратно зшито. Буду замовляти ще."</p>
+                    <div class="author">Ігор <span>— Гаманець</span></div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- ===== БЛОГ ===== -->
-    <section class="blog">
+    <section style="background:#f8f6f4;">
         <div class="container">
             <div class="section-header reveal">
                 <div>
-                    <h2 class="section-title" style="font-size:2.6rem;">Корисно знати</h2>
+                    <h2 class="section-title">Корисно знати</h2>
                 </div>
-                <a href="#" class="view-all">Перейти до блогу →</a>
+                <a href="#" class="view-all">Всі статті →</a>
             </div>
             <div class="blog-grid">
-                <div class="blog-item reveal reveal-delay-1">
+                <div class="blog-item reveal">
                     <img src="https://images.unsplash.com/photo-1544441893-675973e31985?w=600&q=80" alt="Вибір валізи">
                     <div class="content">
                         <h4>Як вибрати валізу для подорожі</h4>
                         <p>Поради щодо розміру, матеріалу та важливих деталей.</p>
                     </div>
                 </div>
-                <div class="blog-item reveal reveal-delay-2">
+                <div class="blog-item reveal reveal-delay-1">
                     <img src="https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?w=600&q=80" alt="Розміри">
                     <div class="content">
                         <h4>Який розмір валізи взяти в літак</h4>
                         <p>Вимоги авіакомпаній до ручної поклажі та багажу.</p>
                     </div>
                 </div>
-                <div class="blog-item reveal reveal-delay-3">
+                <div class="blog-item reveal reveal-delay-2">
                     <img src="https://images.unsplash.com/photo-1601924971179-d6f38f24ce3d?w=600&q=80" alt="Догляд">
                     <div class="content">
                         <h4>Як доглядати за шкіряною сумкою</h4>
@@ -1465,24 +1273,8 @@
         </div>
     </section>
 
-    <!-- ===== INSTAGRAM ===== -->
-    <section class="instagram" style="padding:60px 24px;">
-        <h2 class="section-title reveal" style="text-align:center;">VIP у реальному житті</h2>
-        <div class="instagram-grid">
-            <img src="https://images.unsplash.com/photo-1544441893-675973e31985?w=300&q=80" alt="IG" loading="lazy">
-            <img src="https://images.unsplash.com/photo-1607552384479-9f2f21dd4d78?w=300&q=80" alt="IG" loading="lazy">
-            <img src="https://images.unsplash.com/photo-1566150905458-1bf1fc113f0d?w=300&q=80" alt="IG" loading="lazy">
-            <img src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=300&q=80" alt="IG" loading="lazy">
-            <img src="https://images.unsplash.com/photo-1601758063897-1d9b4e4f13c0?w=300&q=80" alt="IG" loading="lazy">
-            <img src="https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=300&q=80" alt="IG" loading="lazy">
-        </div>
-        <div style="text-align:center; margin-top:30px;">
-            <a href="#" class="btn-outline-dark">Instagram →</a>
-        </div>
-    </section>
-
-    <!-- ===== NEWSLETTER ===== -->
-    <section class="newsletter">
+    <!-- ===== ПІДПИСКА ===== -->
+    <section class="newsletter-section">
         <div class="container">
             <h2 class="reveal">Будьте першими</h2>
             <p class="reveal">Дізнавайтеся про новинки та спеціальні пропозиції.</p>
@@ -1500,8 +1292,9 @@
                 <h4>Каталог</h4>
                 <ul>
                     <li><a href="#">Валізи</a></li>
-                    <li><a href="#">Сумки та рюкзаки</a></li>
-                    <li><a href="#">Галантерея</a></li>
+                    <li><a href="#">Рюкзаки</a></li>
+                    <li><a href="#">Сумки</a></li>
+                    <li><a href="#">Аксесуари</a></li>
                     <li><a href="#">Новинки</a></li>
                     <li><a href="#">Розпродаж</a></li>
                 </ul>
@@ -1548,21 +1341,36 @@
     <script>
         document.addEventListener('DOMContentLoaded', function() {
 
+            // ---- Hero Slider ----
+            let currentSlide = 0;
+            const slides = document.querySelectorAll('.hero-slide');
+            const navDots = document.querySelectorAll('.slider-nav span');
+            const sliderContainer = document.getElementById('heroSlides');
+            const totalSlides = slides.length;
+
+            function goToSlide(index) {
+                if (index < 0) index = totalSlides - 1;
+                if (index >= totalSlides) index = 0;
+                currentSlide = index;
+                sliderContainer.style.transform = `translateX(-${currentSlide * 100 / totalSlides}%)`;
+                navDots.forEach((dot, i) => {
+                    dot.classList.toggle('active', i === currentSlide);
+                });
+            }
+
+            navDots.forEach((dot, i) => {
+                dot.addEventListener('click', function() {
+                    goToSlide(i);
+                });
+            });
+
+            // Автопрокрутка
+            let interval = setInterval(() => { goToSlide(currentSlide + 1); }, 5000);
+
             // ---- Sticky header shadow ----
             const header = document.getElementById('siteHeader');
             window.addEventListener('scroll', function() {
-                header.style.boxShadow = window.scrollY > 50 ? '0 4px 30px rgba(0,0,0,0.06)' : 'none';
-            }, { passive: true });
-
-            // ---- Hero parallax ----
-            const heroBg = document.getElementById('heroBg');
-            const hero = document.getElementById('hero');
-            window.addEventListener('scroll', function() {
-                const rect = hero.getBoundingClientRect();
-                if (rect.bottom > 0) {
-                    const scrolled = window.pageYOffset;
-                    heroBg.style.transform = 'scale(1.1) translateY(' + scrolled * 0.08 + 'px)';
-                }
+                header.style.boxShadow = window.scrollY > 50 ? '0 4px 30px rgba(0,0,0,0.06)' : '0 2px 20px rgba(0,0,0,0.04)';
             }, { passive: true });
 
             // ---- Scroll reveal ----
@@ -1588,43 +1396,6 @@
                 });
             });
 
-            // ---- Luggage picker ----
-            const daysBtns = document.querySelectorAll('#daysOptions button');
-            const transportBtns = document.querySelectorAll('#transportOptions button');
-            let selectedDays = null;
-            let selectedTransport = null;
-
-            function updatePickerResult() {
-                const result = document.getElementById('pickerResult');
-                if (selectedDays && selectedTransport) {
-                    let size = '';
-                    if (selectedDays === '1-3') size = 'ручна поклажа (S)';
-                    else if (selectedDays === '4-7') size = 'середня (M/L)';
-                    else if (selectedDays === '7+') size = 'велика (L/XL)';
-                    result.innerHTML = `<p>Ми підібрали для вас <strong>6 моделей</strong> розміру <strong>${size}</strong> для подорожі <strong>${selectedTransport}</strong>.</p>
-                                         <p style="margin-top:12px;"><a href="#">Переглянути →</a></p>`;
-                } else {
-                    result.innerHTML = `<p>Оберіть варіанти вище, щоб отримати підбірку.</p>`;
-                }
-            }
-
-            daysBtns.forEach(btn => {
-                btn.addEventListener('click', function() {
-                    daysBtns.forEach(b => b.classList.remove('active'));
-                    this.classList.add('active');
-                    selectedDays = this.dataset.days;
-                    updatePickerResult();
-                });
-            });
-            transportBtns.forEach(btn => {
-                btn.addEventListener('click', function() {
-                    transportBtns.forEach(b => b.classList.remove('active'));
-                    this.classList.add('active');
-                    selectedTransport = this.dataset.transport;
-                    updatePickerResult();
-                });
-            });
-
             // ---- Newsletter ----
             document.getElementById('newsletterForm').addEventListener('submit', function(e) {
                 e.preventDefault();
@@ -1644,27 +1415,23 @@
                         nav.style.display = 'flex';
                         nav.style.flexDirection = 'column';
                         nav.style.position = 'absolute';
-                        nav.style.top = '72px';
+                        nav.style.top = '80px';
                         nav.style.left = '0';
                         nav.style.width = '100%';
-                        nav.style.background = 'rgba(255,255,255,0.98)';
-                        nav.style.backdropFilter = 'blur(12px)';
-                        nav.style.padding = '24px';
-                        nav.style.gap = '16px';
-                        nav.style.borderBottom = '1px solid #eee';
+                        nav.style.background = '#fff';
+                        nav.style.padding = '20px 24px';
+                        nav.style.gap = '12px';
+                        nav.style.borderBottom = '1px solid #eaeaea';
                         nav.style.boxShadow = '0 20px 40px rgba(0,0,0,0.05)';
                         nav.style.zIndex = '999';
-                        // приховуємо mega-menu на мобільному
                         nav.querySelectorAll('.mega-menu').forEach(m => m.style.display = 'none');
                     }
                 });
-                // при кліку на посилання ховаємо меню
                 nav.querySelectorAll('a').forEach(link => {
                     link.addEventListener('click', function() {
                         if (window.innerWidth <= 820) nav.style.display = 'none';
                     });
                 });
-                // скидання стилів при ресайзі
                 window.addEventListener('resize', function() {
                     if (window.innerWidth > 820) {
                         nav.style.display = 'flex';
@@ -1672,9 +1439,8 @@
                         nav.style.position = 'static';
                         nav.style.width = 'auto';
                         nav.style.background = 'transparent';
-                        nav.style.backdropFilter = 'none';
                         nav.style.padding = '0';
-                        nav.style.gap = '28px';
+                        nav.style.gap = '0';
                         nav.style.borderBottom = 'none';
                         nav.style.boxShadow = 'none';
                         nav.querySelectorAll('.mega-menu').forEach(m => m.style.display = 'flex');
@@ -1685,6 +1451,10 @@
                     }
                 });
             }
+
+            // ---- Review slider (manual with dots) ----
+            // Простий показ всіх відгуків (без скролу) – вони і так видно в сітці
+
         });
     </script>
 </body>
