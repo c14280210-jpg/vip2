@@ -1,1528 +1,776 @@
 <!DOCTYPE html>
 <html lang="uk">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>VIP Collection – преміальні валізи та аксесуари</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet" />
-  <style>
-    /* ===== Скидання та база ===== */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-    body {
-      font-family: 'Inter', sans-serif;
-      background: #f5f7fa;
-      color: #1a1a1a;
-      -webkit-font-smoothing: antialiased;
-    }
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
-    .container {
-      max-width: 1280px;
-      margin: 0 auto;
-      padding: 0 24px;
-    }
-    img {
-      display: block;
-      max-width: 100%;
-    }
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>VIP Collection — преміальна шкіргалантерея</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet" />
+    <style>
+        /* ===== БАЗОВІ СТИЛІ (як на samsonite.ua) ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #ffffff;
+            color: #1a1a1a;
+            -webkit-font-smoothing: antialiased;
+        }
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+        img {
+            display: block;
+            max-width: 100%;
+        }
 
-    /* ===== HEADER ===== */
-    .site-header {
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      background: #ffffff;
-      box-shadow: 0 2px 20px rgba(0, 48, 87, 0.06);
-      height: 76px;
-      display: flex;
-      align-items: center;
-      padding: 0 24px;
-      border-bottom: 2px solid #003057;
-    }
-    .header-inner {
-      max-width: 1280px;
-      width: 100%;
-      margin: 0 auto;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-    .header-logo {
-      font-size: 1.8rem;
-      font-weight: 700;
-      letter-spacing: 3px;
-      color: #003057;
-      flex-shrink: 0;
-      margin-right: 40px;
-    }
-    .header-logo span {
-      color: #d4a843;
-      font-weight: 300;
-    }
+        /* ===== TOP BANNER (як на samsonite.ua) ===== */
+        .top-banner {
+            background: #003057;
+            color: #fff;
+            padding: 8px 16px;
+            text-align: center;
+            font-size: 0.8rem;
+            font-weight: 400;
+            letter-spacing: 0.3px;
+        }
+        .top-banner a {
+            color: #d4a843;
+            font-weight: 600;
+            text-decoration: underline;
+        }
+        .top-banner a:hover {
+            color: #fff;
+        }
 
-    .header-nav {
-      display: flex;
-      gap: 0;
-      align-items: center;
-      height: 100%;
-    }
-    .header-nav>li {
-      list-style: none;
-      position: relative;
-      height: 100%;
-      display: flex;
-      align-items: center;
-      padding: 0 16px;
-    }
-    .header-nav>li>a {
-      font-size: 0.85rem;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-      color: #1a1a1a;
-      transition: color 0.2s;
-      display: flex;
-      align-items: center;
-      gap: 4px;
-    }
-    .header-nav>li>a:hover {
-      color: #003057;
-    }
-    .header-nav>li>a .arrow {
-      font-size: 0.6rem;
-      margin-left: 4px;
-    }
+        /* ===== HEADER (як на samsonite.ua) ===== */
+        .site-header {
+            background: #fff;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+            padding: 14px 24px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        .header-inner {
+            max-width: 1280px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+        .header-logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            color: #003057;
+            flex-shrink: 0;
+        }
+        .header-logo span {
+            color: #d4a843;
+        }
+        .header-nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 24px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: #1a1a1a;
+        }
+        .header-nav a {
+            opacity: 0.7;
+            transition: opacity 0.2s;
+        }
+        .header-nav a:hover {
+            opacity: 1;
+            color: #003057;
+        }
+        .header-actions {
+            display: flex;
+            gap: 18px;
+            font-size: 1.1rem;
+            color: #1a1a1a;
+        }
+        .header-actions a {
+            opacity: 0.5;
+            transition: opacity 0.2s;
+        }
+        .header-actions a:hover {
+            opacity: 1;
+            color: #003057;
+        }
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.6rem;
+            cursor: pointer;
+            color: #003057;
+        }
 
-    /* Mega-menu */
-    .mega-menu {
-      position: absolute;
-      top: 100%;
-      left: 50%;
-      transform: translateX(-50%) translateY(8px);
-      background: #ffffff;
-      padding: 30px 40px;
-      min-width: 680px;
-      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.06);
-      border-radius: 0 0 8px 8px;
-      opacity: 0;
-      visibility: hidden;
-      transition: opacity 0.25s, visibility 0.25s, transform 0.25s;
-      display: flex;
-      gap: 40px;
-      border-top: 3px solid #d4a843;
-      pointer-events: none;
-      z-index: 100;
-    }
-    .header-nav>li:hover .mega-menu {
-      opacity: 1;
-      visibility: visible;
-      transform: translateX(-50%) translateY(0);
-      pointer-events: auto;
-    }
-    .mega-menu ul {
-      list-style: none;
-      min-width: 140px;
-    }
-    .mega-menu ul li {
-      margin-bottom: 6px;
-    }
-    .mega-menu ul li a {
-      font-size: 0.9rem;
-      color: #333;
-      transition: color 0.2s;
-    }
-    .mega-menu ul li a:hover {
-      color: #003057;
-    }
-    .mega-menu h4 {
-      font-weight: 700;
-      font-size: 0.8rem;
-      letter-spacing: 1px;
-      color: #003057;
-      margin-bottom: 12px;
-      text-transform: uppercase;
-    }
+        /* ===== HERO (як на samsonite.ua) ===== */
+        .hero {
+            padding: 40px 24px 60px;
+            max-width: 1280px;
+            margin: 0 auto;
+        }
+        .hero .label {
+            font-size: 0.7rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            color: #d4a843;
+            margin-bottom: 8px;
+        }
+        .hero h1 {
+            font-size: clamp(1.8rem, 3vw, 2.8rem);
+            font-weight: 300;
+            color: #003057;
+            margin-bottom: 4px;
+        }
+        .hero h1 strong {
+            font-weight: 700;
+        }
+        .hero .sub {
+            font-size: 0.95rem;
+            font-weight: 300;
+            color: #555;
+            margin-bottom: 24px;
+        }
+        .hero .grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+        .hero .grid .item {
+            background: #f8f6f4;
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.3s;
+        }
+        .hero .grid .item:hover {
+            transform: translateY(-4px);
+        }
+        .hero .grid .item img {
+            width: 100%;
+            aspect-ratio: 1/1;
+            object-fit: cover;
+        }
+        .hero .grid .item .info {
+            padding: 16px 20px 20px;
+        }
+        .hero .grid .item .info .name {
+            font-weight: 600;
+            font-size: 1.1rem;
+            color: #003057;
+        }
+        .hero .grid .item .info .desc {
+            font-size: 0.8rem;
+            color: #777;
+            font-weight: 300;
+            margin: 4px 0 8px;
+        }
+        .hero .grid .item .info .price {
+            font-weight: 700;
+            font-size: 1.2rem;
+            color: #003057;
+        }
+        .hero .grid .item .info .btn {
+            display: inline-block;
+            margin-top: 12px;
+            background: #003057;
+            color: #fff;
+            padding: 8px 24px;
+            border-radius: 4px;
+            font-weight: 600;
+            font-size: 0.8rem;
+            transition: background 0.3s;
+        }
+        .hero .grid .item .info .btn:hover {
+            background: #d4a843;
+            color: #003057;
+        }
 
-    .header-actions {
-      display: flex;
-      gap: 20px;
-      font-size: 1.15rem;
-      align-items: center;
-      margin-left: auto;
-    }
-    .header-actions a {
-      color: #1a1a1a;
-      opacity: 0.6;
-      transition: opacity 0.2s, color 0.2s;
-    }
-    .header-actions a:hover {
-      opacity: 1;
-      color: #003057;
-    }
-    .menu-toggle {
-      display: none;
-      font-size: 1.8rem;
-      background: none;
-      border: none;
-      cursor: pointer;
-      margin-right: 15px;
-    }
+        /* ===== КАТЕГОРІЇ (як на samsonite.ua) ===== */
+        .categories {
+            padding: 40px 24px 60px;
+            max-width: 1280px;
+            margin: 0 auto;
+            border-top: 1px solid #e8e4de;
+        }
+        .categories h2 {
+            font-size: 1.6rem;
+            font-weight: 300;
+            color: #003057;
+            margin-bottom: 24px;
+        }
+        .categories h2 strong {
+            font-weight: 700;
+            color: #d4a843;
+        }
+        .categories .grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 16px;
+        }
+        .categories .grid .item {
+            text-align: center;
+            padding: 20px 12px;
+            background: #f8f6f4;
+            border-radius: 8px;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+        .categories .grid .item:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.02);
+        }
+        .categories .grid .item .icon {
+            font-size: 2.4rem;
+            display: block;
+            margin-bottom: 8px;
+        }
+        .categories .grid .item h4 {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #003057;
+        }
 
-    /* ===== HERO SLIDER ===== */
-    .hero-slider {
-      position: relative;
-      overflow: hidden;
-      height: 85vh;
-      min-height: 500px;
-      background: #e8edf2;
-    }
-    .hero-slides {
-      display: flex;
-      width: 300%;
-      height: 100%;
-      transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    }
-    .hero-slide {
-      width: 100%;
-      height: 100%;
-      display: flex;
-      align-items: center;
-      position: relative;
-      flex-shrink: 0;
-      background-size: cover;
-      background-position: center;
-    }
-    .hero-slide::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(90deg, rgba(0, 48, 87, 0.4) 0%, rgba(0, 48, 87, 0.1) 70%, transparent 100%);
-    }
-    .hero-content {
-      position: relative;
-      z-index: 2;
-      max-width: 620px;
-      color: #fff;
-      padding: 0 24px;
-    }
-    .hero-content .label {
-      font-size: 0.75rem;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 4px;
-      color: #d4a843;
-      margin-bottom: 12px;
-    }
-    .hero-content h1 {
-      font-size: clamp(2.6rem, 6vw, 4.6rem);
-      font-weight: 300;
-      line-height: 1.08;
-      margin-bottom: 16px;
-    }
-    .hero-content h1 strong {
-      font-weight: 700;
-      color: #d4a843;
-    }
-    .hero-content p {
-      font-size: 1.1rem;
-      font-weight: 300;
-      opacity: 0.9;
-      margin-bottom: 32px;
-      max-width: 440px;
-    }
-    .btn-group {
-      display: flex;
-      gap: 16px;
-      flex-wrap: wrap;
-    }
-    .btn-primary {
-      background: #003057;
-      color: #fff;
-      padding: 14px 40px;
-      font-weight: 700;
-      font-size: 0.95rem;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-      border: none;
-      transition: all 0.3s;
-      border-radius: 4px;
-    }
-    .btn-primary:hover {
-      background: #002244;
-      transform: translateY(-2px);
-      box-shadow: 0 10px 30px rgba(0, 48, 87, 0.25);
-    }
-    .btn-secondary {
-      background: transparent;
-      color: #fff;
-      padding: 14px 40px;
-      border: 1px solid rgba(255, 255, 255, 0.4);
-      font-weight: 600;
-      font-size: 0.95rem;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-      transition: all 0.3s;
-      border-radius: 4px;
-    }
-    .btn-secondary:hover {
-      background: #fff;
-      color: #003057;
-      border-color: #fff;
-    }
-    .slider-nav {
-      position: absolute;
-      bottom: 40px;
-      left: 50%;
-      transform: translateX(-50%);
-      display: flex;
-      gap: 12px;
-      z-index: 5;
-    }
-    .slider-nav span {
-      width: 12px;
-      height: 12px;
-      border-radius: 50%;
-      background: rgba(255, 255, 255, 0.35);
-      cursor: pointer;
-      transition: background 0.3s, transform 0.3s;
-    }
-    .slider-nav span.active {
-      background: #d4a843;
-      transform: scale(1.2);
-    }
+        /* ===== РАЗОМ КУПУЮТЬ (як на samsonite.ua) ===== */
+        .together {
+            padding: 40px 24px 60px;
+            max-width: 1280px;
+            margin: 0 auto;
+            border-top: 1px solid #e8e4de;
+        }
+        .together h2 {
+            font-size: 1.6rem;
+            font-weight: 300;
+            color: #003057;
+            margin-bottom: 24px;
+        }
+        .together h2 strong {
+            font-weight: 700;
+            color: #d4a843;
+        }
+        .together .grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+        .together .grid .item {
+            background: #f8f6f4;
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.3s;
+        }
+        .together .grid .item:hover {
+            transform: translateY(-4px);
+        }
+        .together .grid .item img {
+            width: 100%;
+            aspect-ratio: 1/1;
+            object-fit: cover;
+        }
+        .together .grid .item .info {
+            padding: 12px 16px 16px;
+        }
+        .together .grid .item .info .name {
+            font-weight: 600;
+            font-size: 0.95rem;
+            color: #003057;
+        }
+        .together .grid .item .info .price {
+            font-weight: 700;
+            font-size: 1.05rem;
+            color: #003057;
+            margin-top: 4px;
+        }
+        .together .grid .item .info .btn {
+            display: inline-block;
+            margin-top: 8px;
+            background: #003057;
+            color: #fff;
+            padding: 6px 20px;
+            border-radius: 4px;
+            font-weight: 600;
+            font-size: 0.75rem;
+            transition: background 0.3s;
+        }
+        .together .grid .item .info .btn:hover {
+            background: #d4a843;
+            color: #003057;
+        }
 
-    /* ===== ЗАГАЛЬНІ БЛОКИ ===== */
-    section {
-      padding: 80px 0;
-    }
-    .section-title {
-      font-size: 2.6rem;
-      font-weight: 300;
-      letter-spacing: -0.5px;
-      color: #003057;
-      margin-bottom: 8px;
-    }
-    .section-title .gold {
-      color: #d4a843;
-      font-weight: 600;
-    }
-    .section-sub {
-      color: #666;
-      font-weight: 300;
-      margin-bottom: 40px;
-    }
-    .section-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-end;
-      flex-wrap: wrap;
-      gap: 16px;
-      margin-bottom: 40px;
-    }
-    .view-all {
-      font-weight: 600;
-      color: #003057;
-      border-bottom: 2px solid #d4a843;
-      padding-bottom: 4px;
-      transition: opacity 0.2s;
-    }
-    .view-all:hover {
-      opacity: 0.7;
-    }
+        /* ===== КОРИСНІ ПУБЛІКАЦІЇ (як на samsonite.ua) ===== */
+        .blog {
+            padding: 40px 24px 60px;
+            max-width: 1280px;
+            margin: 0 auto;
+            border-top: 1px solid #e8e4de;
+        }
+        .blog h2 {
+            font-size: 1.6rem;
+            font-weight: 300;
+            color: #003057;
+            margin-bottom: 24px;
+        }
+        .blog h2 strong {
+            font-weight: 700;
+            color: #d4a843;
+        }
+        .blog .grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+        .blog .grid .item {
+            background: #f8f6f4;
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.3s;
+        }
+        .blog .grid .item:hover {
+            transform: translateY(-4px);
+        }
+        .blog .grid .item img {
+            width: 100%;
+            aspect-ratio: 16/9;
+            object-fit: cover;
+        }
+        .blog .grid .item .content {
+            padding: 16px 20px 20px;
+        }
+        .blog .grid .item .content .date {
+            font-size: 0.7rem;
+            color: #999;
+            font-weight: 300;
+        }
+        .blog .grid .item .content h4 {
+            font-weight: 600;
+            font-size: 1rem;
+            color: #003057;
+            margin: 4px 0 8px;
+        }
+        .blog .grid .item .content p {
+            font-weight: 300;
+            color: #555;
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
 
-    /* ===== КАТЕГОРІЇ (іконки) ===== */
-    .categories-grid {
-      display: grid;
-      grid-template-columns: repeat(6, 1fr);
-      gap: 20px;
-      text-align: center;
-    }
-    .category-item {
-      padding: 20px 10px;
-      background: #ffffff;
-      border-radius: 8px;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.02);
-      transition: transform 0.3s, box-shadow 0.3s;
-      cursor: pointer;
-      border: 1px solid #eef2f6;
-    }
-    .category-item:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 8px 30px rgba(0, 48, 87, 0.08);
-      border-color: #d4a843;
-    }
-    .category-item .icon {
-      font-size: 2.6rem;
-      margin-bottom: 8px;
-      display: block;
-    }
-    .category-item h4 {
-      font-weight: 600;
-      font-size: 0.9rem;
-      color: #003057;
-    }
+        /* ===== FOOTER (як на samsonite.ua) ===== */
+        .site-footer {
+            background: #003057;
+            color: rgba(255, 255, 255, 0.7);
+            padding: 50px 24px 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
+        }
+        .footer-inner {
+            max-width: 1280px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+        }
+        .footer-inner .col h4 {
+            color: #d4a843;
+            font-weight: 600;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 14px;
+        }
+        .footer-inner .col p,
+        .footer-inner .col a {
+            font-weight: 300;
+            font-size: 0.9rem;
+            line-height: 1.8;
+            color: rgba(255, 255, 255, 0.6);
+            transition: color 0.2s;
+        }
+        .footer-inner .col a:hover {
+            color: #fff;
+        }
+        .footer-inner .col .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 8px;
+        }
+        .footer-inner .col .logo span {
+            color: #d4a843;
+        }
+        .footer-inner .col .social {
+            display: flex;
+            gap: 16px;
+            font-size: 1.4rem;
+            margin-top: 12px;
+        }
+        .footer-inner .col .social a {
+            opacity: 0.5;
+            transition: opacity 0.2s;
+        }
+        .footer-inner .col .social a:hover {
+            opacity: 1;
+        }
+        .footer-bottom {
+            max-width: 1280px;
+            margin: 30px auto 0;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 12px;
+            font-size: 0.8rem;
+            font-weight: 300;
+        }
+        .footer-bottom a {
+            color: rgba(255, 255, 255, 0.4);
+            margin-left: 20px;
+            transition: color 0.2s;
+        }
+        .footer-bottom a:hover {
+            color: #d4a843;
+        }
 
-    /* ===== КАТЕГОРІЇ ВАЛІЗ (розміри) ===== */
-    .suitcase-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 24px;
-    }
-    .suitcase-card {
-      position: relative;
-      border-radius: 8px;
-      overflow: hidden;
-      aspect-ratio: 3/4;
-      background-size: cover;
-      background-position: center;
-      display: flex;
-      align-items: flex-end;
-      padding: 24px;
-      transition: transform 0.4s;
-    }
-    .suitcase-card::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(to top, rgba(0, 48, 87, 0.6) 0%, transparent 70%);
-    }
-    .suitcase-card:hover {
-      transform: scale(1.02);
-    }
-    .suitcase-card .info {
-      position: relative;
-      z-index: 2;
-      color: #fff;
-    }
-    .suitcase-card .info h4 {
-      font-weight: 700;
-      font-size: 1.6rem;
-      letter-spacing: 1px;
-    }
-    .suitcase-card .info p {
-      font-weight: 300;
-      opacity: 0.8;
-    }
+        /* ===== АДАПТИВ ===== */
+        @media (max-width: 1024px) {
+            .hero .grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .together .grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .blog .grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .categories .grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            .footer-inner {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
 
-    /* ===== ТОВАРИ ===== */
-    .product-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 30px;
-    }
-    .product-card {
-      background: #ffffff;
-      border-radius: 8px;
-      overflow: hidden;
-      transition: transform 0.3s, box-shadow 0.3s;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.02);
-    }
-    .product-card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 12px 40px rgba(0, 48, 87, 0.06);
-    }
-    .product-image {
-      position: relative;
-      overflow: hidden;
-      aspect-ratio: 3/4;
-      background: #f0f2f5;
-    }
-    .product-image img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: opacity 0.5s;
-    }
-    .product-image .hover-img {
-      position: absolute;
-      inset: 0;
-      opacity: 0;
-    }
-    .product-card:hover .hover-img {
-      opacity: 1;
-    }
-    .product-card:hover .product-image img:first-child {
-      opacity: 0;
-    }
-    .badge {
-      position: absolute;
-      top: 16px;
-      left: 16px;
-      background: #d4a843;
-      color: #003057;
-      font-size: 0.65rem;
-      font-weight: 700;
-      letter-spacing: 1.5px;
-      padding: 4px 14px;
-      border-radius: 3px;
-      text-transform: uppercase;
-    }
-    .badge.sale {
-      background: #c0392b;
-      color: #fff;
-    }
-    .product-meta {
-      padding: 16px 16px 20px;
-    }
-    .product-meta .brand {
-      font-size: 0.7rem;
-      text-transform: uppercase;
-      letter-spacing: 1.5px;
-      color: #999;
-      font-weight: 600;
-    }
-    .product-meta h4 {
-      font-weight: 500;
-      margin: 4px 0 6px;
-      font-size: 1rem;
-      color: #003057;
-    }
-    .product-meta .price {
-      font-weight: 700;
-      font-size: 1.1rem;
-      color: #003057;
-    }
-    .product-meta .price del {
-      color: #b0b0b0;
-      font-weight: 400;
-      margin-right: 8px;
-      font-size: 0.9rem;
-    }
-    .btn-wishlist {
-      position: absolute;
-      top: 12px;
-      right: 12px;
-      background: rgba(255, 255, 255, 0.9);
-      border: 1px solid #eef2f6;
-      width: 36px;
-      height: 36px;
-      border-radius: 50%;
-      font-size: 1rem;
-      cursor: pointer;
-      transition: all 0.3s;
-      opacity: 0;
-    }
-    .product-card:hover .btn-wishlist {
-      opacity: 1;
-    }
-    .btn-wishlist:hover {
-      background: #d4a843;
-      color: #fff;
-      border-color: #d4a843;
-    }
+        @media (max-width: 820px) {
+            .header-nav {
+                display: none;
+            }
+            .menu-toggle {
+                display: block;
+            }
+            .hero .grid {
+                grid-template-columns: 1fr;
+            }
+            .together .grid {
+                grid-template-columns: 1fr;
+            }
+            .blog .grid {
+                grid-template-columns: 1fr;
+            }
+            .categories .grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .footer-inner {
+                grid-template-columns: 1fr;
+            }
+            .footer-bottom {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+            .footer-bottom a {
+                margin: 0 10px;
+            }
+            .header-actions .hide-mobile {
+                display: none;
+            }
+        }
 
-    /* ===== TRAVEL 50/50 ===== */
-    .travel-block {
-      display: flex;
-      min-height: 480px;
-      background: #ffffff;
-      border-radius: 8px;
-      overflow: hidden;
-      box-shadow: 0 2px 20px rgba(0, 0, 0, 0.02);
-    }
-    .travel-image {
-      flex: 1;
-      background-size: cover;
-      background-position: center;
-      min-height: 300px;
-    }
-    .travel-text {
-      flex: 1;
-      padding: 60px 48px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      background: #fafcfe;
-    }
-    .travel-text .label {
-      font-size: 0.7rem;
-      text-transform: uppercase;
-      letter-spacing: 3px;
-      color: #d4a843;
-      font-weight: 700;
-      margin-bottom: 8px;
-    }
-    .travel-text h2 {
-      font-size: clamp(2.2rem, 3.5vw, 3.2rem);
-      font-weight: 300;
-      color: #003057;
-      margin-bottom: 12px;
-    }
-    .travel-text h2 strong {
-      font-weight: 700;
-      color: #d4a843;
-    }
-    .travel-text p {
-      color: #555;
-      font-weight: 300;
-      max-width: 400px;
-      margin-bottom: 28px;
-    }
-
-    /* ===== ПІДБІР ВАЛІЗИ ===== */
-    .picker-section {
-      background: #ffffff;
-      border-radius: 8px;
-      padding: 60px 40px;
-      text-align: center;
-      box-shadow: 0 2px 20px rgba(0, 0, 0, 0.02);
-    }
-    .picker-options {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 16px;
-      margin: 28px 0 12px;
-    }
-    .picker-options button {
-      background: #f0f2f5;
-      border: 1px solid #e0e4e9;
-      padding: 10px 32px;
-      border-radius: 30px;
-      cursor: pointer;
-      font-weight: 500;
-      font-size: 0.95rem;
-      transition: all 0.25s;
-      color: #1a1a1a;
-    }
-    .picker-options button:hover,
-    .picker-options button.active {
-      background: #003057;
-      color: #fff;
-      border-color: #003057;
-    }
-    .picker-result {
-      margin-top: 20px;
-      font-weight: 300;
-      font-size: 1.1rem;
-      color: #333;
-    }
-    .picker-result a {
-      color: #003057;
-      font-weight: 600;
-      border-bottom: 1px solid #d4a843;
-      padding-bottom: 2px;
-    }
-
-    /* ===== ТАБИ ===== */
-    .tab-bar {
-      display: flex;
-      gap: 8px;
-      margin-bottom: 30px;
-      flex-wrap: wrap;
-      border-bottom: 2px solid #e8edf2;
-      padding-bottom: 2px;
-    }
-    .tab-bar button {
-      background: none;
-      border: none;
-      padding: 10px 24px;
-      font-size: 0.95rem;
-      font-weight: 600;
-      cursor: pointer;
-      color: #777;
-      transition: color 0.2s, border-color 0.2s;
-      border-bottom: 3px solid transparent;
-      margin-bottom: -2px;
-    }
-    .tab-bar button.active {
-      color: #003057;
-      border-color: #d4a843;
-    }
-    .tab-bar button:hover {
-      color: #003057;
-    }
-    .tab-content {
-      display: none;
-    }
-    .tab-content.active {
-      display: block;
-    }
-
-    /* ===== РОЗПРОДАЖ БАНЕР ===== */
-    .sale-banner {
-      background: #003057;
-      color: #fff;
-      padding: 60px 40px;
-      text-align: center;
-      border-radius: 8px;
-      position: relative;
-      overflow: hidden;
-    }
-    .sale-banner .percent {
-      font-size: 6rem;
-      font-weight: 700;
-      opacity: 0.06;
-      position: absolute;
-      right: 20px;
-      top: -10px;
-      color: #d4a843;
-    }
-    .sale-banner h2 {
-      font-size: 2.8rem;
-      font-weight: 300;
-    }
-    .sale-banner h2 strong {
-      font-weight: 700;
-      color: #d4a843;
-    }
-    .sale-banner p {
-      font-weight: 300;
-      opacity: 0.8;
-      margin: 12px 0 28px;
-    }
-    .sale-banner .btn-primary {
-      background: #d4a843;
-      color: #003057;
-    }
-    .sale-banner .btn-primary:hover {
-      background: #e8c35a;
-      box-shadow: 0 10px 30px rgba(212, 168, 67, 0.3);
-    }
-
-    /* ===== ПЕРЕВАГИ ===== */
-    .advantages-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 30px;
-      text-align: center;
-    }
-    .adv-item .icon {
-      font-size: 2.2rem;
-      margin-bottom: 8px;
-      display: block;
-    }
-    .adv-item strong {
-      display: block;
-      font-weight: 600;
-      font-size: 1.05rem;
-      color: #003057;
-    }
-    .adv-item span {
-      color: #777;
-      font-weight: 300;
-    }
-
-    /* ===== БРЕНДИ ===== */
-    .brand-logos {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 50px;
-      align-items: center;
-    }
-    .brand-logos span {
-      font-size: 1.8rem;
-      font-weight: 300;
-      letter-spacing: 2px;
-      color: #b0b8c0;
-      transition: color 0.3s;
-    }
-    .brand-logos span:hover {
-      color: #003057;
-    }
-
-    /* ===== ВІДГУКИ ===== */
-    .review-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 30px;
-    }
-    .review-card {
-      background: #ffffff;
-      padding: 28px;
-      border-radius: 8px;
-      border-left: 4px solid #d4a843;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.02);
-    }
-    .review-card .stars {
-      color: #d4a843;
-      letter-spacing: 2px;
-      font-size: 1.1rem;
-      margin-bottom: 6px;
-    }
-    .review-card p {
-      font-weight: 300;
-      color: #333;
-      font-style: italic;
-    }
-    .review-card .author {
-      margin-top: 12px;
-      font-weight: 600;
-      color: #003057;
-    }
-    .review-card .author span {
-      font-weight: 300;
-      color: #999;
-    }
-
-    /* ===== БЛОГ ===== */
-    .blog-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 30px;
-    }
-    .blog-item {
-      background: #ffffff;
-      border-radius: 8px;
-      overflow: hidden;
-      transition: transform 0.3s;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.02);
-    }
-    .blog-item:hover {
-      transform: translateY(-6px);
-    }
-    .blog-item img {
-      width: 100%;
-      aspect-ratio: 16/9;
-      object-fit: cover;
-    }
-    .blog-item .content {
-      padding: 20px 24px 24px;
-    }
-    .blog-item .content h4 {
-      font-weight: 600;
-      color: #003057;
-      margin-bottom: 4px;
-    }
-    .blog-item .content p {
-      font-weight: 300;
-      color: #555;
-      font-size: 0.95rem;
-    }
-
-    /* ===== INSTAGRAM ===== */
-    .instagram-grid {
-      display: grid;
-      grid-template-columns: repeat(6, 1fr);
-      gap: 6px;
-    }
-    .instagram-grid img {
-      aspect-ratio: 1/1;
-      object-fit: cover;
-      border-radius: 4px;
-      transition: transform 0.3s;
-    }
-    .instagram-grid img:hover {
-      transform: scale(1.02);
-    }
-
-    /* ===== NEWSLETTER ===== */
-    .newsletter {
-      background: #ffffff;
-      text-align: center;
-      padding: 70px 24px;
-      border-radius: 8px;
-      box-shadow: 0 2px 20px rgba(0, 0, 0, 0.02);
-    }
-    .newsletter h2 {
-      font-weight: 300;
-      font-size: 2.4rem;
-      color: #003057;
-    }
-    .newsletter h2 strong {
-      color: #d4a843;
-      font-weight: 600;
-    }
-    .newsletter p {
-      color: #666;
-      font-weight: 300;
-      margin-bottom: 28px;
-    }
-    .newsletter form {
-      display: flex;
-      justify-content: center;
-      gap: 12px;
-      flex-wrap: wrap;
-      max-width: 500px;
-      margin: 0 auto;
-    }
-    .newsletter input {
-      flex: 1;
-      min-width: 200px;
-      padding: 14px 20px;
-      border: 1px solid #dce2e8;
-      border-radius: 4px;
-      font-size: 1rem;
-      background: #fafcfe;
-    }
-    .newsletter button {
-      background: #003057;
-      color: #fff;
-      border: none;
-      padding: 14px 36px;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      border-radius: 4px;
-      cursor: pointer;
-      transition: background 0.3s;
-    }
-    .newsletter button:hover {
-      background: #002244;
-    }
-
-    /* ===== FOOTER ===== */
-    .site-footer {
-      background: #003057;
-      color: rgba(255, 255, 255, 0.7);
-      padding: 60px 24px 30px;
-    }
-    .footer-grid {
-      max-width: 1280px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 40px;
-      margin-bottom: 40px;
-    }
-    .footer-grid h4 {
-      color: #d4a843;
-      font-weight: 700;
-      font-size: 0.9rem;
-      text-transform: uppercase;
-      letter-spacing: 1.5px;
-      margin-bottom: 16px;
-    }
-    .footer-grid ul {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-    }
-    .footer-grid ul a {
-      font-weight: 300;
-      font-size: 0.9rem;
-      transition: color 0.2s;
-    }
-    .footer-grid ul a:hover {
-      color: #fff;
-    }
-    .footer-bottom {
-      max-width: 1280px;
-      margin: 0 auto;
-      border-top: 1px solid rgba(255, 255, 255, 0.06);
-      padding-top: 24px;
-      display: flex;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 12px;
-      font-size: 0.85rem;
-      font-weight: 300;
-    }
-    .footer-bottom a {
-      margin-left: 20px;
-      transition: color 0.2s;
-    }
-    .footer-bottom a:hover {
-      color: #d4a843;
-    }
-
-    /* ===== REVEAL ===== */
-    .reveal {
-      opacity: 0;
-      transform: translateY(40px);
-      transition: opacity 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-                  transform 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    }
-    .reveal.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    /* ===== АДАПТИВ ===== */
-    @media (max-width: 1024px) {
-      .categories-grid { grid-template-columns: repeat(3, 1fr); }
-      .product-grid { grid-template-columns: repeat(2, 1fr); }
-      .suitcase-grid { grid-template-columns: repeat(2, 1fr); }
-      .blog-grid { grid-template-columns: repeat(2, 1fr); }
-      .footer-grid { grid-template-columns: repeat(2, 1fr); }
-      .review-grid { grid-template-columns: repeat(2, 1fr); }
-      .instagram-grid { grid-template-columns: repeat(3, 1fr); }
-    }
-
-    @media (max-width: 820px) {
-      .header-nav { display: none; }
-      .menu-toggle { display: block; }
-      .header-actions .hide-mobile { display: none; }
-      .hero-slider { height: 70vh; min-height: 420px; }
-      .hero-content h1 { font-size: 2.4rem; }
-      .travel-block { flex-direction: column; }
-      .travel-text { padding: 40px 28px; }
-      .sale-banner .percent { font-size: 4rem; }
-      .sale-banner h2 { font-size: 2rem; }
-      .advantages-grid { grid-template-columns: repeat(2, 1fr); }
-    }
-
-    @media (max-width: 600px) {
-      .categories-grid { grid-template-columns: repeat(2, 1fr); }
-      .product-grid { grid-template-columns: 1fr 1fr; gap: 16px; }
-      .suitcase-grid { grid-template-columns: 1fr; }
-      .blog-grid { grid-template-columns: 1fr; }
-      .review-grid { grid-template-columns: 1fr; }
-      .footer-grid { grid-template-columns: 1fr; }
-      .instagram-grid { grid-template-columns: repeat(2, 1fr); }
-      .section-title { font-size: 2rem; }
-      .hero-slider { height: 60vh; }
-      .hero-content h1 { font-size: 2rem; }
-      .site-header { height: 64px; padding: 0 16px; }
-      .header-logo { font-size: 1.4rem; margin-right: 16px; }
-      .picker-section { padding: 40px 20px; }
-      .sale-banner { padding: 40px 20px; }
-    }
-  </style>
+        @media (max-width: 600px) {
+            .hero h1 {
+                font-size: 1.6rem;
+            }
+            .categories .grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            .top-banner {
+                font-size: 0.7rem;
+                padding: 6px 12px;
+            }
+            .header-logo {
+                font-size: 1.4rem;
+            }
+        }
+    </style>
 </head>
 <body>
 
-  <!-- ===== HEADER ===== -->
-  <header class="site-header" id="siteHeader">
-    <div class="header-inner">
-      <button class="menu-toggle" aria-label="Меню">☰</button>
-      <a href="#" class="header-logo">VIP<span>.</span></a>
+    <!-- ===== TOP BANNER (як на samsonite.ua) ===== -->
+    <div class="top-banner">
+        🎁 Електронні сертифікати від 1000 грн
+        <a href="#">Обирайте ідеальний подарунок →</a>
+    </div>
 
-      <ul class="header-nav" id="headerNav">
-        <li>
-          <a href="#">Валізи <span class="arrow">▼</span></a>
-          <div class="mega-menu">
-            <div>
-              <h4>За розміром</h4>
-              <ul>
-                <li><a href="#">Ручна (S)</a></li>
-                <li><a href="#">Середня (M)</a></li>
-                <li><a href="#">Велика (L)</a></li>
-                <li><a href="#">XL (75+)</a></li>
-              </ul>
+    <!-- ===== HEADER ===== -->
+    <header class="site-header">
+        <div class="header-inner">
+            <a href="#" class="header-logo">VIP<span>.</span></a>
+            <button class="menu-toggle">☰</button>
+            <nav class="header-nav">
+                <a href="#">Валізи</a>
+                <a href="#">Сумки</a>
+                <a href="#">Рюкзаки</a>
+                <a href="#">Галантерея</a>
+                <a href="#">Новинки</a>
+                <a href="#">Розпродаж</a>
+            </nav>
+            <div class="header-actions">
+                <a href="#" class="hide-mobile">⌕</a>
+                <a href="#" class="hide-mobile">♡</a>
+                <a href="#" class="hide-mobile">👤</a>
+                <a href="#">🛒</a>
             </div>
-            <div>
-              <h4>За матеріалом</h4>
-              <ul>
-                <li><a href="#">Полікарбонат</a></li>
-                <li><a href="#">ABS</a></li>
-                <li><a href="#">Текстиль</a></li>
-                <li><a href="#">Алюміній</a></li>
-              </ul>
+        </div>
+    </header>
+
+    <!-- ===== HERO (як на samsonite.ua) ===== -->
+    <section class="hero">
+        <div class="label">Персональні пропозиції для вас</div>
+        <h1>Підберіть <strong>свій образ</strong></h1>
+        <p class="sub">Колекція, яка підкреслить ваш стиль у будь-якій подорожі</p>
+
+        <div class="grid">
+            <div class="item">
+                <img src="https://images.unsplash.com/photo-1544441893-675973e31985?w=400&q=80" alt="VIP Collection">
+                <div class="info">
+                    <div class="name">VIP Collection — Classic</div>
+                    <div class="desc">Валіза 55 см · натуральна шкіра · 4 колеса</div>
+                    <div class="price">4 290 ₴</div>
+                    <a href="#" class="btn">Детальніше</a>
+                </div>
             </div>
-            <div>
-              <h4>За призначенням</h4>
-              <ul>
-                <li><a href="#">Для подорожей</a></li>
-                <li><a href="#">Бізнес</a></li>
-                <li><a href="#">Сімейні</a></li>
-                <li><a href="#">Дитячі</a></li>
-              </ul>
+            <div class="item">
+                <img src="https://images.unsplash.com/photo-1607552384479-9f2f21dd4d78?w=400&q=80" alt="VIP Collection">
+                <div class="info">
+                    <div class="name">VIP Collection — Travel</div>
+                    <div class="desc">Валіза 75 см · міцний полікарбонат · TSA замок</div>
+                    <div class="price">6 990 ₴</div>
+                    <a href="#" class="btn">Детальніше</a>
+                </div>
             </div>
-          </div>
-        </li>
-        <li><a href="#">Рюкзаки</a></li>
-        <li><a href="#">Сумки</a></li>
-        <li><a href="#">Галантерея</a></li>
-        <li><a href="#">Новинки</a></li>
-        <li><a href="#">Розпродаж</a></li>
-      </ul>
-
-      <div class="header-actions">
-        <a href="#" class="hide-mobile">⌕</a>
-        <a href="#" class="hide-mobile">♡</a>
-        <a href="#" class="hide-mobile">👤</a>
-        <a href="#">🛒</a>
-      </div>
-    </div>
-  </header>
-
-  <!-- ===== HERO SLIDER ===== -->
-  <div class="hero-slider" id="heroSlider">
-    <div class="hero-slides" id="heroSlides">
-      <div class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1544441893-675973e31985?w=1600&q=80');">
-        <div class="hero-content">
-          <div class="label">VIP Collection 2026</div>
-          <h1><strong>Подорожуйте</strong> з комфортом</h1>
-          <p>Валізи, сумки та аксесуари, створені для ваших подорожей.</p>
-          <div class="btn-group">
-            <a href="#" class="btn-primary">Валізи</a>
-            <a href="#" class="btn-secondary">Аксесуари</a>
-          </div>
+            <div class="item">
+                <img src="https://images.unsplash.com/photo-1566150905458-1bf1fc113f0d?w=400&q=80" alt="VIP Collection">
+                <div class="info">
+                    <div class="name">VIP Collection — Business</div>
+                    <div class="desc">Сумка для ноутбука · натуральна шкіра</div>
+                    <div class="price">5 690 ₴</div>
+                    <a href="#" class="btn">Детальніше</a>
+                </div>
+            </div>
         </div>
-      </div>
-      <div class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?w=1600&q=80');">
-        <div class="hero-content">
-          <div class="label">Нова колекція</div>
-          <h1><strong>Стиль</strong> у кожній деталі</h1>
-          <p>Елегантні рюкзаки та сумки для міста та подорожей.</p>
-          <div class="btn-group">
-            <a href="#" class="btn-primary">Новинки</a>
-            <a href="#" class="btn-secondary">Каталог</a>
-          </div>
+    </section>
+
+    <!-- ===== КАТЕГОРІЇ ===== -->
+    <section class="categories">
+        <h2>Категорії <strong>VIP</strong></h2>
+        <div class="grid">
+            <div class="item"><span class="icon">🧳</span><h4>Валізи</h4></div>
+            <div class="item"><span class="icon">👜</span><h4>Сумки</h4></div>
+            <div class="item"><span class="icon">🎒</span><h4>Рюкзаки</h4></div>
+            <div class="item"><span class="icon">👛</span><h4>Галантерея</h4></div>
+            <div class="item"><span class="icon">🧴</span><h4>Аксесуари</h4></div>
         </div>
-      </div>
-      <div class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1534430480872-ef16b6eb4321?w=1600&q=80');">
-        <div class="hero-content">
-          <div class="label">Розпродаж</div>
-          <h1><strong>Знижки</strong> до -50%</h1>
-          <p>Встигніть придбати улюблені моделі за вигідними цінами.</p>
-          <div class="btn-group">
-            <a href="#" class="btn-primary">Переглянути</a>
-          </div>
+    </section>
+
+    <!-- ===== РАЗОМ КУПУЮТЬ (як на samsonite.ua) ===== -->
+    <section class="together">
+        <h2>Разом <strong>купують</strong></h2>
+        <div class="grid">
+            <div class="item">
+                <img src="https://images.unsplash.com/photo-1601924971179-d6f38f24ce3d?w=400&q=80" alt="Гаманець">
+                <div class="info">
+                    <div class="name">Гаманець шкіряний</div>
+                    <div class="price">1 290 ₴</div>
+                    <a href="#" class="btn">Купити</a>
+                </div>
+            </div>
+            <div class="item">
+                <img src="https://images.unsplash.com/photo-1601758063897-1d9b4e4f13c0?w=400&q=80" alt="Портмоне">
+                <div class="info">
+                    <div class="name">Портмоне жіноче</div>
+                    <div class="price">890 ₴</div>
+                    <a href="#" class="btn">Купити</a>
+                </div>
+            </div>
+            <div class="item">
+                <img src="https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=400&q=80" alt="Рюкзак">
+                <div class="info">
+                    <div class="name">Рюкзак City</div>
+                    <div class="price">5 690 ₴</div>
+                    <a href="#" class="btn">Купити</a>
+                </div>
+            </div>
+            <div class="item">
+                <img src="https://images.unsplash.com/photo-1559588358-2f9bd1d49c22?w=400&q=80" alt="Валіза">
+                <div class="info">
+                    <div class="name">Валіза ручна</div>
+                    <div class="price">3 990 ₴</div>
+                    <a href="#" class="btn">Купити</a>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-    <div class="slider-nav" id="sliderNav">
-      <span class="active" data-slide="0"></span>
-      <span data-slide="1"></span>
-      <span data-slide="2"></span>
-    </div>
-  </div>
+    </section>
 
-  <!-- ===== ШВИДКІ КАТЕГОРІЇ ===== -->
-  <section>
-    <div class="container">
-      <h2 class="section-title reveal">Знайдіть <span class="gold">те, що вам потрібно</span></h2>
-      <div class="categories-grid">
-        <div class="category-item reveal"><span class="icon">🧳</span><h4>Валізи</h4></div>
-        <div class="category-item reveal reveal-delay-1"><span class="icon">🎒</span><h4>Рюкзаки</h4></div>
-        <div class="category-item reveal reveal-delay-2"><span class="icon">👜</span><h4>Сумки</h4></div>
-        <div class="category-item reveal reveal-delay-3"><span class="icon">👛</span><h4>Гаманці</h4></div>
-        <div class="category-item reveal reveal-delay-4"><span class="icon">🧴</span><h4>Дорожні набори</h4></div>
-        <div class="category-item reveal reveal-delay-5"><span class="icon">🧣</span><h4>Аксесуари</h4></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== КАТЕГОРІЇ ВАЛІЗ ===== -->
-  <section style="background:#fafcfe;">
-    <div class="container">
-      <h2 class="section-title reveal">Оберіть <span class="gold">свою валізу</span></h2>
-      <div class="suitcase-grid">
-        <div class="suitcase-card reveal" style="background-image:url('https://images.unsplash.com/photo-1607552384479-9f2f21dd4d78?w=600&q=80');">
-          <div class="info"><h4>Ручна</h4><p>до 55 см</p></div>
+    <!-- ===== КОРИСНІ ПУБЛІКАЦІЇ (як на samsonite.ua) ===== -->
+    <section class="blog">
+        <h2>Корисні <strong>публікації</strong></h2>
+        <div class="grid">
+            <div class="item">
+                <img src="https://images.unsplash.com/photo-1544441893-675973e31985?w=600&q=80" alt="Стаття 1">
+                <div class="content">
+                    <div class="date">2025-07-28</div>
+                    <h4>ТОП-5 шкіряних сумок для міста</h4>
+                    <p>Стильні та практичні моделі для щоденного використання.</p>
+                </div>
+            </div>
+            <div class="item">
+                <img src="https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?w=600&q=80" alt="Стаття 2">
+                <div class="content">
+                    <div class="date">2025-07-11</div>
+                    <h4>Як обрати шкіряну валізу</h4>
+                    <p>Поради щодо вибору матеріалу, розміру та фурнітури.</p>
+                </div>
+            </div>
+            <div class="item">
+                <img src="https://images.unsplash.com/photo-1601924971179-d6f38f24ce3d?w=600&q=80" alt="Стаття 3">
+                <div class="content">
+                    <div class="date">2025-06-16</div>
+                    <h4>Догляд за натуральною шкірою</h4>
+                    <p>Прості правила, які продовжать життя вашим аксесуарам.</p>
+                </div>
+            </div>
         </div>
-        <div class="suitcase-card reveal reveal-delay-1" style="background-image:url('https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=600&q=80');">
-          <div class="info"><h4>Середня</h4><p>55–70 см</p></div>
+    </section>
+
+    <!-- ===== FOOTER (як на samsonite.ua) ===== -->
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <div class="col">
+                <div class="logo">VIP<span>.</span></div>
+                <p>Преміальна шкіргалантерея та travel-аксесуари. Створено з любов'ю до деталей.</p>
+                <div class="social">
+                    <a href="#">📷</a>
+                    <a href="#">📘</a>
+                    <a href="#">📺</a>
+                </div>
+            </div>
+            <div class="col">
+                <h4>Каталог</h4>
+                <a href="#">Валізи</a><br />
+                <a href="#">Сумки</a><br />
+                <a href="#">Рюкзаки</a><br />
+                <a href="#">Галантерея</a><br />
+                <a href="#">Аксесуари</a>
+            </div>
+            <div class="col">
+                <h4>Покупцям</h4>
+                <a href="#">Доставка</a><br />
+                <a href="#">Оплата</a><br />
+                <a href="#">Повернення</a><br />
+                <a href="#">Гарантія</a><br />
+                <a href="#">FAQ</a>
+            </div>
+            <div class="col">
+                <h4>Контакти</h4>
+                <p>+38 (044) 123-45-67</p>
+                <p>info@vip.ua</p>
+                <p>Пн–Пт: 10:00 – 20:00</p>
+            </div>
         </div>
-        <div class="suitcase-card reveal reveal-delay-2" style="background-image:url('https://images.unsplash.com/photo-1559588358-2f9bd1d49c22?w=600&q=80');">
-          <div class="info"><h4>Велика</h4><p>70–85 см</p></div>
+        <div class="footer-bottom">
+            <span>© VIP Collection 2026</span>
+            <div>
+                <a href="#">Політика конфіденційності</a>
+                <a href="#">Публічна оферта</a>
+            </div>
         </div>
-        <div class="suitcase-card reveal reveal-delay-3" style="background-image:url('https://images.unsplash.com/photo-1544441893-675973e31985?w=600&q=80');">
-          <div class="info"><h4>Для тривалих</h4><p>85+ см</p></div>
-        </div>
-      </div>
-    </div>
-  </section>
+    </footer>
 
-  <!-- ===== НОВИНКИ ===== -->
-  <section>
-    <div class="container">
-      <div class="section-header reveal">
-        <div>
-          <h2 class="section-title">Новинки</h2>
-          <div class="section-sub">Свіжі моделі в колекції VIP</div>
-        </div>
-        <a href="#" class="view-all">Всі новинки →</a>
-      </div>
-      <div class="product-grid">
-        <div class="product-card reveal">
-          <a href="#" class="product-image">
-            <img src="https://images.unsplash.com/photo-1559588358-2f9bd1d49c22?w=400&h=500&fit=crop&q=80" alt="">
-            <img class="hover-img" src="https://images.unsplash.com/photo-1607552384479-9f2f21dd4d78?w=400&h=500&fit=crop&q=80" alt="">
-            <span class="badge">NEW</span>
-          </a>
-          <div class="product-meta">
-            <span class="brand">VIP</span>
-            <h4>Валіза 55 см</h4>
-            <div class="price">4 299 ₴</div>
-            <button class="btn-wishlist">♡</button>
-          </div>
-        </div>
-        <div class="product-card reveal reveal-delay-1">
-          <a href="#" class="product-image">
-            <img src="https://images.unsplash.com/photo-1566150905458-1bf1fc113f0d?w=400&h=500&fit=crop&q=80" alt="">
-            <img class="hover-img" src="https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=400&h=500&fit=crop&q=80" alt="">
-            <span class="badge">NEW</span>
-          </a>
-          <div class="product-meta">
-            <span class="brand">VIP Collection</span>
-            <h4>Сумка Crossbody</h4>
-            <div class="price">5 890 ₴ <del>7 200 ₴</del></div>
-            <button class="btn-wishlist">♡</button>
-          </div>
-        </div>
-        <div class="product-card reveal reveal-delay-2">
-          <a href="#" class="product-image">
-            <img src="https://images.unsplash.com/photo-1601758063897-1d9b4e4f13c0?w=400&h=500&fit=crop&q=80" alt="">
-            <img class="hover-img" src="https://images.unsplash.com/photo-1601924971179-d6f38f24ce3d?w=400&h=500&fit=crop&q=80" alt="">
-            <span class="badge">NEW</span>
-          </a>
-          <div class="product-meta">
-            <span class="brand">VIP Collection</span>
-            <h4>Гаманець шкіряний</h4>
-            <div class="price">1 290 ₴</div>
-            <button class="btn-wishlist">♡</button>
-          </div>
-        </div>
-        <div class="product-card reveal reveal-delay-3">
-          <a href="#" class="product-image">
-            <img src="https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=400&h=500&fit=crop&q=80" alt="">
-            <img class="hover-img" src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=400&h=500&fit=crop&q=80" alt="">
-            <span class="badge">NEW</span>
-          </a>
-          <div class="product-meta">
-            <span class="brand">VIP Collection</span>
-            <h4>Рюкзак City</h4>
-            <div class="price">6 450 ₴ <del>8 200 ₴</del></div>
-            <button class="btn-wishlist">♡</button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+    <!-- ===== JAVASCRIPT ===== -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
 
-  <!-- ===== TRAVEL 50/50 ===== -->
-  <section style="padding-top:0;">
-    <div class="container">
-      <div class="travel-block reveal">
-        <div class="travel-image" style="background-image:url('https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?w=800&q=80');"></div>
-        <div class="travel-text">
-          <div class="label">Travel collection</div>
-          <h2>Все для <strong>наступної подорожі</strong></h2>
-          <p>Валізи, дорожні сумки та аксесуари, які допоможуть подорожувати комфортніше.</p>
-          <a href="#" class="view-all" style="align-self:flex-start;">Перейти до Travel →</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== ПІДБІР ВАЛІЗИ ===== -->
-  <section style="background:#fafcfe;">
-    <div class="container">
-      <div class="picker-section reveal">
-        <h2 class="section-title" style="margin-bottom:0;">Яка валіза <span class="gold">вам потрібна?</span></h2>
-        <div class="picker-options" id="daysOptions">
-          <button data-days="1-3">1–3 дні</button>
-          <button data-days="4-7">4–7 днів</button>
-          <button data-days="7+">7+ днів</button>
-        </div>
-        <div class="picker-options" id="transportOptions">
-          <button data-transport="plane">✈️ Літак</button>
-          <button data-transport="car">🚗 Авто</button>
-          <button data-transport="train">🚆 Потяг</button>
-        </div>
-        <div class="picker-result" id="pickerResult">
-          <p style="color:#999;">Оберіть варіанти вище</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== ПОПУЛЯРНІ (ТАБИ) ===== -->
-  <section>
-    <div class="container">
-      <h2 class="section-title reveal">Вибір <span class="gold">наших клієнтів</span></h2>
-      <div class="tab-bar reveal">
-        <button class="active" data-tab="tab1">Валізи</button>
-        <button data-tab="tab2">Рюкзаки</button>
-        <button data-tab="tab3">Сумки</button>
-        <button data-tab="tab4">Аксесуари</button>
-      </div>
-      <div class="tab-content active" id="tab1">
-        <div class="product-grid">
-          <div class="product-card"><a href="#" class="product-image"><img src="https://images.unsplash.com/photo-1559588358-2f9bd1d49c22?w=400&h=500&fit=crop&q=80" alt=""><img class="hover-img" src="https://images.unsplash.com/photo-1607552384479-9f2f21dd4d78?w=400&h=500&fit=crop&q=80" alt=""></a><div class="product-meta"><span class="brand">VIP</span><h4>Валіза 55 см</h4><div class="price">4 299 ₴</div><button class="btn-wishlist">♡</button></div></div>
-          <div class="product-card"><a href="#" class="product-image"><img src="https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=400&h=500&fit=crop&q=80" alt=""><img class="hover-img" src="https://images.unsplash.com/photo-1544441893-675973e31985?w=400&h=500&fit=crop&q=80" alt=""></a><div class="product-meta"><span class="brand">VIP</span><h4>Валіза 75 см</h4><div class="price">6 390 ₴</div><button class="btn-wishlist">♡</button></div></div>
-          <div class="product-card"><a href="#" class="product-image"><img src="https://images.unsplash.com/photo-1607552384479-9f2f21dd4d78?w=400&h=500&fit=crop&q=80" alt=""><img class="hover-img" src="https://images.unsplash.com/photo-1559588358-2f9bd1d49c22?w=400&h=500&fit=crop&q=80" alt=""></a><div class="product-meta"><span class="brand">VIP</span><h4>Валіза 85 см</h4><div class="price">8 990 ₴</div><button class="btn-wishlist">♡</button></div></div>
-          <div class="product-card"><a href="#" class="product-image"><img src="https://images.unsplash.com/photo-1544441893-675973e31985?w=400&h=500&fit=crop&q=80" alt=""><img class="hover-img" src="https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=400&h=500&fit=crop&q=80" alt=""></a><div class="product-meta"><span class="brand">VIP</span><h4>Валіза ручна</h4><div class="price">3 990 ₴</div><button class="btn-wishlist">♡</button></div></div>
-        </div>
-      </div>
-      <div class="tab-content" id="tab2"><div class="product-grid"><div class="product-card"><a href="#" class="product-image"><img src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=400&h=500&fit=crop&q=80" alt=""><img class="hover-img" src="https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=400&h=500&fit=crop&q=80" alt=""></a><div class="product-meta"><span class="brand">VIP Collection</span><h4>Рюкзак City</h4><div class="price">6 450 ₴</div><button class="btn-wishlist">♡</button></div></div><div class="product-card"><a href="#" class="product-image"><img src="https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=400&h=500&fit=crop&q=80" alt=""><img class="hover-img" src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=400&h=500&fit=crop&q=80" alt=""></a><div class="product-meta"><span class="brand">VIP Collection</span><h4>Рюкзак Travel</h4><div class="price">4 990 ₴</div><button class="btn-wishlist">♡</button></div></div><div class="product-card"><a href="#" class="product-image"><img src="https://images.unsplash.com/photo-1607552384479-9f2f21dd4d78?w=400&h=500&fit=crop&q=80" alt=""><img class="hover-img" src="https://images.unsplash.com/photo-1566150905458-1bf1fc113f0d?w=400&h=500&fit=crop&q=80" alt=""></a><div class="product-meta"><span class="brand">VIP Collection</span><h4>Рюкзак Business</h4><div class="price">7 200 ₴</div><button class="btn-wishlist">♡</button></div></div><div class="product-card"><a href="#" class="product-image"><img src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=400&h=500&fit=crop&q=80" alt=""><img class="hover-img" src="https://images.unsplash.com/photo-1601758063897-1d9b4e4f13c0?w=400&h=500&fit=crop&q=80" alt=""></a><div class="product-meta"><span class="brand">VIP Collection</span><h4>Рюкзак Mini</h4><div class="price">3 990 ₴</div><button class="btn-wishlist">♡</button></div></div></div></div>
-      <div class="tab-content" id="tab3"><div class="product-grid"><div class="product-card"><a href="#" class="product-image"><img src="https://images.unsplash.com/photo-1566150905458-1bf1fc113f0d?w=400&h=500&fit=crop&q=80" alt=""><img class="hover-img" src="https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=400&h=500&fit=crop&q=80" alt=""></a><div class="product-meta"><span class="brand">VIP Collection</span><h4>Сумка Tote</h4><div class="price">7 890 ₴</div><button class="btn-wishlist">♡</button></div></div><div class="product-card"><a href="#" class="product-image"><img src="https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=400&h=500&fit=crop&q=80" alt=""><img class="hover-img" src="https://images.unsplash.com/photo-1566150905458-1bf1fc113f0d?w=400&h=500&fit=crop&q=80" alt=""></a><div class="product-meta"><span class="brand">VIP Collection</span><h4>Сумка Crossbody</h4><div class="price">5 890 ₴</div><button class="btn-wishlist">♡</button></div></div><div class="product-card"><a href="#" class="product-image"><img src="https://images.unsplash.com/photo-1601924971179-d6f38f24ce3d?w=400&h=500&fit=crop&q=80" alt=""><img class="hover-img" src="https://images.unsplash.com/photo-1601758063897-1d9b4e4f13c0?w=400&h=500&fit=crop&q=80" alt=""></a><div class="product-meta"><span class="brand">VIP Collection</span><h4>Клатч</h4><div class="price">3 290 ₴</div><button class="btn-wishlist">♡</button></div></div><div class="product-card"><a href="#" class="product-image"><img src="https://images.unsplash.com/photo-1601758063897-1d9b4e4f13c0?w=400&h=500&fit=crop&q=80" alt=""><img class="hover-img" src="https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=400&h=500&fit=crop&q=80" alt=""></a><div class="product-meta"><span class="brand">VIP Collection</span><h4>Сумка на пояс</h4><div class="price">2 490 ₴</div><button class="btn-wishlist">♡</button></div></div></div></div>
-      <div class="tab-content" id="tab4"><div class="product-grid"><div class="product-card"><a href="#" class="product-image"><img src="https://images.unsplash.com/photo-1601758063897-1d9b4e4f13c0?w=400&h=500&fit=crop&q=80" alt=""><img class="hover-img" src="https://images.unsplash.com/photo-1601924971179-d6f38f24ce3d?w=400&h=500&fit=crop&q=80" alt=""></a><div class="product-meta"><span class="brand">VIP Collection</span><h4>Гаманець</h4><div class="price">1 290 ₴</div><button class="btn-wishlist">♡</button></div></div><div class="product-card"><a href="#" class="product-image"><img src="https://images.unsplash.com/photo-1601924971179-d6f38f24ce3d?w=400&h=500&fit=crop&q=80" alt=""><img class="hover-img" src="https://images.unsplash.com/photo-1601758063897-1d9b4e4f13c0?w=400&h=500&fit=crop&q=80" alt=""></a><div class="product-meta"><span class="brand">VIP Collection</span><h4>Ремінь</h4><div class="price">890 ₴</div><button class="btn-wishlist">♡</button></div></div><div class="product-card"><a href="#" class="product-image"><img src="https://images.unsplash.com/photo-1601758063897-1d9b4e4f13c0?w=400&h=500&fit=crop&q=80" alt=""><img class="hover-img" src="https://images.unsplash.com/photo-1601924971179-d6f38f24ce3d?w=400&h=500&fit=crop&q=80" alt=""></a><div class="product-meta"><span class="brand">VIP Collection</span><h4>Косметичка</h4><div class="price">680 ₴</div><button class="btn-wishlist">♡</button></div></div><div class="product-card"><a href="#" class="product-image"><img src="https://images.unsplash.com/photo-1601924971179-d6f38f24ce3d?w=400&h=500&fit=crop&q=80" alt=""><img class="hover-img" src="https://images.unsplash.com/photo-1601758063897-1d9b4e4f13c0?w=400&h=500&fit=crop&q=80" alt=""></a><div class="product-meta"><span class="brand">VIP Collection</span><h4>Чохол для документів</h4><div class="price">750 ₴</div><button class="btn-wishlist">♡</button></div></div></div></div>
-    </div>
-  </section>
-
-  <!-- ===== ШКІРЯНА КОЛЕКЦІЯ ===== -->
-  <section style="background:#f0f4f9; text-align:center;">
-    <div class="container">
-      <h2 class="section-title reveal"><span class="gold">Натуральна</span> шкіра</h2>
-      <p style="color:#555; max-width:500px; margin:0 auto 32px;">Класика, яка залишається актуальною роками.</p>
-      <div style="display:flex; justify-content:center; gap:20px; flex-wrap:wrap;">
-        <a href="#" style="background:#003057; color:#fff; padding:12px 32px; border-radius:30px; transition:0.3s;">Сумки</a>
-        <a href="#" style="background:#003057; color:#fff; padding:12px 32px; border-radius:30px; transition:0.3s;">Гаманці</a>
-        <a href="#" style="background:#003057; color:#fff; padding:12px 32px; border-radius:30px; transition:0.3s;">Аксесуари</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== РОЗПРОДАЖ ===== -->
-  <section>
-    <div class="container">
-      <div class="sale-banner reveal">
-        <div class="percent">-50%</div>
-        <h2><strong>Розпродаж</strong> до 50%</h2>
-        <p>Встигніть придбати вибрані моделі за спеціальною ціною</p>
-        <a href="#" class="btn-primary">Переглянути всі</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== ПЕРЕВАГИ ===== -->
-  <section style="background:#fafcfe;">
-    <div class="container">
-      <div class="advantages-grid">
-        <div class="adv-item reveal"><span class="icon">✓</span><strong>Оригінальні товари</strong><span>Гарантія якості</span></div>
-        <div class="adv-item reveal reveal-delay-1"><span class="icon">🚚</span><strong>Швидка доставка</strong><span>По всій Україні</span></div>
-        <div class="adv-item reveal reveal-delay-2"><span class="icon">↩️</span><strong>Зручне повернення</strong><span>14 днів</span></div>
-        <div class="adv-item reveal reveal-delay-3"><span class="icon">💳</span><strong>Безпечна оплата</strong><span>Онлайн або при отриманні</span></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== БРЕНДИ ===== -->
-  <section>
-    <div class="container">
-      <h2 class="section-title reveal" style="text-align:center;">Бренди</h2>
-      <div class="brand-logos reveal">
-        <span>Samsonite</span>
-        <span>VIP Collection</span>
-        <span>WITTCHEN</span>
-        <span>Travelite</span>
-        <span>Hedgren</span>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== ВІДГУКИ ===== -->
-  <section style="background:#fafcfe;">
-    <div class="container">
-      <h2 class="section-title reveal">Відгуки клієнтів</h2>
-      <div class="review-grid">
-        <div class="review-card reveal"><div class="stars">★★★★★</div><p>"Чудова валіза, дуже міцна. Літала з нею вже 5 разів — жодної подряпини."</p><div class="author">Олена <span>— Валіза 55 см</span></div></div>
-        <div class="review-card reveal reveal-delay-1"><div class="stars">★★★★★</div><p>"Сумка перевершила очікування! Натуральна шкіра, якісна фурнітура."</p><div class="author">Андрій <span>— Сумка Tote</span></div></div>
-        <div class="review-card reveal reveal-delay-2"><div class="stars">★★★★☆</div><p>"Швидка доставка, гарна упаковка. Рюкзак дуже зручний, ношу щодня."</p><div class="author">Марія <span>— Рюкзак City</span></div></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== БЛОГ ===== -->
-  <section>
-    <div class="container">
-      <div class="section-header reveal">
-        <div>
-          <h2 class="section-title">Корисно <span class="gold">знати</span></h2>
-        </div>
-        <a href="#" class="view-all">Блог →</a>
-      </div>
-      <div class="blog-grid">
-        <div class="blog-item reveal"><img src="https://images.unsplash.com/photo-1544441893-675973e31985?w=600&q=80" alt=""><div class="content"><h4>Як вибрати валізу</h4><p>Поради щодо розміру та матеріалу.</p></div></div>
-        <div class="blog-item reveal reveal-delay-1"><img src="https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?w=600&q=80" alt=""><div class="content"><h4>Розміри для літака</h4><p>Вимоги авіакомпаній до ручної поклажі.</p></div></div>
-        <div class="blog-item reveal reveal-delay-2"><img src="https://images.unsplash.com/photo-1601924971179-d6f38f24ce3d?w=600&q=80" alt=""><div class="content"><h4>Догляд за шкірою</h4><p>Прості правила для ваших аксесуарів.</p></div></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== INSTAGRAM ===== -->
-  <section style="background:#fafcfe; padding:60px 24px;">
-    <h2 class="section-title reveal" style="text-align:center;">VIP <span class="gold">у реальному житті</span></h2>
-    <div class="instagram-grid">
-      <img src="https://images.unsplash.com/photo-1544441893-675973e31985?w=300&q=80" alt="IG" loading="lazy">
-      <img src="https://images.unsplash.com/photo-1607552384479-9f2f21dd4d78?w=300&q=80" alt="IG" loading="lazy">
-      <img src="https://images.unsplash.com/photo-1566150905458-1bf1fc113f0d?w=300&q=80" alt="IG" loading="lazy">
-      <img src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=300&q=80" alt="IG" loading="lazy">
-      <img src="https://images.unsplash.com/photo-1601758063897-1d9b4e4f13c0?w=300&q=80" alt="IG" loading="lazy">
-      <img src="https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=300&q=80" alt="IG" loading="lazy">
-    </div>
-    <div style="text-align:center; margin-top:28px;">
-      <a href="#" class="view-all">Instagram →</a>
-    </div>
-  </section>
-
-  <!-- ===== NEWSLETTER ===== -->
-  <section style="padding:60px 24px;">
-    <div class="container">
-      <div class="newsletter reveal">
-        <h2>Будьте <strong>першими</strong></h2>
-        <p>Дізнавайтеся про новинки та спеціальні пропозиції</p>
-        <form id="newsletterForm">
-          <input type="email" placeholder="Ваш email" required />
-          <button type="submit">Підписатися</button>
-        </form>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== FOOTER ===== -->
-  <footer class="site-footer">
-    <div class="footer-grid">
-      <div><h4>Каталог</h4><ul><li><a href="#">Валізи</a></li><li><a href="#">Рюкзаки</a></li><li><a href="#">Сумки</a></li><li><a href="#">Галантерея</a></li><li><a href="#">Новинки</a></li><li><a href="#">Розпродаж</a></li></ul></div>
-      <div><h4>Покупцям</h4><ul><li><a href="#">Доставка</a></li><li><a href="#">Оплата</a></li><li><a href="#">Повернення</a></li><li><a href="#">Гарантія</a></li><li><a href="#">FAQ</a></li></ul></div>
-      <div><h4>Про компанію</h4><ul><li><a href="#">Про нас</a></li><li><a href="#">Контакти</a></li><li><a href="#">Магазини</a></li><li><a href="#">Блог</a></li></ul></div>
-      <div><h4>Контакти</h4><ul><li><a href="tel:+380441234567">+38 (044) 123-45-67</a></li><li><a href="mailto:info@vip.ua">info@vip.ua</a></li><li>Пн–Пт: 10:00 – 20:00</li><li><a href="#">Instagram</a> · <a href="#">Facebook</a></li></ul></div>
-    </div>
-    <div class="footer-bottom">
-      <span>© VIP Collection 2026</span>
-      <div>
-        <a href="#">Політика конфіденційності</a>
-        <a href="#">Публічна оферта</a>
-      </div>
-    </div>
-  </footer>
-
-  <!-- ===== JAVASCRIPT ===== -->
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-
-      // ---- Hero Slider ----
-      let currentSlide = 0;
-      const slides = document.querySelectorAll('.hero-slide');
-      const navDots = document.querySelectorAll('.slider-nav span');
-      const sliderContainer = document.getElementById('heroSlides');
-      const totalSlides = slides.length;
-
-      function goToSlide(index) {
-        if (index < 0) index = totalSlides - 1;
-        if (index >= totalSlides) index = 0;
-        currentSlide = index;
-        sliderContainer.style.transform = `translateX(-${currentSlide * 100 / totalSlides}%)`;
-        navDots.forEach((dot, i) => {
-          dot.classList.toggle('active', i === currentSlide);
-        });
-      }
-
-      navDots.forEach((dot, i) => {
-        dot.addEventListener('click', function() {
-          goToSlide(i);
-        });
-      });
-
-      let interval = setInterval(() => { goToSlide(currentSlide + 1); }, 5000);
-
-      // ---- Sticky header shadow ----
-      const header = document.getElementById('siteHeader');
-      window.addEventListener('scroll', function() {
-        header.style.boxShadow = window.scrollY > 50 ? '0 4px 30px rgba(0,48,87,0.08)' : '0 2px 20px rgba(0,48,87,0.04)';
-      }, { passive: true });
-
-      // ---- Scroll reveal ----
-      const reveals = document.querySelectorAll('.reveal');
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-          }
-        });
-      }, { threshold: 0.15, rootMargin: '0px 0px -50px 0px' });
-      reveals.forEach(el => observer.observe(el));
-
-      // ---- Tabs ----
-      const tabButtons = document.querySelectorAll('.tab-bar button');
-      const tabContents = document.querySelectorAll('.tab-content');
-      tabButtons.forEach(btn => {
-        btn.addEventListener('click', function() {
-          tabButtons.forEach(b => b.classList.remove('active'));
-          this.classList.add('active');
-          tabContents.forEach(c => c.classList.remove('active'));
-          document.getElementById(this.dataset.tab).classList.add('active');
-        });
-      });
-
-      // ---- Luggage picker ----
-      const daysBtns = document.querySelectorAll('#daysOptions button');
-      const transportBtns = document.querySelectorAll('#transportOptions button');
-      let selectedDays = null;
-      let selectedTransport = null;
-
-      function updatePicker() {
-        const result = document.getElementById('pickerResult');
-        if (selectedDays && selectedTransport) {
-          let size = '';
-          if (selectedDays === '1-3') size = 'ручна (S)';
-          else if (selectedDays === '4-7') size = 'середня (M/L)';
-          else if (selectedDays === '7+') size = 'велика (L/XL)';
-          result.innerHTML = `<p>Ми підібрали <strong style="color:#003057;">6 моделей</strong> розміру <strong style="color:#003057;">${size}</strong> для подорожі <strong style="color:#003057;">${selectedTransport}</strong></p>
-                               <p style="margin-top:12px;"><a href="#" style="color:#003057; border-bottom:1px solid #d4a843;">Переглянути →</a></p>`;
-        } else {
-          result.innerHTML = `<p style="color:#999;">Оберіть варіанти вище</p>`;
-        }
-      }
-
-      daysBtns.forEach(btn => {
-        btn.addEventListener('click', function() {
-          daysBtns.forEach(b => b.classList.remove('active'));
-          this.classList.add('active');
-          selectedDays = this.dataset.days;
-          updatePicker();
-        });
-      });
-      transportBtns.forEach(btn => {
-        btn.addEventListener('click', function() {
-          transportBtns.forEach(b => b.classList.remove('active'));
-          this.classList.add('active');
-          selectedTransport = this.dataset.transport;
-          updatePicker();
-        });
-      });
-
-      // ---- Newsletter ----
-      document.getElementById('newsletterForm').addEventListener('submit', function(e) {
-        e.preventDefault();
-        alert('Дякуємо за підписку!');
-        this.reset();
-      });
-
-      // ---- Mobile menu toggle ----
-      const menuToggle = document.querySelector('.menu-toggle');
-      const nav = document.getElementById('headerNav');
-      if (menuToggle && nav) {
-        menuToggle.addEventListener('click', function(e) {
-          e.stopPropagation();
-          if (nav.style.display === 'flex') {
-            nav.style.display = 'none';
-          } else {
-            nav.style.display = 'flex';
-            nav.style.flexDirection = 'column';
-            nav.style.position = 'absolute';
-            nav.style.top = '76px';
-            nav.style.left = '0';
-            nav.style.width = '100%';
-            nav.style.background = '#ffffff';
-            nav.style.padding = '20px 24px';
-            nav.style.gap = '12px';
-            nav.style.borderBottom = '2px solid #d4a843';
-            nav.style.boxShadow = '0 20px 40px rgba(0,0,0,0.04)';
-            nav.style.zIndex = '999';
-            nav.querySelectorAll('.mega-menu').forEach(m => m.style.display = 'none');
-          }
-        });
-        nav.querySelectorAll('a').forEach(link => {
-          link.addEventListener('click', function() {
-            if (window.innerWidth <= 820) nav.style.display = 'none';
-          });
-        });
-        window.addEventListener('resize', function() {
-          if (window.innerWidth > 820) {
-            nav.style.display = 'flex';
-            nav.style.flexDirection = 'row';
-            nav.style.position = 'static';
-            nav.style.width = 'auto';
-            nav.style.background = 'transparent';
-            nav.style.padding = '0';
-            nav.style.gap = '0';
-            nav.style.borderBottom = 'none';
-            nav.style.boxShadow = 'none';
-            nav.querySelectorAll('.mega-menu').forEach(m => m.style.display = 'flex');
-          } else {
-            if (!nav.classList.contains('mobile-open')) {
-              nav.style.display = 'none';
+            // ---- Мобільне меню (як на samsonite.ua) ----
+            const toggle = document.querySelector('.menu-toggle');
+            const nav = document.querySelector('.header-nav');
+            if (toggle && nav) {
+                toggle.addEventListener('click', function() {
+                    if (nav.style.display === 'flex') {
+                        nav.style.display = 'none';
+                    } else {
+                        nav.style.display = 'flex';
+                        nav.style.flexDirection = 'column';
+                        nav.style.position = 'absolute';
+                        nav.style.top = '100%';
+                        nav.style.left = '0';
+                        nav.style.width = '100%';
+                        nav.style.background = '#ffffff';
+                        nav.style.padding = '20px 24px';
+                        nav.style.gap = '12px';
+                        nav.style.borderBottom = '1px solid #e8e4de';
+                        nav.style.boxShadow = '0 20px 40px rgba(0,0,0,0.02)';
+                        nav.style.zIndex = '999';
+                    }
+                });
+                nav.querySelectorAll('a').forEach(link => {
+                    link.addEventListener('click', function() {
+                        if (window.innerWidth <= 820) nav.style.display = 'none';
+                    });
+                });
+                window.addEventListener('resize', function() {
+                    if (window.innerWidth > 820) {
+                        nav.style.display = 'flex';
+                        nav.style.flexDirection = 'row';
+                        nav.style.position = 'static';
+                        nav.style.width = 'auto';
+                        nav.style.background = 'transparent';
+                        nav.style.padding = '0';
+                        nav.style.gap = '24px';
+                        nav.style.borderBottom = 'none';
+                        nav.style.boxShadow = 'none';
+                    } else {
+                        if (!nav.classList.contains('mobile-open')) {
+                            nav.style.display = 'none';
+                        }
+                    }
+                });
             }
-          }
-        });
-      }
 
-    });
-  </script>
+            // ---- Кліки на категорії ----
+            document.querySelectorAll('.categories .item, .together .item .btn, .hero .grid .item .btn').forEach(el => {
+                el.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    alert('🔗 Перехід на сторінку товару/категорії');
+                });
+            });
+
+        });
+    </script>
 </body>
 </html>
