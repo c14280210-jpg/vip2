@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>VIP — темна преміальна версія</title>
+  <title>VIP Collection – преміальні валізи та аксесуари</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet" />
   <style>
-    /* ===== СКИДАННЯ ===== */
+    /* ===== Скидання та база ===== */
     * {
       margin: 0;
       padding: 0;
@@ -16,8 +16,8 @@
     }
     body {
       font-family: 'Inter', sans-serif;
-      background: #0a0a0a;
-      color: #fff;
+      background: #f5f7fa;
+      color: #1a1a1a;
       -webkit-font-smoothing: antialiased;
     }
     a {
@@ -25,7 +25,7 @@
       color: inherit;
     }
     .container {
-      max-width: 1200px;
+      max-width: 1280px;
       margin: 0 auto;
       padding: 0 24px;
     }
@@ -34,21 +34,21 @@
       max-width: 100%;
     }
 
-    /* ===== HEADER (темний) ===== */
+    /* ===== HEADER ===== */
     .site-header {
       position: sticky;
       top: 0;
       z-index: 1000;
-      background: rgba(10, 10, 10, 0.92);
-      backdrop-filter: blur(16px);
-      border-bottom: 1px solid rgba(212, 168, 67, 0.15);
-      height: 72px;
+      background: #ffffff;
+      box-shadow: 0 2px 20px rgba(0, 48, 87, 0.06);
+      height: 76px;
       display: flex;
       align-items: center;
       padding: 0 24px;
+      border-bottom: 2px solid #003057;
     }
     .header-inner {
-      max-width: 1200px;
+      max-width: 1280px;
       width: 100%;
       margin: 0 auto;
       display: flex;
@@ -56,55 +56,70 @@
       justify-content: space-between;
     }
     .header-logo {
-      font-family: 'Playfair Display', serif;
-      font-size: 2rem;
+      font-size: 1.8rem;
       font-weight: 700;
-      letter-spacing: 4px;
-      color: #d4a843;
+      letter-spacing: 3px;
+      color: #003057;
       flex-shrink: 0;
       margin-right: 40px;
     }
     .header-logo span {
-      font-weight: 400;
-      color: #fff;
+      color: #d4a843;
+      font-weight: 300;
     }
+
     .header-nav {
       display: flex;
-      gap: 28px;
-      font-size: 0.85rem;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 1px;
+      gap: 0;
+      align-items: center;
+      height: 100%;
     }
     .header-nav>li {
       list-style: none;
       position: relative;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      padding: 0 16px;
     }
     .header-nav>li>a {
-      color: rgba(255, 255, 255, 0.7);
-      transition: color 0.3s;
-      padding: 6px 0;
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: #1a1a1a;
+      transition: color 0.2s;
+      display: flex;
+      align-items: center;
+      gap: 4px;
     }
     .header-nav>li>a:hover {
-      color: #d4a843;
+      color: #003057;
     }
+    .header-nav>li>a .arrow {
+      font-size: 0.6rem;
+      margin-left: 4px;
+    }
+
+    /* Mega-menu */
     .mega-menu {
       position: absolute;
       top: 100%;
       left: 50%;
-      transform: translateX(-50%) translateY(10px);
-      background: #141414;
-      padding: 28px 36px;
-      min-width: 500px;
-      border: 1px solid rgba(212, 168, 67, 0.2);
-      border-radius: 4px;
+      transform: translateX(-50%) translateY(8px);
+      background: #ffffff;
+      padding: 30px 40px;
+      min-width: 680px;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.06);
+      border-radius: 0 0 8px 8px;
       opacity: 0;
       visibility: hidden;
-      transition: opacity 0.3s, transform 0.3s;
+      transition: opacity 0.25s, visibility 0.25s, transform 0.25s;
       display: flex;
-      gap: 30px;
+      gap: 40px;
+      border-top: 3px solid #d4a843;
       pointer-events: none;
-      z-index: 200;
+      z-index: 100;
     }
     .header-nav>li:hover .mega-menu {
       opacity: 1;
@@ -114,185 +129,195 @@
     }
     .mega-menu ul {
       list-style: none;
+      min-width: 140px;
     }
     .mega-menu ul li {
       margin-bottom: 6px;
     }
     .mega-menu ul li a {
-      color: rgba(255, 255, 255, 0.6);
-      font-size: 0.85rem;
+      font-size: 0.9rem;
+      color: #333;
       transition: color 0.2s;
     }
     .mega-menu ul li a:hover {
-      color: #d4a843;
+      color: #003057;
     }
     .mega-menu h4 {
-      font-size: 0.75rem;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      color: #d4a843;
-      margin-bottom: 12px;
       font-weight: 700;
+      font-size: 0.8rem;
+      letter-spacing: 1px;
+      color: #003057;
+      margin-bottom: 12px;
+      text-transform: uppercase;
     }
+
     .header-actions {
       display: flex;
       gap: 20px;
-      font-size: 1.1rem;
+      font-size: 1.15rem;
       align-items: center;
       margin-left: auto;
     }
     .header-actions a {
-      color: rgba(255, 255, 255, 0.6);
-      transition: color 0.3s;
+      color: #1a1a1a;
+      opacity: 0.6;
+      transition: opacity 0.2s, color 0.2s;
     }
     .header-actions a:hover {
-      color: #d4a843;
+      opacity: 1;
+      color: #003057;
     }
     .menu-toggle {
       display: none;
       font-size: 1.8rem;
       background: none;
       border: none;
-      color: #fff;
       cursor: pointer;
       margin-right: 15px;
     }
 
-    /* ===== HERO (анімований фон) ===== */
-    .hero {
-      height: 100vh;
-      min-height: 600px;
+    /* ===== HERO SLIDER ===== */
+    .hero-slider {
+      position: relative;
+      overflow: hidden;
+      height: 85vh;
+      min-height: 500px;
+      background: #e8edf2;
+    }
+    .hero-slides {
+      display: flex;
+      width: 300%;
+      height: 100%;
+      transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+    .hero-slide {
+      width: 100%;
+      height: 100%;
       display: flex;
       align-items: center;
       position: relative;
-      overflow: hidden;
-      background: #0a0a0a;
+      flex-shrink: 0;
+      background-size: cover;
+      background-position: center;
     }
-    .hero-bg {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(135deg, #1a0e05 0%, #0a0a0a 50%, #1a0e05 100%);
-      background-size: 400% 400%;
-      animation: gradientShift 8s ease infinite;
-    }
-    @keyframes gradientShift {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
-    }
-    .hero-bg::after {
+    .hero-slide::after {
       content: '';
       position: absolute;
       inset: 0;
-      background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" opacity="0.03"><path d="M20 20 L80 20 L80 80 L20 80 Z" fill="none" stroke="%23d4a843" stroke-width="0.5"/><circle cx="50" cy="50" r="15" fill="none" stroke="%23d4a843" stroke-width="0.5"/></svg>');
-      background-size: 80px 80px;
+      background: linear-gradient(90deg, rgba(0, 48, 87, 0.4) 0%, rgba(0, 48, 87, 0.1) 70%, transparent 100%);
     }
     .hero-content {
       position: relative;
       z-index: 2;
-      max-width: 700px;
+      max-width: 620px;
+      color: #fff;
       padding: 0 24px;
     }
-    .hero-content .sub {
-      font-size: 0.85rem;
+    .hero-content .label {
+      font-size: 0.75rem;
       font-weight: 600;
       text-transform: uppercase;
       letter-spacing: 4px;
       color: #d4a843;
-      margin-bottom: 16px;
+      margin-bottom: 12px;
     }
     .hero-content h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(3rem, 8vw, 5.6rem);
-      font-weight: 700;
-      line-height: 1.05;
-      letter-spacing: -1px;
-      margin-bottom: 20px;
+      font-size: clamp(2.6rem, 6vw, 4.6rem);
+      font-weight: 300;
+      line-height: 1.08;
+      margin-bottom: 16px;
     }
-    .hero-content h1 span {
+    .hero-content h1 strong {
+      font-weight: 700;
       color: #d4a843;
     }
     .hero-content p {
       font-size: 1.1rem;
       font-weight: 300;
-      color: rgba(255, 255, 255, 0.6);
-      max-width: 420px;
-      margin-bottom: 36px;
+      opacity: 0.9;
+      margin-bottom: 32px;
+      max-width: 440px;
     }
-    .hero-buttons {
+    .btn-group {
       display: flex;
       gap: 16px;
       flex-wrap: wrap;
     }
-    .btn-gold {
-      background: #d4a843;
-      color: #0a0a0a;
+    .btn-primary {
+      background: #003057;
+      color: #fff;
       padding: 14px 40px;
       font-weight: 700;
-      font-size: 0.9rem;
+      font-size: 0.95rem;
       text-transform: uppercase;
-      letter-spacing: 1px;
+      letter-spacing: 0.5px;
       border: none;
       transition: all 0.3s;
-      border-radius: 2px;
+      border-radius: 4px;
     }
-    .btn-gold:hover {
-      background: #e8c35a;
-      transform: translateY(-3px);
-      box-shadow: 0 12px 30px rgba(212, 168, 67, 0.25);
+    .btn-primary:hover {
+      background: #002244;
+      transform: translateY(-2px);
+      box-shadow: 0 10px 30px rgba(0, 48, 87, 0.25);
     }
-    .btn-outline-gold {
+    .btn-secondary {
       background: transparent;
       color: #fff;
       padding: 14px 40px;
+      border: 1px solid rgba(255, 255, 255, 0.4);
       font-weight: 600;
-      font-size: 0.9rem;
+      font-size: 0.95rem;
       text-transform: uppercase;
-      letter-spacing: 1px;
-      border: 1px solid rgba(255, 255, 255, 0.25);
+      letter-spacing: 0.5px;
       transition: all 0.3s;
-      border-radius: 2px;
+      border-radius: 4px;
     }
-    .btn-outline-gold:hover {
-      border-color: #d4a843;
-      color: #d4a843;
+    .btn-secondary:hover {
+      background: #fff;
+      color: #003057;
+      border-color: #fff;
     }
-    .hero-scroll {
+    .slider-nav {
       position: absolute;
       bottom: 40px;
       left: 50%;
       transform: translateX(-50%);
-      color: rgba(255, 255, 255, 0.2);
-      font-size: 0.7rem;
-      letter-spacing: 4px;
-      text-transform: uppercase;
-      animation: bob 2s ease-in-out infinite;
+      display: flex;
+      gap: 12px;
+      z-index: 5;
     }
-    @keyframes bob {
-      0%, 100% { transform: translateX(-50%) translateY(0); }
-      50% { transform: translateX(-50%) translateY(8px); }
+    .slider-nav span {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.35);
+      cursor: pointer;
+      transition: background 0.3s, transform 0.3s;
+    }
+    .slider-nav span.active {
+      background: #d4a843;
+      transform: scale(1.2);
     }
 
-    /* ===== БЛОКИ ===== */
+    /* ===== ЗАГАЛЬНІ БЛОКИ ===== */
     section {
-      padding: 90px 0;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+      padding: 80px 0;
     }
     .section-title {
-      font-family: 'Playfair Display', serif;
       font-size: 2.6rem;
-      font-weight: 600;
+      font-weight: 300;
       letter-spacing: -0.5px;
+      color: #003057;
       margin-bottom: 8px;
     }
     .section-title .gold {
       color: #d4a843;
+      font-weight: 600;
     }
     .section-sub {
+      color: #666;
       font-weight: 300;
-      color: rgba(255, 255, 255, 0.5);
-      margin-bottom: 48px;
-      font-size: 1.05rem;
+      margin-bottom: 40px;
     }
     .section-header {
       display: flex;
@@ -303,88 +328,71 @@
       margin-bottom: 40px;
     }
     .view-all {
-      color: #d4a843;
       font-weight: 600;
-      font-size: 0.9rem;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      border-bottom: 1px solid rgba(212, 168, 67, 0.3);
+      color: #003057;
+      border-bottom: 2px solid #d4a843;
       padding-bottom: 4px;
-      transition: border-color 0.3s;
+      transition: opacity 0.2s;
     }
     .view-all:hover {
-      border-color: #d4a843;
+      opacity: 0.7;
     }
 
-    /* ===== КАТЕГОРІЇ (круглі іконки) ===== */
+    /* ===== КАТЕГОРІЇ (іконки) ===== */
     .categories-grid {
       display: grid;
       grid-template-columns: repeat(6, 1fr);
-      gap: 24px;
+      gap: 20px;
       text-align: center;
     }
-    .cat-item {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 10px;
-      padding: 16px 0;
-      border-radius: 50%;
-      transition: all 0.3s;
+    .category-item {
+      padding: 20px 10px;
+      background: #ffffff;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.02);
+      transition: transform 0.3s, box-shadow 0.3s;
       cursor: pointer;
+      border: 1px solid #eef2f6;
     }
-    .cat-item .icon {
-      width: 80px;
-      height: 80px;
-      border-radius: 50%;
-      background: rgba(255, 255, 255, 0.04);
-      border: 1px solid rgba(255, 255, 255, 0.06);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 2.4rem;
-      transition: all 0.3s;
-    }
-    .cat-item:hover .icon {
+    .category-item:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 8px 30px rgba(0, 48, 87, 0.08);
       border-color: #d4a843;
-      background: rgba(212, 168, 67, 0.08);
-      transform: scale(1.05);
     }
-    .cat-item span {
-      font-size: 0.8rem;
+    .category-item .icon {
+      font-size: 2.6rem;
+      margin-bottom: 8px;
+      display: block;
+    }
+    .category-item h4 {
       font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-      color: rgba(255, 255, 255, 0.6);
-      transition: color 0.3s;
-    }
-    .cat-item:hover span {
-      color: #d4a843;
+      font-size: 0.9rem;
+      color: #003057;
     }
 
-    /* ===== КАТЕГОРІЇ ВАЛІЗ (картки з текстом зверху) ===== */
+    /* ===== КАТЕГОРІЇ ВАЛІЗ (розміри) ===== */
     .suitcase-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 20px;
+      gap: 24px;
     }
     .suitcase-card {
       position: relative;
+      border-radius: 8px;
+      overflow: hidden;
       aspect-ratio: 3/4;
       background-size: cover;
       background-position: center;
-      border-radius: 4px;
-      overflow: hidden;
       display: flex;
       align-items: flex-end;
-      padding: 28px;
+      padding: 24px;
       transition: transform 0.4s;
     }
     .suitcase-card::after {
       content: '';
       position: absolute;
       inset: 0;
-      background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, transparent 100%);
+      background: linear-gradient(to top, rgba(0, 48, 87, 0.6) 0%, transparent 70%);
     }
     .suitcase-card:hover {
       transform: scale(1.02);
@@ -392,41 +400,40 @@
     .suitcase-card .info {
       position: relative;
       z-index: 2;
+      color: #fff;
     }
     .suitcase-card .info h4 {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.8rem;
-      font-weight: 600;
+      font-weight: 700;
+      font-size: 1.6rem;
       letter-spacing: 1px;
     }
     .suitcase-card .info p {
-      font-size: 0.85rem;
-      color: rgba(255, 255, 255, 0.5);
       font-weight: 300;
+      opacity: 0.8;
     }
 
-    /* ===== ТОВАРИ (темна сітка) ===== */
+    /* ===== ТОВАРИ ===== */
     .product-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 24px;
+      gap: 30px;
     }
     .product-card {
-      position: relative;
-      background: rgba(255, 255, 255, 0.02);
-      border-radius: 4px;
+      background: #ffffff;
+      border-radius: 8px;
       overflow: hidden;
-      transition: transform 0.4s, box-shadow 0.4s;
+      transition: transform 0.3s, box-shadow 0.3s;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.02);
     }
     .product-card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+      transform: translateY(-6px);
+      box-shadow: 0 12px 40px rgba(0, 48, 87, 0.06);
     }
     .product-image {
       position: relative;
-      aspect-ratio: 3/4;
       overflow: hidden;
-      background: #121212;
+      aspect-ratio: 3/4;
+      background: #f0f2f5;
     }
     .product-image img {
       width: 100%;
@@ -450,61 +457,65 @@
       top: 16px;
       left: 16px;
       background: #d4a843;
-      color: #0a0a0a;
-      font-size: 0.6rem;
+      color: #003057;
+      font-size: 0.65rem;
       font-weight: 700;
-      letter-spacing: 2px;
+      letter-spacing: 1.5px;
       padding: 4px 14px;
+      border-radius: 3px;
       text-transform: uppercase;
     }
     .badge.sale {
-      background: #b45f3a;
+      background: #c0392b;
       color: #fff;
     }
     .product-meta {
-      padding: 18px 16px 22px;
+      padding: 16px 16px 20px;
     }
     .product-meta .brand {
-      font-size: 0.65rem;
+      font-size: 0.7rem;
       text-transform: uppercase;
-      letter-spacing: 2px;
-      color: rgba(255, 255, 255, 0.3);
+      letter-spacing: 1.5px;
+      color: #999;
       font-weight: 600;
     }
     .product-meta h4 {
-      font-family: 'Playfair Display', serif;
-      font-weight: 400;
-      font-size: 1.1rem;
+      font-weight: 500;
       margin: 4px 0 6px;
+      font-size: 1rem;
+      color: #003057;
     }
     .product-meta .price {
       font-weight: 700;
       font-size: 1.1rem;
-      color: #d4a843;
+      color: #003057;
     }
     .product-meta .price del {
-      color: rgba(255, 255, 255, 0.2);
+      color: #b0b0b0;
       font-weight: 400;
       margin-right: 8px;
+      font-size: 0.9rem;
     }
     .btn-wishlist {
       position: absolute;
       top: 12px;
       right: 12px;
-      background: rgba(10, 10, 10, 0.6);
-      border: 1px solid rgba(255, 255, 255, 0.05);
-      color: #fff;
+      background: rgba(255, 255, 255, 0.9);
+      border: 1px solid #eef2f6;
       width: 36px;
       height: 36px;
       border-radius: 50%;
       font-size: 1rem;
       cursor: pointer;
       transition: all 0.3s;
-      backdrop-filter: blur(4px);
+      opacity: 0;
+    }
+    .product-card:hover .btn-wishlist {
+      opacity: 1;
     }
     .btn-wishlist:hover {
       background: #d4a843;
-      color: #0a0a0a;
+      color: #fff;
       border-color: #d4a843;
     }
 
@@ -512,9 +523,10 @@
     .travel-block {
       display: flex;
       min-height: 480px;
-      background: #0f0f0f;
-      border-radius: 4px;
+      background: #ffffff;
+      border-radius: 8px;
       overflow: hidden;
+      box-shadow: 0 2px 20px rgba(0, 0, 0, 0.02);
     }
     .travel-image {
       flex: 1;
@@ -528,24 +540,28 @@
       display: flex;
       flex-direction: column;
       justify-content: center;
+      background: #fafcfe;
     }
     .travel-text .label {
       font-size: 0.7rem;
       text-transform: uppercase;
-      letter-spacing: 4px;
+      letter-spacing: 3px;
       color: #d4a843;
-      font-weight: 600;
-      margin-bottom: 12px;
+      font-weight: 700;
+      margin-bottom: 8px;
     }
     .travel-text h2 {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(2.4rem, 4vw, 3.4rem);
-      font-weight: 600;
-      line-height: 1.1;
-      margin-bottom: 16px;
+      font-size: clamp(2.2rem, 3.5vw, 3.2rem);
+      font-weight: 300;
+      color: #003057;
+      margin-bottom: 12px;
+    }
+    .travel-text h2 strong {
+      font-weight: 700;
+      color: #d4a843;
     }
     .travel-text p {
-      color: rgba(255, 255, 255, 0.5);
+      color: #555;
       font-weight: 300;
       max-width: 400px;
       margin-bottom: 28px;
@@ -553,82 +569,126 @@
 
     /* ===== ПІДБІР ВАЛІЗИ ===== */
     .picker-section {
-      background: #0f0f0f;
+      background: #ffffff;
+      border-radius: 8px;
+      padding: 60px 40px;
       text-align: center;
-      border-radius: 4px;
-      padding: 60px 24px;
+      box-shadow: 0 2px 20px rgba(0, 0, 0, 0.02);
     }
     .picker-options {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
       gap: 16px;
-      margin: 28px 0;
+      margin: 28px 0 12px;
     }
     .picker-options button {
-      background: transparent;
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      color: rgba(255, 255, 255, 0.6);
+      background: #f0f2f5;
+      border: 1px solid #e0e4e9;
       padding: 10px 32px;
       border-radius: 30px;
       cursor: pointer;
       font-weight: 500;
-      transition: all 0.3s;
       font-size: 0.95rem;
+      transition: all 0.25s;
+      color: #1a1a1a;
     }
     .picker-options button:hover,
     .picker-options button.active {
-      border-color: #d4a843;
-      color: #d4a843;
-      background: rgba(212, 168, 67, 0.05);
+      background: #003057;
+      color: #fff;
+      border-color: #003057;
     }
     .picker-result {
       margin-top: 20px;
-      font-size: 1.2rem;
       font-weight: 300;
+      font-size: 1.1rem;
+      color: #333;
     }
     .picker-result a {
-      color: #d4a843;
+      color: #003057;
       font-weight: 600;
-      border-bottom: 1px solid rgba(212, 168, 67, 0.3);
+      border-bottom: 1px solid #d4a843;
       padding-bottom: 2px;
     }
 
-    /* ===== РОЗПРОДАЖ (великий блок) ===== */
-    .sale-block {
-      background: linear-gradient(135deg, #1a0e05, #0a0a0a);
-      border: 1px solid rgba(212, 168, 67, 0.1);
-      border-radius: 4px;
-      padding: 70px 40px;
+    /* ===== ТАБИ ===== */
+    .tab-bar {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 30px;
+      flex-wrap: wrap;
+      border-bottom: 2px solid #e8edf2;
+      padding-bottom: 2px;
+    }
+    .tab-bar button {
+      background: none;
+      border: none;
+      padding: 10px 24px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      cursor: pointer;
+      color: #777;
+      transition: color 0.2s, border-color 0.2s;
+      border-bottom: 3px solid transparent;
+      margin-bottom: -2px;
+    }
+    .tab-bar button.active {
+      color: #003057;
+      border-color: #d4a843;
+    }
+    .tab-bar button:hover {
+      color: #003057;
+    }
+    .tab-content {
+      display: none;
+    }
+    .tab-content.active {
+      display: block;
+    }
+
+    /* ===== РОЗПРОДАЖ БАНЕР ===== */
+    .sale-banner {
+      background: #003057;
+      color: #fff;
+      padding: 60px 40px;
       text-align: center;
+      border-radius: 8px;
       position: relative;
       overflow: hidden;
     }
-    .sale-block .percent {
-      font-family: 'Playfair Display', serif;
-      font-size: 7rem;
+    .sale-banner .percent {
+      font-size: 6rem;
       font-weight: 700;
-      color: #d4a843;
-      line-height: 1;
-      opacity: 0.1;
+      opacity: 0.06;
       position: absolute;
       right: 20px;
-      top: -20px;
+      top: -10px;
+      color: #d4a843;
     }
-    .sale-block h2 {
-      font-family: 'Playfair Display', serif;
-      font-size: 3rem;
-      font-weight: 600;
-      position: relative;
-      z-index: 2;
+    .sale-banner h2 {
+      font-size: 2.8rem;
+      font-weight: 300;
     }
-    .sale-block p {
-      color: rgba(255, 255, 255, 0.5);
+    .sale-banner h2 strong {
+      font-weight: 700;
+      color: #d4a843;
+    }
+    .sale-banner p {
+      font-weight: 300;
+      opacity: 0.8;
       margin: 12px 0 28px;
-      font-size: 1.1rem;
+    }
+    .sale-banner .btn-primary {
+      background: #d4a843;
+      color: #003057;
+    }
+    .sale-banner .btn-primary:hover {
+      background: #e8c35a;
+      box-shadow: 0 10px 30px rgba(212, 168, 67, 0.3);
     }
 
-    /* ===== ПЕРЕВАГИ (темні) ===== */
+    /* ===== ПЕРЕВАГИ ===== */
     .advantages-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
@@ -639,17 +699,16 @@
       font-size: 2.2rem;
       margin-bottom: 8px;
       display: block;
-      color: #d4a843;
     }
     .adv-item strong {
       display: block;
       font-weight: 600;
       font-size: 1.05rem;
+      color: #003057;
     }
     .adv-item span {
-      color: rgba(255, 255, 255, 0.4);
+      color: #777;
       font-weight: 300;
-      font-size: 0.9rem;
     }
 
     /* ===== БРЕНДИ ===== */
@@ -661,41 +720,28 @@
       align-items: center;
     }
     .brand-logos span {
-      font-family: 'Playfair Display', serif;
       font-size: 1.8rem;
-      font-weight: 400;
-      letter-spacing: 3px;
-      color: rgba(255, 255, 255, 0.15);
+      font-weight: 300;
+      letter-spacing: 2px;
+      color: #b0b8c0;
       transition: color 0.3s;
     }
     .brand-logos span:hover {
-      color: #d4a843;
+      color: #003057;
     }
 
-    /* ===== ВІДГУКИ (вертикальний слайдер) ===== */
-    .review-slider {
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-      max-height: 400px;
-      overflow: hidden;
-      position: relative;
-    }
-    .review-slider-inner {
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-      animation: scrollReviews 18s linear infinite;
-    }
-    @keyframes scrollReviews {
-      0% { transform: translateY(0); }
-      100% { transform: translateY(-50%); }
+    /* ===== ВІДГУКИ ===== */
+    .review-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
     }
     .review-card {
-      background: rgba(255, 255, 255, 0.02);
-      padding: 24px 28px;
-      border-left: 2px solid #d4a843;
-      border-radius: 2px;
+      background: #ffffff;
+      padding: 28px;
+      border-radius: 8px;
+      border-left: 4px solid #d4a843;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.02);
     }
     .review-card .stars {
       color: #d4a843;
@@ -705,68 +751,52 @@
     }
     .review-card p {
       font-weight: 300;
-      color: rgba(255, 255, 255, 0.7);
+      color: #333;
       font-style: italic;
     }
     .review-card .author {
-      margin-top: 10px;
+      margin-top: 12px;
       font-weight: 600;
-      color: #d4a843;
-      font-size: 0.95rem;
+      color: #003057;
     }
     .review-card .author span {
       font-weight: 300;
-      color: rgba(255, 255, 255, 0.3);
+      color: #999;
     }
 
-    /* ===== БЛОГ (текст поверх фото) ===== */
+    /* ===== БЛОГ ===== */
     .blog-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
+      gap: 30px;
     }
     .blog-item {
-      position: relative;
-      aspect-ratio: 4/3;
-      border-radius: 4px;
+      background: #ffffff;
+      border-radius: 8px;
       overflow: hidden;
-      background-size: cover;
-      background-position: center;
-      display: flex;
-      align-items: flex-end;
-      padding: 28px;
+      transition: transform 0.3s;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.02);
     }
-    .blog-item::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, transparent 60%);
+    .blog-item:hover {
+      transform: translateY(-6px);
+    }
+    .blog-item img {
+      width: 100%;
+      aspect-ratio: 16/9;
+      object-fit: cover;
     }
     .blog-item .content {
-      position: relative;
-      z-index: 2;
+      padding: 20px 24px 24px;
     }
     .blog-item .content h4 {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.3rem;
       font-weight: 600;
+      color: #003057;
       margin-bottom: 4px;
     }
     .blog-item .content p {
-      color: rgba(255, 255, 255, 0.5);
       font-weight: 300;
-      font-size: 0.9rem;
-    }
-    .blog-item .content .read-more {
-      display: inline-block;
-      margin-top: 8px;
-      color: #d4a843;
-      font-size: 0.8rem;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      border-bottom: 1px solid rgba(212, 168, 67, 0.2);
-      padding-bottom: 2px;
+      color: #555;
+      font-size: 0.95rem;
     }
 
     /* ===== INSTAGRAM ===== */
@@ -778,7 +808,7 @@
     .instagram-grid img {
       aspect-ratio: 1/1;
       object-fit: cover;
-      border-radius: 2px;
+      border-radius: 4px;
       transition: transform 0.3s;
     }
     .instagram-grid img:hover {
@@ -787,18 +817,24 @@
 
     /* ===== NEWSLETTER ===== */
     .newsletter {
+      background: #ffffff;
       text-align: center;
       padding: 70px 24px;
-      background: #0f0f0f;
-      border-radius: 4px;
+      border-radius: 8px;
+      box-shadow: 0 2px 20px rgba(0, 0, 0, 0.02);
     }
     .newsletter h2 {
-      font-family: 'Playfair Display', serif;
-      font-size: 2.6rem;
+      font-weight: 300;
+      font-size: 2.4rem;
+      color: #003057;
+    }
+    .newsletter h2 strong {
+      color: #d4a843;
       font-weight: 600;
     }
     .newsletter p {
-      color: rgba(255, 255, 255, 0.5);
+      color: #666;
+      font-weight: 300;
       margin-bottom: 28px;
     }
     .newsletter form {
@@ -813,39 +849,35 @@
       flex: 1;
       min-width: 200px;
       padding: 14px 20px;
-      background: rgba(255, 255, 255, 0.04);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      border-radius: 2px;
-      color: #fff;
+      border: 1px solid #dce2e8;
+      border-radius: 4px;
       font-size: 1rem;
-    }
-    .newsletter input::placeholder {
-      color: rgba(255, 255, 255, 0.2);
+      background: #fafcfe;
     }
     .newsletter button {
-      background: #d4a843;
-      color: #0a0a0a;
+      background: #003057;
+      color: #fff;
       border: none;
       padding: 14px 36px;
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 1px;
+      border-radius: 4px;
       cursor: pointer;
-      border-radius: 2px;
       transition: background 0.3s;
     }
     .newsletter button:hover {
-      background: #e8c35a;
+      background: #002244;
     }
 
     /* ===== FOOTER ===== */
     .site-footer {
-      background: #050505;
+      background: #003057;
+      color: rgba(255, 255, 255, 0.7);
       padding: 60px 24px 30px;
-      border-top: 1px solid rgba(255, 255, 255, 0.03);
     }
     .footer-grid {
-      max-width: 1200px;
+      max-width: 1280px;
       margin: 0 auto;
       display: grid;
       grid-template-columns: repeat(4, 1fr);
@@ -854,42 +886,39 @@
     }
     .footer-grid h4 {
       color: #d4a843;
-      font-weight: 600;
-      font-size: 0.8rem;
+      font-weight: 700;
+      font-size: 0.9rem;
       text-transform: uppercase;
-      letter-spacing: 2px;
+      letter-spacing: 1.5px;
       margin-bottom: 16px;
     }
     .footer-grid ul {
       list-style: none;
       display: flex;
       flex-direction: column;
-      gap: 6px;
+      gap: 8px;
     }
     .footer-grid ul a {
-      color: rgba(255, 255, 255, 0.3);
       font-weight: 300;
       font-size: 0.9rem;
       transition: color 0.2s;
     }
     .footer-grid ul a:hover {
-      color: #d4a843;
+      color: #fff;
     }
     .footer-bottom {
-      max-width: 1200px;
+      max-width: 1280px;
       margin: 0 auto;
-      border-top: 1px solid rgba(255, 255, 255, 0.04);
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
       padding-top: 24px;
       display: flex;
       justify-content: space-between;
       flex-wrap: wrap;
       gap: 12px;
-      font-size: 0.8rem;
+      font-size: 0.85rem;
       font-weight: 300;
-      color: rgba(255, 255, 255, 0.2);
     }
     .footer-bottom a {
-      color: rgba(255, 255, 255, 0.2);
       margin-left: 20px;
       transition: color 0.2s;
     }
@@ -916,7 +945,7 @@
       .suitcase-grid { grid-template-columns: repeat(2, 1fr); }
       .blog-grid { grid-template-columns: repeat(2, 1fr); }
       .footer-grid { grid-template-columns: repeat(2, 1fr); }
-      .advantages-grid { grid-template-columns: repeat(2, 1fr); }
+      .review-grid { grid-template-columns: repeat(2, 1fr); }
       .instagram-grid { grid-template-columns: repeat(3, 1fr); }
     }
 
@@ -924,12 +953,13 @@
       .header-nav { display: none; }
       .menu-toggle { display: block; }
       .header-actions .hide-mobile { display: none; }
-      .hero { height: 80vh; min-height: 500px; }
-      .hero-content h1 { font-size: 2.8rem; }
+      .hero-slider { height: 70vh; min-height: 420px; }
+      .hero-content h1 { font-size: 2.4rem; }
       .travel-block { flex-direction: column; }
       .travel-text { padding: 40px 28px; }
-      .sale-block .percent { font-size: 4rem; }
-      .sale-block h2 { font-size: 2.2rem; }
+      .sale-banner .percent { font-size: 4rem; }
+      .sale-banner h2 { font-size: 2rem; }
+      .advantages-grid { grid-template-columns: repeat(2, 1fr); }
     }
 
     @media (max-width: 600px) {
@@ -937,12 +967,16 @@
       .product-grid { grid-template-columns: 1fr 1fr; gap: 16px; }
       .suitcase-grid { grid-template-columns: 1fr; }
       .blog-grid { grid-template-columns: 1fr; }
+      .review-grid { grid-template-columns: 1fr; }
       .footer-grid { grid-template-columns: 1fr; }
-      .advantages-grid { grid-template-columns: 1fr; }
+      .instagram-grid { grid-template-columns: repeat(2, 1fr); }
       .section-title { font-size: 2rem; }
-      .hero-content h1 { font-size: 2.2rem; }
-      .site-header { height: 64px; }
-      .header-logo { font-size: 1.5rem; margin-right: 16px; }
+      .hero-slider { height: 60vh; }
+      .hero-content h1 { font-size: 2rem; }
+      .site-header { height: 64px; padding: 0 16px; }
+      .header-logo { font-size: 1.4rem; margin-right: 16px; }
+      .picker-section { padding: 40px 20px; }
+      .sale-banner { padding: 40px 20px; }
     }
   </style>
 </head>
@@ -956,31 +990,33 @@
 
       <ul class="header-nav" id="headerNav">
         <li>
-          <a href="#">Валізи ▾</a>
+          <a href="#">Валізи <span class="arrow">▼</span></a>
           <div class="mega-menu">
             <div>
-              <h4>Розмір</h4>
+              <h4>За розміром</h4>
               <ul>
-                <li><a href="#">S (ручна)</a></li>
-                <li><a href="#">M</a></li>
-                <li><a href="#">L</a></li>
-                <li><a href="#">XL</a></li>
+                <li><a href="#">Ручна (S)</a></li>
+                <li><a href="#">Середня (M)</a></li>
+                <li><a href="#">Велика (L)</a></li>
+                <li><a href="#">XL (75+)</a></li>
               </ul>
             </div>
             <div>
-              <h4>Матеріал</h4>
+              <h4>За матеріалом</h4>
               <ul>
                 <li><a href="#">Полікарбонат</a></li>
-                <li><a href="#">Алюміній</a></li>
+                <li><a href="#">ABS</a></li>
                 <li><a href="#">Текстиль</a></li>
+                <li><a href="#">Алюміній</a></li>
               </ul>
             </div>
             <div>
-              <h4>Призначення</h4>
+              <h4>За призначенням</h4>
               <ul>
                 <li><a href="#">Для подорожей</a></li>
                 <li><a href="#">Бізнес</a></li>
                 <li><a href="#">Сімейні</a></li>
+                <li><a href="#">Дитячі</a></li>
               </ul>
             </div>
           </div>
@@ -1001,38 +1037,66 @@
     </div>
   </header>
 
-  <!-- ===== HERO ===== -->
-  <section class="hero">
-    <div class="hero-bg"></div>
-    <div class="hero-content">
-      <div class="sub">Нова колекція 2026</div>
-      <h1>Подорожуйте<br><span>з комфортом</span></h1>
-      <p>Валізи, сумки та аксесуари, створені для тих, хто цінує стиль і якість.</p>
-      <div class="hero-buttons">
-        <a href="#" class="btn-gold">Валізи</a>
-        <a href="#" class="btn-outline-gold">Аксесуари</a>
+  <!-- ===== HERO SLIDER ===== -->
+  <div class="hero-slider" id="heroSlider">
+    <div class="hero-slides" id="heroSlides">
+      <div class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1544441893-675973e31985?w=1600&q=80');">
+        <div class="hero-content">
+          <div class="label">VIP Collection 2026</div>
+          <h1><strong>Подорожуйте</strong> з комфортом</h1>
+          <p>Валізи, сумки та аксесуари, створені для ваших подорожей.</p>
+          <div class="btn-group">
+            <a href="#" class="btn-primary">Валізи</a>
+            <a href="#" class="btn-secondary">Аксесуари</a>
+          </div>
+        </div>
+      </div>
+      <div class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?w=1600&q=80');">
+        <div class="hero-content">
+          <div class="label">Нова колекція</div>
+          <h1><strong>Стиль</strong> у кожній деталі</h1>
+          <p>Елегантні рюкзаки та сумки для міста та подорожей.</p>
+          <div class="btn-group">
+            <a href="#" class="btn-primary">Новинки</a>
+            <a href="#" class="btn-secondary">Каталог</a>
+          </div>
+        </div>
+      </div>
+      <div class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1534430480872-ef16b6eb4321?w=1600&q=80');">
+        <div class="hero-content">
+          <div class="label">Розпродаж</div>
+          <h1><strong>Знижки</strong> до -50%</h1>
+          <p>Встигніть придбати улюблені моделі за вигідними цінами.</p>
+          <div class="btn-group">
+            <a href="#" class="btn-primary">Переглянути</a>
+          </div>
+        </div>
       </div>
     </div>
-    <div class="hero-scroll">Scroll</div>
-  </section>
+    <div class="slider-nav" id="sliderNav">
+      <span class="active" data-slide="0"></span>
+      <span data-slide="1"></span>
+      <span data-slide="2"></span>
+    </div>
+  </div>
 
-  <!-- ===== КАТЕГОРІЇ (круглі) ===== -->
+  <!-- ===== ШВИДКІ КАТЕГОРІЇ ===== -->
   <section>
     <div class="container">
-      <h2 class="section-title reveal">Обирайте <span class="gold">категорію</span></h2>
+      <h2 class="section-title reveal">Знайдіть <span class="gold">те, що вам потрібно</span></h2>
       <div class="categories-grid">
-        <div class="cat-item reveal"><div class="icon">🧳</div><span>Валізи</span></div>
-        <div class="cat-item reveal reveal-delay-1"><div class="icon">🎒</div><span>Рюкзаки</span></div>
-        <div class="cat-item reveal reveal-delay-2"><div class="icon">👜</div><span>Сумки</span></div>
-        <div class="cat-item reveal reveal-delay-3"><div class="icon">👛</div><span>Гаманці</span></div>
-        <div class="cat-item reveal reveal-delay-4"><div class="icon">🧴</div><span>Дорожні набори</span></div>
-        <div class="cat-item reveal reveal-delay-5"><div class="icon">🧣</div><span>Аксесуари</span></div>
+        <div class="category-item reveal"><span class="icon">🧳</span><h4>Валізи</h4></div>
+        <div class="category-item reveal reveal-delay-1"><span class="icon">🎒</span><h4>Рюкзаки</h4></div>
+        <div class="category-item reveal reveal-delay-2"><span class="icon">👜</span><h4>Сумки</h4></div>
+        <div class="category-item reveal reveal-delay-3"><span class="icon">👛</span><h4>Гаманці</h4></div>
+        <div class="category-item reveal reveal-delay-4"><span class="icon">🧴</span><h4>Дорожні набори</h4></div>
+        <div class="category-item reveal reveal-delay-5"><span class="icon">🧣</span><h4>Аксесуари</h4></div>
       </div>
     </div>
   </section>
 
-  <!-- ===== КАТЕГОРІЇ ВАЛІЗ (розміри) ===== -->
-  <section style="background:#0f0f0f;">
+  <!-- ===== КАТЕГОРІЇ ВАЛІЗ ===== -->
+  <section style="background:#fafcfe;">
     <div class="container">
       <h2 class="section-title reveal">Оберіть <span class="gold">свою валізу</span></h2>
       <div class="suitcase-grid">
@@ -1058,9 +1122,9 @@
       <div class="section-header reveal">
         <div>
           <h2 class="section-title">Новинки</h2>
-          <div class="section-sub">Свіжі надходження</div>
+          <div class="section-sub">Свіжі моделі в колекції VIP</div>
         </div>
-        <a href="#" class="view-all">Всі →</a>
+        <a href="#" class="view-all">Всі новинки →</a>
       </div>
       <div class="product-grid">
         <div class="product-card reveal">
@@ -1083,7 +1147,7 @@
             <span class="badge">NEW</span>
           </a>
           <div class="product-meta">
-            <span class="brand">VIP Leather</span>
+            <span class="brand">VIP Collection</span>
             <h4>Сумка Crossbody</h4>
             <div class="price">5 890 ₴ <del>7 200 ₴</del></div>
             <button class="btn-wishlist">♡</button>
@@ -1096,8 +1160,8 @@
             <span class="badge">NEW</span>
           </a>
           <div class="product-meta">
-            <span class="brand">VIP Accessories</span>
-            <h4>Гаманець</h4>
+            <span class="brand">VIP Collection</span>
+            <h4>Гаманець шкіряний</h4>
             <div class="price">1 290 ₴</div>
             <button class="btn-wishlist">♡</button>
           </div>
@@ -1109,7 +1173,7 @@
             <span class="badge">NEW</span>
           </a>
           <div class="product-meta">
-            <span class="brand">VIP Urban</span>
+            <span class="brand">VIP Collection</span>
             <h4>Рюкзак City</h4>
             <div class="price">6 450 ₴ <del>8 200 ₴</del></div>
             <button class="btn-wishlist">♡</button>
@@ -1120,23 +1184,25 @@
   </section>
 
   <!-- ===== TRAVEL 50/50 ===== -->
-  <div class="container" style="padding-top:0;">
-    <div class="travel-block reveal">
-      <div class="travel-image" style="background-image:url('https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?w=800&q=80');"></div>
-      <div class="travel-text">
-        <div class="label">Travel collection</div>
-        <h2>Все для наступної подорожі</h2>
-        <p>Валізи, дорожні сумки та аксесуари, які допоможуть подорожувати комфортніше.</p>
-        <a href="#" class="view-all" style="align-self:flex-start;">Перейти до Travel →</a>
+  <section style="padding-top:0;">
+    <div class="container">
+      <div class="travel-block reveal">
+        <div class="travel-image" style="background-image:url('https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?w=800&q=80');"></div>
+        <div class="travel-text">
+          <div class="label">Travel collection</div>
+          <h2>Все для <strong>наступної подорожі</strong></h2>
+          <p>Валізи, дорожні сумки та аксесуари, які допоможуть подорожувати комфортніше.</p>
+          <a href="#" class="view-all" style="align-self:flex-start;">Перейти до Travel →</a>
+        </div>
       </div>
     </div>
-  </div>
+  </section>
 
   <!-- ===== ПІДБІР ВАЛІЗИ ===== -->
-  <section>
+  <section style="background:#fafcfe;">
     <div class="container">
       <div class="picker-section reveal">
-        <h2 class="section-title" style="margin-bottom:0;">Яка валіза вам <span class="gold">потрібна?</span></h2>
+        <h2 class="section-title" style="margin-bottom:0;">Яка валіза <span class="gold">вам потрібна?</span></h2>
         <div class="picker-options" id="daysOptions">
           <button data-days="1-3">1–3 дні</button>
           <button data-days="4-7">4–7 днів</button>
@@ -1148,63 +1214,63 @@
           <button data-transport="train">🚆 Потяг</button>
         </div>
         <div class="picker-result" id="pickerResult">
-          <p style="color:rgba(255,255,255,0.3);">Оберіть варіанти вище</p>
+          <p style="color:#999;">Оберіть варіанти вище</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ===== ПОПУЛЯРНІ (з табами) ===== -->
-  <section style="background:#0f0f0f;">
+  <!-- ===== ПОПУЛЯРНІ (ТАБИ) ===== -->
+  <section>
     <div class="container">
-      <h2 class="section-title reveal">Вибір клієнтів</h2>
-      <div class="tab-bar" style="display:flex; gap:8px; margin-bottom:30px; border-bottom:1px solid rgba(255,255,255,0.04); padding-bottom:8px;">
-        <button class="active" data-tab="tab1" style="background:none; border:none; color:rgba(255,255,255,0.3); font-weight:600; padding:8px 20px; cursor:pointer; transition:0.2s; border-bottom:2px solid transparent;">Валізи</button>
-        <button data-tab="tab2" style="background:none; border:none; color:rgba(255,255,255,0.3); font-weight:600; padding:8px 20px; cursor:pointer; transition:0.2s; border-bottom:2px solid transparent;">Рюкзаки</button>
-        <button data-tab="tab3" style="background:none; border:none; color:rgba(255,255,255,0.3); font-weight:600; padding:8px 20px; cursor:pointer; transition:0.2s; border-bottom:2px solid transparent;">Сумки</button>
-        <button data-tab="tab4" style="background:none; border:none; color:rgba(255,255,255,0.3); font-weight:600; padding:8px 20px; cursor:pointer; transition:0.2s; border-bottom:2px solid transparent;">Аксесуари</button>
+      <h2 class="section-title reveal">Вибір <span class="gold">наших клієнтів</span></h2>
+      <div class="tab-bar reveal">
+        <button class="active" data-tab="tab1">Валізи</button>
+        <button data-tab="tab2">Рюкзаки</button>
+        <button data-tab="tab3">Сумки</button>
+        <button data-tab="tab4">Аксесуари</button>
       </div>
       <div class="tab-content active" id="tab1">
         <div class="product-grid">
-          <div class="product-card"><a href="#" class="product-image"><img src="https://images.unsplash.com/photo-1559588358-2f9bd1d49c22?w=400&h=500&fit=crop&q=80" alt=""><img class="hover-img" src="https://images.unsplash.com/photo-1607552384479-9f2f21dd4d78?w=400&h=500&fit=crop&q=80" alt=""></a><div class="product-meta"><span class="brand">VIP Travel</span><h4>Валіза 55 см</h4><div class="price">4 299 ₴</div><button class="btn-wishlist">♡</button></div></div>
-          <div class="product-card"><a href="#" class="product-image"><img src="https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=400&h=500&fit=crop&q=80" alt=""><img class="hover-img" src="https://images.unsplash.com/photo-1544441893-675973e31985?w=400&h=500&fit=crop&q=80" alt=""></a><div class="product-meta"><span class="brand">VIP Travel</span><h4>Валіза 75 см</h4><div class="price">6 390 ₴</div><button class="btn-wishlist">♡</button></div></div>
-          <div class="product-card"><a href="#" class="product-image"><img src="https://images.unsplash.com/photo-1607552384479-9f2f21dd4d78?w=400&h=500&fit=crop&q=80" alt=""><img class="hover-img" src="https://images.unsplash.com/photo-1559588358-2f9bd1d49c22?w=400&h=500&fit=crop&q=80" alt=""></a><div class="product-meta"><span class="brand">VIP Travel</span><h4>Валіза 85 см</h4><div class="price">8 990 ₴</div><button class="btn-wishlist">♡</button></div></div>
-          <div class="product-card"><a href="#" class="product-image"><img src="https://images.unsplash.com/photo-1544441893-675973e31985?w=400&h=500&fit=crop&q=80" alt=""><img class="hover-img" src="https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=400&h=500&fit=crop&q=80" alt=""></a><div class="product-meta"><span class="brand">VIP Travel</span><h4>Валіза ручна</h4><div class="price">3 990 ₴</div><button class="btn-wishlist">♡</button></div></div>
+          <div class="product-card"><a href="#" class="product-image"><img src="https://images.unsplash.com/photo-1559588358-2f9bd1d49c22?w=400&h=500&fit=crop&q=80" alt=""><img class="hover-img" src="https://images.unsplash.com/photo-1607552384479-9f2f21dd4d78?w=400&h=500&fit=crop&q=80" alt=""></a><div class="product-meta"><span class="brand">VIP</span><h4>Валіза 55 см</h4><div class="price">4 299 ₴</div><button class="btn-wishlist">♡</button></div></div>
+          <div class="product-card"><a href="#" class="product-image"><img src="https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=400&h=500&fit=crop&q=80" alt=""><img class="hover-img" src="https://images.unsplash.com/photo-1544441893-675973e31985?w=400&h=500&fit=crop&q=80" alt=""></a><div class="product-meta"><span class="brand">VIP</span><h4>Валіза 75 см</h4><div class="price">6 390 ₴</div><button class="btn-wishlist">♡</button></div></div>
+          <div class="product-card"><a href="#" class="product-image"><img src="https://images.unsplash.com/photo-1607552384479-9f2f21dd4d78?w=400&h=500&fit=crop&q=80" alt=""><img class="hover-img" src="https://images.unsplash.com/photo-1559588358-2f9bd1d49c22?w=400&h=500&fit=crop&q=80" alt=""></a><div class="product-meta"><span class="brand">VIP</span><h4>Валіза 85 см</h4><div class="price">8 990 ₴</div><button class="btn-wishlist">♡</button></div></div>
+          <div class="product-card"><a href="#" class="product-image"><img src="https://images.unsplash.com/photo-1544441893-675973e31985?w=400&h=500&fit=crop&q=80" alt=""><img class="hover-img" src="https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=400&h=500&fit=crop&q=80" alt=""></a><div class="product-meta"><span class="brand">VIP</span><h4>Валіза ручна</h4><div class="price">3 990 ₴</div><button class="btn-wishlist">♡</button></div></div>
         </div>
       </div>
-      <div class="tab-content" id="tab2"><div class="product-grid"><div class="product-card"><a href="#" class="product-image"><img src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=400&h=500&fit=crop&q=80" alt=""><img class="hover-img" src="https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=400&h=500&fit=crop&q=80" alt=""></a><div class="product-meta"><span class="brand">VIP Urban</span><h4>Рюкзак City</h4><div class="price">6 450 ₴</div><button class="btn-wishlist">♡</button></div></div><div class="product-card"><a href="#" class="product-image"><img src="https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=400&h=500&fit=crop&q=80" alt=""><img class="hover-img" src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=400&h=500&fit=crop&q=80" alt=""></a><div class="product-meta"><span class="brand">VIP Urban</span><h4>Рюкзак Travel</h4><div class="price">4 990 ₴</div><button class="btn-wishlist">♡</button></div></div><div class="product-card"><a href="#" class="product-image"><img src="https://images.unsplash.com/photo-1607552384479-9f2f21dd4d78?w=400&h=500&fit=crop&q=80" alt=""><img class="hover-img" src="https://images.unsplash.com/photo-1566150905458-1bf1fc113f0d?w=400&h=500&fit=crop&q=80" alt=""></a><div class="product-meta"><span class="brand">VIP Urban</span><h4>Рюкзак Business</h4><div class="price">7 200 ₴</div><button class="btn-wishlist">♡</button></div></div><div class="product-card"><a href="#" class="product-image"><img src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=400&h=500&fit=crop&q=80" alt=""><img class="hover-img" src="https://images.unsplash.com/photo-1601758063897-1d9b4e4f13c0?w=400&h=500&fit=crop&q=80" alt=""></a><div class="product-meta"><span class="brand">VIP Urban</span><h4>Рюкзак Mini</h4><div class="price">3 990 ₴</div><button class="btn-wishlist">♡</button></div></div></div></div>
-      <div class="tab-content" id="tab3"><div class="product-grid"><div class="product-card"><a href="#" class="product-image"><img src="https://images.unsplash.com/photo-1566150905458-1bf1fc113f0d?w=400&h=500&fit=crop&q=80" alt=""><img class="hover-img" src="https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=400&h=500&fit=crop&q=80" alt=""></a><div class="product-meta"><span class="brand">VIP Leather</span><h4>Сумка Tote</h4><div class="price">7 890 ₴</div><button class="btn-wishlist">♡</button></div></div><div class="product-card"><a href="#" class="product-image"><img src="https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=400&h=500&fit=crop&q=80" alt=""><img class="hover-img" src="https://images.unsplash.com/photo-1566150905458-1bf1fc113f0d?w=400&h=500&fit=crop&q=80" alt=""></a><div class="product-meta"><span class="brand">VIP Leather</span><h4>Сумка Crossbody</h4><div class="price">5 890 ₴</div><button class="btn-wishlist">♡</button></div></div><div class="product-card"><a href="#" class="product-image"><img src="https://images.unsplash.com/photo-1601924971179-d6f38f24ce3d?w=400&h=500&fit=crop&q=80" alt=""><img class="hover-img" src="https://images.unsplash.com/photo-1601758063897-1d9b4e4f13c0?w=400&h=500&fit=crop&q=80" alt=""></a><div class="product-meta"><span class="brand">VIP Leather</span><h4>Клатч</h4><div class="price">3 290 ₴</div><button class="btn-wishlist">♡</button></div></div><div class="product-card"><a href="#" class="product-image"><img src="https://images.unsplash.com/photo-1601758063897-1d9b4e4f13c0?w=400&h=500&fit=crop&q=80" alt=""><img class="hover-img" src="https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=400&h=500&fit=crop&q=80" alt=""></a><div class="product-meta"><span class="brand">VIP Leather</span><h4>Сумка на пояс</h4><div class="price">2 490 ₴</div><button class="btn-wishlist">♡</button></div></div></div></div>
-      <div class="tab-content" id="tab4"><div class="product-grid"><div class="product-card"><a href="#" class="product-image"><img src="https://images.unsplash.com/photo-1601758063897-1d9b4e4f13c0?w=400&h=500&fit=crop&q=80" alt=""><img class="hover-img" src="https://images.unsplash.com/photo-1601924971179-d6f38f24ce3d?w=400&h=500&fit=crop&q=80" alt=""></a><div class="product-meta"><span class="brand">VIP Accessories</span><h4>Гаманець</h4><div class="price">1 290 ₴</div><button class="btn-wishlist">♡</button></div></div><div class="product-card"><a href="#" class="product-image"><img src="https://images.unsplash.com/photo-1601924971179-d6f38f24ce3d?w=400&h=500&fit=crop&q=80" alt=""><img class="hover-img" src="https://images.unsplash.com/photo-1601758063897-1d9b4e4f13c0?w=400&h=500&fit=crop&q=80" alt=""></a><div class="product-meta"><span class="brand">VIP Accessories</span><h4>Ремінь</h4><div class="price">890 ₴</div><button class="btn-wishlist">♡</button></div></div><div class="product-card"><a href="#" class="product-image"><img src="https://images.unsplash.com/photo-1601758063897-1d9b4e4f13c0?w=400&h=500&fit=crop&q=80" alt=""><img class="hover-img" src="https://images.unsplash.com/photo-1601924971179-d6f38f24ce3d?w=400&h=500&fit=crop&q=80" alt=""></a><div class="product-meta"><span class="brand">VIP Accessories</span><h4>Косметичка</h4><div class="price">680 ₴</div><button class="btn-wishlist">♡</button></div></div><div class="product-card"><a href="#" class="product-image"><img src="https://images.unsplash.com/photo-1601924971179-d6f38f24ce3d?w=400&h=500&fit=crop&q=80" alt=""><img class="hover-img" src="https://images.unsplash.com/photo-1601758063897-1d9b4e4f13c0?w=400&h=500&fit=crop&q=80" alt=""></a><div class="product-meta"><span class="brand">VIP Accessories</span><h4>Чохол для документів</h4><div class="price">750 ₴</div><button class="btn-wishlist">♡</button></div></div></div></div>
+      <div class="tab-content" id="tab2"><div class="product-grid"><div class="product-card"><a href="#" class="product-image"><img src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=400&h=500&fit=crop&q=80" alt=""><img class="hover-img" src="https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=400&h=500&fit=crop&q=80" alt=""></a><div class="product-meta"><span class="brand">VIP Collection</span><h4>Рюкзак City</h4><div class="price">6 450 ₴</div><button class="btn-wishlist">♡</button></div></div><div class="product-card"><a href="#" class="product-image"><img src="https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=400&h=500&fit=crop&q=80" alt=""><img class="hover-img" src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=400&h=500&fit=crop&q=80" alt=""></a><div class="product-meta"><span class="brand">VIP Collection</span><h4>Рюкзак Travel</h4><div class="price">4 990 ₴</div><button class="btn-wishlist">♡</button></div></div><div class="product-card"><a href="#" class="product-image"><img src="https://images.unsplash.com/photo-1607552384479-9f2f21dd4d78?w=400&h=500&fit=crop&q=80" alt=""><img class="hover-img" src="https://images.unsplash.com/photo-1566150905458-1bf1fc113f0d?w=400&h=500&fit=crop&q=80" alt=""></a><div class="product-meta"><span class="brand">VIP Collection</span><h4>Рюкзак Business</h4><div class="price">7 200 ₴</div><button class="btn-wishlist">♡</button></div></div><div class="product-card"><a href="#" class="product-image"><img src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=400&h=500&fit=crop&q=80" alt=""><img class="hover-img" src="https://images.unsplash.com/photo-1601758063897-1d9b4e4f13c0?w=400&h=500&fit=crop&q=80" alt=""></a><div class="product-meta"><span class="brand">VIP Collection</span><h4>Рюкзак Mini</h4><div class="price">3 990 ₴</div><button class="btn-wishlist">♡</button></div></div></div></div>
+      <div class="tab-content" id="tab3"><div class="product-grid"><div class="product-card"><a href="#" class="product-image"><img src="https://images.unsplash.com/photo-1566150905458-1bf1fc113f0d?w=400&h=500&fit=crop&q=80" alt=""><img class="hover-img" src="https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=400&h=500&fit=crop&q=80" alt=""></a><div class="product-meta"><span class="brand">VIP Collection</span><h4>Сумка Tote</h4><div class="price">7 890 ₴</div><button class="btn-wishlist">♡</button></div></div><div class="product-card"><a href="#" class="product-image"><img src="https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=400&h=500&fit=crop&q=80" alt=""><img class="hover-img" src="https://images.unsplash.com/photo-1566150905458-1bf1fc113f0d?w=400&h=500&fit=crop&q=80" alt=""></a><div class="product-meta"><span class="brand">VIP Collection</span><h4>Сумка Crossbody</h4><div class="price">5 890 ₴</div><button class="btn-wishlist">♡</button></div></div><div class="product-card"><a href="#" class="product-image"><img src="https://images.unsplash.com/photo-1601924971179-d6f38f24ce3d?w=400&h=500&fit=crop&q=80" alt=""><img class="hover-img" src="https://images.unsplash.com/photo-1601758063897-1d9b4e4f13c0?w=400&h=500&fit=crop&q=80" alt=""></a><div class="product-meta"><span class="brand">VIP Collection</span><h4>Клатч</h4><div class="price">3 290 ₴</div><button class="btn-wishlist">♡</button></div></div><div class="product-card"><a href="#" class="product-image"><img src="https://images.unsplash.com/photo-1601758063897-1d9b4e4f13c0?w=400&h=500&fit=crop&q=80" alt=""><img class="hover-img" src="https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=400&h=500&fit=crop&q=80" alt=""></a><div class="product-meta"><span class="brand">VIP Collection</span><h4>Сумка на пояс</h4><div class="price">2 490 ₴</div><button class="btn-wishlist">♡</button></div></div></div></div>
+      <div class="tab-content" id="tab4"><div class="product-grid"><div class="product-card"><a href="#" class="product-image"><img src="https://images.unsplash.com/photo-1601758063897-1d9b4e4f13c0?w=400&h=500&fit=crop&q=80" alt=""><img class="hover-img" src="https://images.unsplash.com/photo-1601924971179-d6f38f24ce3d?w=400&h=500&fit=crop&q=80" alt=""></a><div class="product-meta"><span class="brand">VIP Collection</span><h4>Гаманець</h4><div class="price">1 290 ₴</div><button class="btn-wishlist">♡</button></div></div><div class="product-card"><a href="#" class="product-image"><img src="https://images.unsplash.com/photo-1601924971179-d6f38f24ce3d?w=400&h=500&fit=crop&q=80" alt=""><img class="hover-img" src="https://images.unsplash.com/photo-1601758063897-1d9b4e4f13c0?w=400&h=500&fit=crop&q=80" alt=""></a><div class="product-meta"><span class="brand">VIP Collection</span><h4>Ремінь</h4><div class="price">890 ₴</div><button class="btn-wishlist">♡</button></div></div><div class="product-card"><a href="#" class="product-image"><img src="https://images.unsplash.com/photo-1601758063897-1d9b4e4f13c0?w=400&h=500&fit=crop&q=80" alt=""><img class="hover-img" src="https://images.unsplash.com/photo-1601924971179-d6f38f24ce3d?w=400&h=500&fit=crop&q=80" alt=""></a><div class="product-meta"><span class="brand">VIP Collection</span><h4>Косметичка</h4><div class="price">680 ₴</div><button class="btn-wishlist">♡</button></div></div><div class="product-card"><a href="#" class="product-image"><img src="https://images.unsplash.com/photo-1601924971179-d6f38f24ce3d?w=400&h=500&fit=crop&q=80" alt=""><img class="hover-img" src="https://images.unsplash.com/photo-1601758063897-1d9b4e4f13c0?w=400&h=500&fit=crop&q=80" alt=""></a><div class="product-meta"><span class="brand">VIP Collection</span><h4>Чохол для документів</h4><div class="price">750 ₴</div><button class="btn-wishlist">♡</button></div></div></div></div>
     </div>
   </section>
 
   <!-- ===== ШКІРЯНА КОЛЕКЦІЯ ===== -->
-  <section style="background:linear-gradient(135deg, #1a0e05, #0a0a0a); text-align:center;">
+  <section style="background:#f0f4f9; text-align:center;">
     <div class="container">
       <h2 class="section-title reveal"><span class="gold">Натуральна</span> шкіра</h2>
-      <p style="color:rgba(255,255,255,0.4); max-width:500px; margin:0 auto 32px;">Класика, яка залишається актуальною роками.</p>
-      <div style="display:flex; justify-content:center; gap:24px; flex-wrap:wrap;">
-        <a href="#" style="color:rgba(255,255,255,0.5); border:1px solid rgba(255,255,255,0.05); padding:10px 32px; border-radius:30px; transition:0.3s;">Сумки</a>
-        <a href="#" style="color:rgba(255,255,255,0.5); border:1px solid rgba(255,255,255,0.05); padding:10px 32px; border-radius:30px; transition:0.3s;">Гаманці</a>
-        <a href="#" style="color:rgba(255,255,255,0.5); border:1px solid rgba(255,255,255,0.05); padding:10px 32px; border-radius:30px; transition:0.3s;">Аксесуари</a>
+      <p style="color:#555; max-width:500px; margin:0 auto 32px;">Класика, яка залишається актуальною роками.</p>
+      <div style="display:flex; justify-content:center; gap:20px; flex-wrap:wrap;">
+        <a href="#" style="background:#003057; color:#fff; padding:12px 32px; border-radius:30px; transition:0.3s;">Сумки</a>
+        <a href="#" style="background:#003057; color:#fff; padding:12px 32px; border-radius:30px; transition:0.3s;">Гаманці</a>
+        <a href="#" style="background:#003057; color:#fff; padding:12px 32px; border-radius:30px; transition:0.3s;">Аксесуари</a>
       </div>
     </div>
   </section>
 
-  <!-- ===== РОЗПРОДАЖ (великий) ===== -->
+  <!-- ===== РОЗПРОДАЖ ===== -->
   <section>
     <div class="container">
-      <div class="sale-block reveal">
+      <div class="sale-banner reveal">
         <div class="percent">-50%</div>
-        <h2>Розпродаж</h2>
-        <p>Встигніть придбати вибрані моделі з великою знижкою</p>
-        <a href="#" class="btn-gold" style="background:#b45f3a; color:#fff;">Переглянути всі →</a>
+        <h2><strong>Розпродаж</strong> до 50%</h2>
+        <p>Встигніть придбати вибрані моделі за спеціальною ціною</p>
+        <a href="#" class="btn-primary">Переглянути всі</a>
       </div>
     </div>
   </section>
 
   <!-- ===== ПЕРЕВАГИ ===== -->
-  <section style="background:#0f0f0f;">
+  <section style="background:#fafcfe;">
     <div class="container">
       <div class="advantages-grid">
         <div class="adv-item reveal"><span class="icon">✓</span><strong>Оригінальні товари</strong><span>Гарантія якості</span></div>
@@ -1221,7 +1287,7 @@
       <h2 class="section-title reveal" style="text-align:center;">Бренди</h2>
       <div class="brand-logos reveal">
         <span>Samsonite</span>
-        <span>VIP</span>
+        <span>VIP Collection</span>
         <span>WITTCHEN</span>
         <span>Travelite</span>
         <span>Hedgren</span>
@@ -1229,27 +1295,19 @@
     </div>
   </section>
 
-  <!-- ===== ВІДГУКИ (вертикальний слайдер) ===== -->
-  <section style="background:#0f0f0f;">
+  <!-- ===== ВІДГУКИ ===== -->
+  <section style="background:#fafcfe;">
     <div class="container">
-      <h2 class="section-title reveal">Відгуки</h2>
-      <div class="review-slider">
-        <div class="review-slider-inner">
-          <div class="review-card"><div class="stars">★★★★★</div><p>"Чудова валіза, дуже міцна. Літала з нею вже 5 разів — жодної подряпини."</p><div class="author">Олена <span>— Валіза 55 см</span></div></div>
-          <div class="review-card"><div class="stars">★★★★★</div><p>"Сумка перевершила очікування! Натуральна шкіра, якісна фурнітура. Рекомендую."</p><div class="author">Андрій <span>— Сумка Tote</span></div></div>
-          <div class="review-card"><div class="stars">★★★★☆</div><p>"Швидка доставка, гарна упаковка. Рюкзак дуже зручний, ношу щодня."</p><div class="author">Марія <span>— Рюкзак City</span></div></div>
-          <div class="review-card"><div class="stars">★★★★★</div><p>"Відмінний гаманець, м'яка шкіра, все акуратно зшито."</p><div class="author">Ігор <span>— Гаманець</span></div></div>
-          <!-- дублюємо для безшовної анімації -->
-          <div class="review-card"><div class="stars">★★★★★</div><p>"Чудова валіза, дуже міцна. Літала з нею вже 5 разів — жодної подряпини."</p><div class="author">Олена <span>— Валіза 55 см</span></div></div>
-          <div class="review-card"><div class="stars">★★★★★</div><p>"Сумка перевершила очікування! Натуральна шкіра, якісна фурнітура. Рекомендую."</p><div class="author">Андрій <span>— Сумка Tote</span></div></div>
-          <div class="review-card"><div class="stars">★★★★☆</div><p>"Швидка доставка, гарна упаковка. Рюкзак дуже зручний, ношу щодня."</p><div class="author">Марія <span>— Рюкзак City</span></div></div>
-          <div class="review-card"><div class="stars">★★★★★</div><p>"Відмінний гаманець, м'яка шкіра, все акуратно зшито."</p><div class="author">Ігор <span>— Гаманець</span></div></div>
-        </div>
+      <h2 class="section-title reveal">Відгуки клієнтів</h2>
+      <div class="review-grid">
+        <div class="review-card reveal"><div class="stars">★★★★★</div><p>"Чудова валіза, дуже міцна. Літала з нею вже 5 разів — жодної подряпини."</p><div class="author">Олена <span>— Валіза 55 см</span></div></div>
+        <div class="review-card reveal reveal-delay-1"><div class="stars">★★★★★</div><p>"Сумка перевершила очікування! Натуральна шкіра, якісна фурнітура."</p><div class="author">Андрій <span>— Сумка Tote</span></div></div>
+        <div class="review-card reveal reveal-delay-2"><div class="stars">★★★★☆</div><p>"Швидка доставка, гарна упаковка. Рюкзак дуже зручний, ношу щодня."</p><div class="author">Марія <span>— Рюкзак City</span></div></div>
       </div>
     </div>
   </section>
 
-  <!-- ===== БЛОГ (текст поверх фото) ===== -->
+  <!-- ===== БЛОГ ===== -->
   <section>
     <div class="container">
       <div class="section-header reveal">
@@ -1259,21 +1317,15 @@
         <a href="#" class="view-all">Блог →</a>
       </div>
       <div class="blog-grid">
-        <div class="blog-item reveal" style="background-image:url('https://images.unsplash.com/photo-1544441893-675973e31985?w=600&q=80');">
-          <div class="content"><h4>Як вибрати валізу</h4><p>Поради щодо розміру та матеріалу</p><span class="read-more">Читати →</span></div>
-        </div>
-        <div class="blog-item reveal reveal-delay-1" style="background-image:url('https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?w=600&q=80');">
-          <div class="content"><h4>Розміри для літака</h4><p>Вимоги авіакомпаній до ручної поклажі</p><span class="read-more">Читати →</span></div>
-        </div>
-        <div class="blog-item reveal reveal-delay-2" style="background-image:url('https://images.unsplash.com/photo-1601924971179-d6f38f24ce3d?w=600&q=80');">
-          <div class="content"><h4>Догляд за шкірою</h4><p>Прості правила для ваших аксесуарів</p><span class="read-more">Читати →</span></div>
-        </div>
+        <div class="blog-item reveal"><img src="https://images.unsplash.com/photo-1544441893-675973e31985?w=600&q=80" alt=""><div class="content"><h4>Як вибрати валізу</h4><p>Поради щодо розміру та матеріалу.</p></div></div>
+        <div class="blog-item reveal reveal-delay-1"><img src="https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?w=600&q=80" alt=""><div class="content"><h4>Розміри для літака</h4><p>Вимоги авіакомпаній до ручної поклажі.</p></div></div>
+        <div class="blog-item reveal reveal-delay-2"><img src="https://images.unsplash.com/photo-1601924971179-d6f38f24ce3d?w=600&q=80" alt=""><div class="content"><h4>Догляд за шкірою</h4><p>Прості правила для ваших аксесуарів.</p></div></div>
       </div>
     </div>
   </section>
 
   <!-- ===== INSTAGRAM ===== -->
-  <section style="background:#0f0f0f; padding:60px 24px;">
+  <section style="background:#fafcfe; padding:60px 24px;">
     <h2 class="section-title reveal" style="text-align:center;">VIP <span class="gold">у реальному житті</span></h2>
     <div class="instagram-grid">
       <img src="https://images.unsplash.com/photo-1544441893-675973e31985?w=300&q=80" alt="IG" loading="lazy">
@@ -1292,7 +1344,7 @@
   <section style="padding:60px 24px;">
     <div class="container">
       <div class="newsletter reveal">
-        <h2>Будьте <span class="gold">першими</span></h2>
+        <h2>Будьте <strong>першими</strong></h2>
         <p>Дізнавайтеся про новинки та спеціальні пропозиції</p>
         <form id="newsletterForm">
           <input type="email" placeholder="Ваш email" required />
@@ -1305,13 +1357,13 @@
   <!-- ===== FOOTER ===== -->
   <footer class="site-footer">
     <div class="footer-grid">
-      <div><h4>Каталог</h4><ul><li><a href="#">Валізи</a></li><li><a href="#">Рюкзаки</a></li><li><a href="#">Сумки</a></li><li><a href="#">Аксесуари</a></li><li><a href="#">Новинки</a></li><li><a href="#">Розпродаж</a></li></ul></div>
+      <div><h4>Каталог</h4><ul><li><a href="#">Валізи</a></li><li><a href="#">Рюкзаки</a></li><li><a href="#">Сумки</a></li><li><a href="#">Галантерея</a></li><li><a href="#">Новинки</a></li><li><a href="#">Розпродаж</a></li></ul></div>
       <div><h4>Покупцям</h4><ul><li><a href="#">Доставка</a></li><li><a href="#">Оплата</a></li><li><a href="#">Повернення</a></li><li><a href="#">Гарантія</a></li><li><a href="#">FAQ</a></li></ul></div>
       <div><h4>Про компанію</h4><ul><li><a href="#">Про нас</a></li><li><a href="#">Контакти</a></li><li><a href="#">Магазини</a></li><li><a href="#">Блог</a></li></ul></div>
       <div><h4>Контакти</h4><ul><li><a href="tel:+380441234567">+38 (044) 123-45-67</a></li><li><a href="mailto:info@vip.ua">info@vip.ua</a></li><li>Пн–Пт: 10:00 – 20:00</li><li><a href="#">Instagram</a> · <a href="#">Facebook</a></li></ul></div>
     </div>
     <div class="footer-bottom">
-      <span>© VIP 2026</span>
+      <span>© VIP Collection 2026</span>
       <div>
         <a href="#">Політика конфіденційності</a>
         <a href="#">Публічна оферта</a>
@@ -1323,10 +1375,35 @@
   <script>
     document.addEventListener('DOMContentLoaded', function() {
 
+      // ---- Hero Slider ----
+      let currentSlide = 0;
+      const slides = document.querySelectorAll('.hero-slide');
+      const navDots = document.querySelectorAll('.slider-nav span');
+      const sliderContainer = document.getElementById('heroSlides');
+      const totalSlides = slides.length;
+
+      function goToSlide(index) {
+        if (index < 0) index = totalSlides - 1;
+        if (index >= totalSlides) index = 0;
+        currentSlide = index;
+        sliderContainer.style.transform = `translateX(-${currentSlide * 100 / totalSlides}%)`;
+        navDots.forEach((dot, i) => {
+          dot.classList.toggle('active', i === currentSlide);
+        });
+      }
+
+      navDots.forEach((dot, i) => {
+        dot.addEventListener('click', function() {
+          goToSlide(i);
+        });
+      });
+
+      let interval = setInterval(() => { goToSlide(currentSlide + 1); }, 5000);
+
       // ---- Sticky header shadow ----
       const header = document.getElementById('siteHeader');
       window.addEventListener('scroll', function() {
-        header.style.borderBottomColor = window.scrollY > 50 ? 'rgba(212,168,67,0.25)' : 'rgba(212,168,67,0.15)';
+        header.style.boxShadow = window.scrollY > 50 ? '0 4px 30px rgba(0,48,87,0.08)' : '0 2px 20px rgba(0,48,87,0.04)';
       }, { passive: true });
 
       // ---- Scroll reveal ----
@@ -1345,19 +1422,12 @@
       const tabContents = document.querySelectorAll('.tab-content');
       tabButtons.forEach(btn => {
         btn.addEventListener('click', function() {
-          tabButtons.forEach(b => {
-            b.style.color = 'rgba(255,255,255,0.3)';
-            b.style.borderBottomColor = 'transparent';
-          });
-          this.style.color = '#d4a843';
-          this.style.borderBottomColor = '#d4a843';
+          tabButtons.forEach(b => b.classList.remove('active'));
+          this.classList.add('active');
           tabContents.forEach(c => c.classList.remove('active'));
           document.getElementById(this.dataset.tab).classList.add('active');
         });
       });
-      // активний перший
-      tabButtons[0].style.color = '#d4a843';
-      tabButtons[0].style.borderBottomColor = '#d4a843';
 
       // ---- Luggage picker ----
       const daysBtns = document.querySelectorAll('#daysOptions button');
@@ -1372,10 +1442,10 @@
           if (selectedDays === '1-3') size = 'ручна (S)';
           else if (selectedDays === '4-7') size = 'середня (M/L)';
           else if (selectedDays === '7+') size = 'велика (L/XL)';
-          result.innerHTML = `<p style="color:rgba(255,255,255,0.7);">Ми підібрали <strong style="color:#d4a843;">6 моделей</strong> розміру <strong style="color:#d4a843;">${size}</strong> для подорожі <strong style="color:#d4a843;">${selectedTransport}</strong></p>
-                               <p style="margin-top:12px;"><a href="#" style="color:#d4a843; border-bottom:1px solid rgba(212,168,67,0.3);">Переглянути →</a></p>`;
+          result.innerHTML = `<p>Ми підібрали <strong style="color:#003057;">6 моделей</strong> розміру <strong style="color:#003057;">${size}</strong> для подорожі <strong style="color:#003057;">${selectedTransport}</strong></p>
+                               <p style="margin-top:12px;"><a href="#" style="color:#003057; border-bottom:1px solid #d4a843;">Переглянути →</a></p>`;
         } else {
-          result.innerHTML = `<p style="color:rgba(255,255,255,0.3);">Оберіть варіанти вище</p>`;
+          result.innerHTML = `<p style="color:#999;">Оберіть варіанти вище</p>`;
         }
       }
 
@@ -1415,14 +1485,14 @@
             nav.style.display = 'flex';
             nav.style.flexDirection = 'column';
             nav.style.position = 'absolute';
-            nav.style.top = '72px';
+            nav.style.top = '76px';
             nav.style.left = '0';
             nav.style.width = '100%';
-            nav.style.background = '#0a0a0a';
-            nav.style.padding = '24px';
-            nav.style.gap = '16px';
-            nav.style.borderBottom = '1px solid rgba(212,168,67,0.1)';
-            nav.style.boxShadow = '0 20px 40px rgba(0,0,0,0.5)';
+            nav.style.background = '#ffffff';
+            nav.style.padding = '20px 24px';
+            nav.style.gap = '12px';
+            nav.style.borderBottom = '2px solid #d4a843';
+            nav.style.boxShadow = '0 20px 40px rgba(0,0,0,0.04)';
             nav.style.zIndex = '999';
             nav.querySelectorAll('.mega-menu').forEach(m => m.style.display = 'none');
           }
@@ -1440,7 +1510,7 @@
             nav.style.width = 'auto';
             nav.style.background = 'transparent';
             nav.style.padding = '0';
-            nav.style.gap = '28px';
+            nav.style.gap = '0';
             nav.style.borderBottom = 'none';
             nav.style.boxShadow = 'none';
             nav.querySelectorAll('.mega-menu').forEach(m => m.style.display = 'flex');
